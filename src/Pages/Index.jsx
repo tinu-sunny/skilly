@@ -35,8 +35,7 @@ function Index() {
   <p className='text-black text-base font-normal leading-normal max-w-full'>Skillly caters to a diverse range of users, each with unique needs and goals.</p>
 </div>
 {/* cards */}
-
-<div className='grid  grid-cols-2 gap-7 p-0'>
+<div className=' grid grid-cols-1 md:grid-cols-4  gap-7 p-0'>
   {/* card-1 */}
   <div className='flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4  flex-col'>
     {/* icon */}
@@ -76,6 +75,67 @@ function Index() {
       </div>
   </div>
 
+    {/* card -3 */}
+
+  <div className='flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4  flex-col'>
+    {/* icon */}
+    <div className='text-[#111418]'  data-icon="GraduationCap" data-size="24px" data-weight="regular">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                       <path
+                        d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"
+                      ></path>
+                    </svg>
+    </div>
+    {/* cpation-text */}
+      <div className='flex flex-col gap-1'>
+        <h2 className='text-[#111418] text-base font-bold leading-tight'>
+          Institutions
+        </h2>
+        <p className='text-[#617589] text-sm font-normal leading-normal'>Enhance career services, connect students with opportunities, and measure outcomes.</p>
+      </div>
+  </div>
+
+
+    {/* card -4 */}
+
+  <div className='flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4  flex-col'>
+    {/* icon */}
+    <div className='text-[#111418]'  data-icon="GraduationCap" data-size="24px" data-weight="regular">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                     <path
+                        d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"
+                      ></path>
+                    </svg>
+    </div>
+    {/* cpation-text */}
+      <div className='flex flex-col gap-1'>
+        <h2 className='text-[#111418] text-base font-bold leading-tight'>
+          Companies
+        </h2>
+        <p className='text-[#617589] text-sm font-normal leading-normal'>Find top talent, engage with potential candidates, and build a strong employer brand.</p>
+      </div>
+  </div>
+
+    {/* card -5 */}
+
+  {/* <div className='flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4  flex-col'> */}
+    {/* icon */}
+    {/* <div className='text-[#111418]'  data-icon="GraduationCap" data-size="24px" data-weight="regular"> */}
+        {/* <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256"> */}
+                      {/* <path
+                        d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"
+                      ></path>
+                    </svg>
+    </div> */}
+    {/* cpation-text */}
+      {/* <div className='flex flex-col gap-1'>
+        <h2 className='text-[#111418] text-base font-bold leading-tight'>
+          Counselors
+        </h2>
+        <p className='text-[#617589] text-sm font-normal leading-normal'>Provide personalized guidance, track student progress, and access valuable resources.</p>
+      </div> */}
+  {/* </div> */}
+
 
 </div>
 
@@ -84,6 +144,150 @@ function Index() {
 
 
 </section>
+
+{/* section  How skilly Works  */}
+
+  <section>
+    <div className='flex flex-col gap-10 px-4 py-10 '>
+      {/* heading */}
+      <div className='flex flex-col gap-4'>
+<h1 className='text-[#111418] tracking-light font-bold text-4xl leading-tight'>
+   How Skillly Works
+</h1>
+<p className='text-[#111418] text-base font-normal leading-normal '> Skillly provides a comprehensive suite of tools and resources to support career development and professional networking.</p>
+      </div>
+{/* card section */}
+
+<div className='grid  sm:grid-cols-4 gap-3 w'>
+  {/* card 1 */}  
+  <div className='flex flex-col gap-3 pb-3'>
+  {/* image section  */}
+<div className='w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg'
+style={{
+  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVpLL-ZLifmrBKvfsGoQOzOd6dLc0i6SRcvv6Pd7SfdKVz0qGVqyb-_JP1ktL2VlQmb1nw7kZkb61dEAnhpniLe4Vhbu4sCx3HMsal7S-ydMVaOTVsW1mbKK7-JwGmb5J7M85B4VOhHce2VwBStT23mj7Frak-jmFzbF2DjZCwCQCuG7q6qakaig9fJwo6CL8porvDH1LQJObZgS0z1V5ssyCg18CzYbxZxz7Eu6U8arkjn9-inexqfSmL2wY2VcS_b-FqM2xa--pT')"
+}}
+>
+</div>
+{/* content section */}
+<div>
+  <p className='text-[#111418] text-base font-medium leading-normal'>For Students</p>
+  <p className='text-[#617589] text-sm font-normal leading-normal'> Students can explore career options, connect with professionals, and access personalized guidance.</p>
+</div>
+  </div>
+
+    {/* card 2 */}
+  <div className='flex flex-col gap-3 pb-3'>
+  {/* image section  */}
+<div className='w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg'
+style={{
+  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBA6QUfX72mVmiK2LxCL-axnVhkJFW5mgTrp2TgIAskMG273tk1pBPnWiT_WwSPIC6nIh-LEv9J3f1SQSBdU44zgcJAbFLWOrxSiMZblgsXnWFPz0bEZp37AExnv2NgPlKa8fP-3QLU2m6PyFEVkHI20XOrIx6wyCEf9OSsBbSJooP4X9aio2McUloo1E-VGun7p4C25P3PLIp_8ZuthP4vFAgkwIMSCRWZfjyzRl40abVhSHTe6Rb4__sEEeNE71upIKOYS3ndJVRN')"
+}}
+>
+</div>
+{/* content section */}
+<div>
+  <p className='text-[#111418] text-base font-medium leading-normal'>For Counselors</p>
+  <p className='text-[#617589] text-sm font-normal leading-normal'>Counselors can provide tailored support, track student progress, and access valuable resources.</p>
+</div>
+  </div>
+
+    {/* card 3 */}
+  <div className='flex flex-col gap-3 pb-3'>
+  {/* image section  */}
+<div className='w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg'
+style={{
+  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCufaTKi5lxZAbfN4VNNb-pmj6tNdMvDI3TE4DcyWSpVyZ_ZZE1eq37224xYydGb0hKs8kSOmIrxmNfEsGSSHE6bkVLvMvBHePESDL34NpZB5MvaJDyglnyd0ph34r4cEHAUl5atBVcz49bHiHI5aG16dxgMkk5zTAJU8NfIolGL-HGzzMZpzhhHDNpqFVBWN8CsGOxZp9VWwBqgqAOjy_6Zt2yDZGaDWxdW0cXP1DCZ8PcQp3PJYsE26sBHZfZip4yjfSKFU3pVtrW')"
+}}
+>
+</div>
+{/* content section */}
+<div>
+  <p className='text-[#111418] text-base font-medium leading-normal'>For Institutions</p>
+  <p className='text-[#617589] text-sm font-normal leading-normal'> Institutions can enhance career services, connect students with opportunities, and measure outcomes.</p>
+</div>
+  </div>
+
+    {/* card 4 */}
+  <div className='flex flex-col gap-3 pb-3'>
+  {/* image section  */}
+<div className='w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg'
+style={{
+  backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1NF-AJ7-poKKIvL2FpSDMAk39rvqDi-ANGRsggWF8TAwqkVOku5bE_A8l08AmI2yUuAivoxHGZk84tH9USeMtz80DWgCBNhqy5I_UB69hNlCMGxDux15CuueGulm1lGEJxDy0J0PObl-yvwAGOtBG34raLmRi9NIcHVNntgHmkHw8wwu9EArtsp5W65CdcES8AyLzwMezAnUPkKINDrnAPJ86U0fdh6-LQt1k2_0WZBtEEsifKwtJZFhO8L4rkcV6DX_Khb22n5H8')"
+}}
+>
+</div>
+{/* content section */}
+<div>
+  <p className='text-[#111418] text-base font-medium leading-normal'>For Companies</p>
+  <p className='text-[#617589] text-sm font-normal leading-normal'>  Companies can find top talent, engage with potential candidates, and build a strong employer brand.</p>
+</div>
+  </div>
+
+
+
+</div>
+    </div>
+  </section>
+
+  {/* About section */}
+
+<section>
+  <div className='grid grid-cols sm:grid-cols-2 m-5 '>
+    {/* Heading section */}
+    <div className='flex flex-col gap-5 text-start justify-center mb-5'>
+      {/* About */}
+     <div className='flex  flex-wrap justify-between gap-3 p-0 sm:p-4'>
+        <h1 className='text-[#111418] font-bold leading-tight text-4xl tracking-light'>About Skilly</h1>
+        <p className='text-[#111418] text-base font-medium leading-normal  sm:pt-1 sm:px-2 sm:font-normal sm:text-base'>  Skillly is a leading career guidance and professional networking platform designed to connect students, counselors, educational institutions, and companies. Our mission is to empower individuals to make informed career decisions and build meaningful professional relationships.</p>
+     </div>
+     {/* Vison */}
+   <div className='flex  flex-wrap justify-between gap-3 p-0 sm:p-4'>
+        <h1 className='text-[#111418] font-bold leading-tight text-3xl tracking-light'>Our Vison</h1>
+        <p className='text-[#111418] text-base font-medium leading-normal  sm:pt-1 sm:px-2 sm:font-normal sm:text-base'>   To be the premier global platform for career development, fostering a community where every individual can achieve their professional aspirations.</p>
+     </div>
+{/* our Values */}
+   <div className='flex  flex-wrap justify-between gap-3 p-0 sm:p-4'>
+        <h1 className='text-[#111418] font-bold leading-tight text-3xl tracking-light'>Our Values</h1>
+        <p className='text-[#111418] text-base font-medium leading-normal  sm:pt-1 sm:px-2 sm:font-normal sm:text-base'>    Integrity: We uphold the highest standards of honesty and ethics in all our interactions. Innovation: We continuously seek new and improved ways to serve our users.
+              Collaboration: We believe in the power of working together to achieve common goals. Empowerment: We are committed to empowering individuals to take control of their
+              career paths.</p>
+     </div>
+
+    </div>
+
+    {/* image section */}
+    <div
+    className='w-full'>
+
+      <img className='w-full aspect-auto rounded-lg h-auto shadow-2xl shadow-amber-100  sm:p-3' src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2IrBo4HW2UzWAWJMpfn1a9akYmHB1S4BVhTNZOMOPWcn8JMEWZNhxVkwEYP48ojZN9TwaGAwDt4cYqhxqQhg_CFvrumP9uTfoskIeoElRKmU3ONoUIIMnQXizXDNgFaAMMiddWgkswiSmKmNnh0HdmiI-uZz6NZ9kp4VyBhd8VWhtaAgnTaZfS8zra6LerBcTNDpcFG-epbnNVsw4e5DZRm0du-UzkecJHHKXGmK2N2vEqeFTCc5Pwlv08X6uEgdzMANwa_JUNpa" alt="" />
+    </div>
+  </div>
+</section>
+
+{/* News And update section */}
+<section>
+  <div className='mt-8'>
+    {/* headings */}
+    <div className='flex  justify-center mt-5 mb-5'>
+      <h1 className='text-[#111418] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 mt-4'> News & Updates </h1>
+    </div>
+    {/* news */}
+    <div className='flex flex-row justify-around  '>
+       {/* title */}
+       <div>
+        {/* event status */}
+        <p className='text-[#617589] text-sm font-normal leading-normal'>Latest News</p>
+        <h1 className='text-[#111418] text-base font-bold leading-tight'>Skilly Announces New Partnership with Leading Universities</h1>
+        <p className='text-[#617589] text-sm font-normal leading-normal'>Skilly Partners with top Universities to enhance career services for student.</p>
+       </div>
+       {/* image /poster  */}
+       <div>
+        <img className=' rounded-lg' src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxZsX2CGD0gayAEg5_pcvp7zPuNOfsNAplfByYADAU8Rp60ZN9Fs70uoFjvUcXGz0ibmp4IUl7LdgaFGqrFfKSXKM9BjaMpXWa7_HogoyKYKWvvwDQcHF7-wdbRwzt1OjtgDrqvWmAovOPTYzIsdDIOWL9m7j5qKqIXUi58fSd7HlMZcG_h_vr0ej2DM7yUipaQ-lEfZotwCjlfixqDLW5knY7ogoeYJaoMPomOHEuc3d4m8rLhnb6YieIgTR1Q7pm1FYT5vyBSoBO" alt="" />
+       </div>
+    </div>
+  </div>
+</section>
+
 
 
     </>
