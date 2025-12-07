@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../components/Header'
 import { Button } from 'flowbite-react'
+import AppFooter from '../components/AppFooter'
 
 function About() {
   return (
     <>
+    {/* App Header */}
     <Header/>
 
     {/* About content */}
@@ -389,7 +391,7 @@ function About() {
 {/* Join Us */}
 
 
-       <section className='w-full p-5'>
+       <section className='w-full p-5 mb-10'>
         <div className='flex justify-center items-center mt-10 flex-col gap-5'>
          
          <div className='flex flex-col gap-5 '>
@@ -403,6 +405,10 @@ function About() {
         </div>
         </section>       
 
+
+{/* App Footer */}
+
+<AppFooter/>
     </>
   )
 }
