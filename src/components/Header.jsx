@@ -10,7 +10,7 @@ function Header() {
 
   return (
   <>
-   <Navbar fluid rounded>
+   <Navbar fluid rounded className="shadow-lg">
       <NavbarBrand href="#">
         <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2021/05/Logo-design-illustration-on-transparent-background-PNG.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Skilly</span>
