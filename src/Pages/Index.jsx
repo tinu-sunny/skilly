@@ -272,19 +272,40 @@ style={{
       <h1 className='text-[#111418] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 mt-4'> News & Updates </h1>
     </div>
     {/* news */}
-    <div className='flex flex-row justify-around  '>
-       {/* title */}
-       <div>
-        {/* event status */}
-        <p className='text-[#617589] text-sm font-normal leading-normal'>Latest News</p>
-        <h1 className='text-[#111418] text-base font-bold leading-tight'>Skilly Announces New Partnership with Leading Universities</h1>
-        <p className='text-[#617589] text-sm font-normal leading-normal'>Skilly Partners with top Universities to enhance career services for student.</p>
-       </div>
-       {/* image /poster  */}
-       <div>
-        <img className=' rounded-lg' src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxZsX2CGD0gayAEg5_pcvp7zPuNOfsNAplfByYADAU8Rp60ZN9Fs70uoFjvUcXGz0ibmp4IUl7LdgaFGqrFfKSXKM9BjaMpXWa7_HogoyKYKWvvwDQcHF7-wdbRwzt1OjtgDrqvWmAovOPTYzIsdDIOWL9m7j5qKqIXUi58fSd7HlMZcG_h_vr0ej2DM7yUipaQ-lEfZotwCjlfixqDLW5knY7ogoeYJaoMPomOHEuc3d4m8rLhnb6YieIgTR1Q7pm1FYT5vyBSoBO" alt="" />
-       </div>
-    </div>
+ <div className='flex flex-wrap flex-col gap-3'>
+    {/* news-1 */}
+
+      <div className='flex flex-row justify-around flex-wrap gap-3 p-4 sm:p-0  '>
+         {/* title */}
+         <div>
+          {/* event status */}
+          <p className='text-[#617589] text-sm font-normal leading-normal'>Latest News</p>
+          <h1 className='text-[#111418] text-base font-bold leading-tight'>Skilly Announces New Partnership with Leading Universities</h1>
+          <p className='text-[#617589] text-sm font-normal leading-normal'>Skilly Partners with top Universities to enhance career services for student.</p>
+         </div>
+         {/* image /poster  */}
+         <div className=' flex flex-end'>
+          <img className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxZsX2CGD0gayAEg5_pcvp7zPuNOfsNAplfByYADAU8Rp60ZN9Fs70uoFjvUcXGz0ibmp4IUl7LdgaFGqrFfKSXKM9BjaMpXWa7_HogoyKYKWvvwDQcHF7-wdbRwzt1OjtgDrqvWmAovOPTYzIsdDIOWL9m7j5qKqIXUi58fSd7HlMZcG_h_vr0ej2DM7yUipaQ-lEfZotwCjlfixqDLW5knY7ogoeYJaoMPomOHEuc3d4m8rLhnb6YieIgTR1Q7pm1FYT5vyBSoBO  " alt=""  />
+         </div>
+      </div>
+
+      {/* news-2 */}
+       <div className='flex flex-row justify-around flex-wrap gap-3  '>
+         {/* title */}
+         <div className='sm:p-0 p-4'>
+          {/* event status */}
+          <p className='text-[#617589] text-sm font-normal leading-normal'>Upcoming Event</p>
+          <h1 className='text-[#111418] text-base font-bold leading-tight'>Career Fair 2024: Connect with Top Employers</h1>
+          <p className='text-[#617589] text-sm font-normal leading-normal'>Join us for our annual career fair featuring leading companies and recruiters.</p>
+         </div>
+         {/* image /poster  */}
+         <div className=' flex flex-end'>
+          <img className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9NtEX2YuoGZgxn7Lc3JiNDjB9MW8G_fZd5W-FIgeEk-m_Crvys0DQAaj3v2dKQ4CPmEkOcBWtu3nQwc5Zn8cGB2h2ZPMlVm0dOn4bq_gFov0eoMxIp8ytNVhjt58fnF4Nfr1VF8gQenMKg1S8sdcODMBBW6ExQQQd4WW0EcABJH1cCavlZ3CjQtUm42QY-O6UvQt_C0mb3siMdfpp_BgIXLK08PkG8vEwcHr6ciEj99okx_7u6N-HDWGJDBbJGYQQhNj8uCaENhdP" alt=""  />
+         </div>
+      </div>
+ </div>
+
+    
   </div>
 </section>
 
