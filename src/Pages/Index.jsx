@@ -3,7 +3,7 @@ import { backgroundImage } from 'flowbite-react/plugin/tailwindcss/theme'
 import React from 'react'
 import Header from '../components/Header'
 import AppFooter from '../components/AppFooter'
-
+import { motion } from "framer-motion";
 function Index() {
   return (
     <>
@@ -116,7 +116,7 @@ style={{
 <section>
   <div className='grid grid-cols sm:grid-cols-2 m-5 '>
     {/* Heading section */}
-    <div className='flex flex-col gap-5 text-start justify-center mb-5'>
+    <motion.div initial={{opacity:0,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:1}} viewport={{once:false,amount:0.2}} className='flex flex-col gap-5 text-start justify-center mb-5'>
       {/* About */}
      <div className='flex  flex-wrap justify-between gap-3 p-0 sm:p-4'>
         <h1 className='text-[#111418] font-bold leading-tight text-4xl tracking-light'>About Skilly</h1>
@@ -135,19 +135,19 @@ style={{
               career paths.</p>
      </div>
 
-    </div>
+    </motion.div>
 
     {/* image section */}
-    <div
+    <motion.div initial={{opacity:0,x:100}} whileInView={{opacity:1,x:0}} transition={{duration:1}} viewport={{once:false,amount:0.2}}
     className='w-full'>
 
       <img className='w-full aspect-auto rounded-lg h-auto shadow-2xl shadow-amber-100  sm:p-3' src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2IrBo4HW2UzWAWJMpfn1a9akYmHB1S4BVhTNZOMOPWcn8JMEWZNhxVkwEYP48ojZN9TwaGAwDt4cYqhxqQhg_CFvrumP9uTfoskIeoElRKmU3ONoUIIMnQXizXDNgFaAMMiddWgkswiSmKmNnh0HdmiI-uZz6NZ9kp4VyBhd8VWhtaAgnTaZfS8zra6LerBcTNDpcFG-epbnNVsw4e5DZRm0du-UzkecJHHKXGmK2N2vEqeFTCc5Pwlv08X6uEgdzMANwa_JUNpa" alt="" />
-    </div>
+    </motion.div>
   </div>
 </section>
 
 {/* News And update section */}
-<section className='mb-10'>
+<motion.section initial={{opacity:0, y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}} viewport={{once:false, amount:0.4 }}className='mb-10'>
   <div className='mt-8'>
     {/* headings */}
     <div className='flex  justify-center mt-5 mb-5'>
@@ -167,7 +167,7 @@ style={{
          </div>
          {/* image /poster  */}
          <div className=' flex flex-end'>
-          <img className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxZsX2CGD0gayAEg5_pcvp7zPuNOfsNAplfByYADAU8Rp60ZN9Fs70uoFjvUcXGz0ibmp4IUl7LdgaFGqrFfKSXKM9BjaMpXWa7_HogoyKYKWvvwDQcHF7-wdbRwzt1OjtgDrqvWmAovOPTYzIsdDIOWL9m7j5qKqIXUi58fSd7HlMZcG_h_vr0ej2DM7yUipaQ-lEfZotwCjlfixqDLW5knY7ogoeYJaoMPomOHEuc3d4m8rLhnb6YieIgTR1Q7pm1FYT5vyBSoBO  " alt=""  />
+          <motion.img initial={{opacity:1, scale:1}} whileHover={{opacity:1 ,scale:2}} transition={{duration:0.7}}  className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxZsX2CGD0gayAEg5_pcvp7zPuNOfsNAplfByYADAU8Rp60ZN9Fs70uoFjvUcXGz0ibmp4IUl7LdgaFGqrFfKSXKM9BjaMpXWa7_HogoyKYKWvvwDQcHF7-wdbRwzt1OjtgDrqvWmAovOPTYzIsdDIOWL9m7j5qKqIXUi58fSd7HlMZcG_h_vr0ej2DM7yUipaQ-lEfZotwCjlfixqDLW5knY7ogoeYJaoMPomOHEuc3d4m8rLhnb6YieIgTR1Q7pm1FYT5vyBSoBO  " alt=""  />
          </div>
       </div>
 
@@ -176,20 +176,23 @@ style={{
          {/* title */}
          <div className='sm:p-0 p-4'>
           {/* event status */}
-          <p className='text-[#617589] text-sm font-normal leading-normal'>Upcoming Event</p>
+          <p  className='text-[#617589] text-sm font-normal leading-normal'>Upcoming Event</p>
           <h1 className='text-[#111418] text-base font-bold leading-tight'>Career Fair 2024: Connect with Top Employers</h1>
           <p className='text-[#617589] text-sm font-normal leading-normal'>Join us for our annual career fair featuring leading companies and recruiters.</p>
          </div>
          {/* image /poster  */}
          <div className=' flex flex-end'>
-          <img className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9NtEX2YuoGZgxn7Lc3JiNDjB9MW8G_fZd5W-FIgeEk-m_Crvys0DQAaj3v2dKQ4CPmEkOcBWtu3nQwc5Zn8cGB2h2ZPMlVm0dOn4bq_gFov0eoMxIp8ytNVhjt58fnF4Nfr1VF8gQenMKg1S8sdcODMBBW6ExQQQd4WW0EcABJH1cCavlZ3CjQtUm42QY-O6UvQt_C0mb3siMdfpp_BgIXLK08PkG8vEwcHr6ciEj99okx_7u6N-HDWGJDBbJGYQQhNj8uCaENhdP" alt=""  />
+          <motion.img initial={{ opacity: 1, scale: 1 }}
+        whileHover={{ opacity: 1, scale: 2 }}
+        transition={{ duration: 0.7 }} className='rounded-lg h-40 w-70 ' src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9NtEX2YuoGZgxn7Lc3JiNDjB9MW8G_fZd5W-FIgeEk-m_Crvys0DQAaj3v2dKQ4CPmEkOcBWtu3nQwc5Zn8cGB2h2ZPMlVm0dOn4bq_gFov0eoMxIp8ytNVhjt58fnF4Nfr1VF8gQenMKg1S8sdcODMBBW6ExQQQd4WW0EcABJH1cCavlZ3CjQtUm42QY-O6UvQt_C0mb3siMdfpp_BgIXLK08PkG8vEwcHr6ciEj99okx_7u6N-HDWGJDBbJGYQQhNj8uCaENhdP" alt=""  />
          </div>
       </div>
  </div>
 
     
   </div>
-</section>
+</motion.section>
+
 
 {/* App Footer */}
   <AppFooter/>

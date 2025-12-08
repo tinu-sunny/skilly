@@ -5,3 +5,7 @@ Skillly (Career Guidance and Professional Networking System) is a  comprehensive
 
 
 react router dom for path setting 
+
+
+npm install framer-motion
+installed for  motion
