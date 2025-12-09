@@ -50,7 +50,7 @@ function Adminheader() {
           </SidebarItem>
 
           <SidebarItem as={Link} to="/admin-user-managemet" icon={HiUser}>
-            Dashboard
+         User
           </SidebarItem>
 
           <SidebarItem icon={HiInbox}>Inbox</SidebarItem>
