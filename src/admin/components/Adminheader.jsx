@@ -3,6 +3,7 @@ import { tr } from "framer-motion/m";
 import { useEffect, useState } from "react";
 import { BiBuoy } from "react-icons/bi";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 
 function Adminheader() {
@@ -12,7 +13,7 @@ function Adminheader() {
 const screensize = ()=>{
  const screenWidth =window.innerWidth
 // console.log(screenWidth);
-if(screenWidth >320){
+if(screenWidth >427){
   console.log('flase');
   setSize(false)
   setOpen(false)
@@ -39,17 +40,21 @@ useEffect(()=>{
     
     <>
     
-{ !size ?<div className="h-auto">
-   <Sidebar aria-label="Sidebar with content separator example " >
+{ !size ?<div className="h-auto w-50">
+   <Sidebar aria-label="Sidebar with content separator example " style={{backgroundColor:'white',width:'200px', height:'100vh'}}>
       
         <SidebarItems >
           <SidebarItemGroup >
-            <SidebarItem href="#" icon={HiChartPie}>
-              Dashboard
-            </SidebarItem>
-            <SidebarItem href="#" icon={HiViewBoards}>
-              Kanban
-            </SidebarItem>
+         <Link to={'/adminlandingpage'}>
+              <SidebarItem href="#" icon={HiChartPie}>
+                Dashboard
+              </SidebarItem>
+         </Link>
+        <Link to={'/adminlandingpage'}>
+              <SidebarItem href="#" icon={HiViewBoards}>
+                Kanban
+              </SidebarItem>
+        </Link>
             <SidebarItem href="#" icon={HiInbox}>
               Inbox
             </SidebarItem>

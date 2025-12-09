@@ -40,7 +40,7 @@ function Index() {
       </div>
 {/* card section */}
 
-<div className='grid  sm:grid-cols-4 gap-3 w'>
+<div className='grid   sm:grid-cols-4 gap-3 w'>
   {/* card 1 */}  
   <div className='flex flex-col gap-3 pb-3'>
   {/* image section  */}
