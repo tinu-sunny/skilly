@@ -9,10 +9,10 @@ function AppFooter() {
 
         <div className='flex flex-col gap-1 py-3 '>
                   <div className='flex justify-evenly items-center sm:mt-9'>
-                      <Link to={'/'}>  <a className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' href="">Home</a></Link>
-                      <Link to={'/about'}> <a className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' href="">About</a></Link>
-                      <Link to={'/service'}><a className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' href="">Services</a></Link>
-                      <Link to={'/contact'}>  <a className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' href="">Contact</a></Link>
+                      <Link to={'/'}>  <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Home</p></Link>
+                      <Link to={'/about'}> <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >About</p></Link>
+                      <Link to={'/service'}><p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Services</p></Link>
+                      <Link to={'/contact'}>  <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Contact</p></Link>
                   </div>
             <div className='mt-10'>
                 <p className='text-center text-[#617589] text-base font-normal leading-normal '>© 2025 Skillly. All rights reserved.</p>

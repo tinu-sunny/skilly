@@ -1,6 +1,6 @@
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 
 function Header() {
 

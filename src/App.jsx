@@ -6,6 +6,7 @@ import About from './Pages/About'
 import Services from './Pages/Services'
 import Contact from './Pages/Contact'
 import AdminLandingpage from './admin/pages/AdminLandingpage'
+import UserManagemet from './admin/pages/UserManagemet'
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
     <Route path='/contact' element={<Contact/>}/>
 
     {/* Adminn path */}
-    <Route path='/adminlandingpage' element={<AdminLandingpage/>}/>
+    <Route path='/admin-landing-page' element={<AdminLandingpage/>}/>
+    <Route path='/admin-user-managemet' element={<UserManagemet/>}/>
 
 
 
