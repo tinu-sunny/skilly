@@ -49,11 +49,11 @@ function Adminheader() {
             Dashboard
           </SidebarItem>
 
-          <SidebarItem as={Link} to="/admin-user-managemet" icon={HiUser}>
+          <SidebarItem as={Link} to="/admin-user-management" icon={HiUser}>
          User
           </SidebarItem>
 
-          <SidebarItem icon={HiInbox}>Inbox</SidebarItem>
+          <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
           <SidebarItem icon={HiShoppingBag}>Products</SidebarItem>
           <SidebarItem icon={HiArrowSmRight}>Sign In</SidebarItem>
           <SidebarItem icon={HiTable}>Sign Up</SidebarItem>

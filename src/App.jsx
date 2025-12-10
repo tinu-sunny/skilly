@@ -7,6 +7,7 @@ import Services from './Pages/Services'
 import Contact from './Pages/Contact'
 import AdminLandingpage from './admin/pages/AdminLandingpage'
 import UserManagemet from './admin/pages/UserManagemet'
+import FeedbackManagement from './admin/pages/FeedbackManagement'
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
 
     {/* Adminn path */}
     <Route path='/admin-landing-page' element={<AdminLandingpage/>}/>
-    <Route path='/admin-user-managemet' element={<UserManagemet/>}/>
+    <Route path='/admin-user-management' element={<UserManagemet/>}/>
+    <Route path='/admin-feedback-management' element={<FeedbackManagement/>}/>
 
 
 
