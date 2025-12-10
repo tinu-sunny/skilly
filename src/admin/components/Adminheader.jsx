@@ -57,7 +57,7 @@ function Adminheader() {
           <SidebarItem as={Link} to="/admin-courses-workshop-management" icon={HiTable}>Courses</SidebarItem>
           <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
 
-          <SidebarItem icon={HiShoppingBag}>Products</SidebarItem>
+          <SidebarItem as={Link} to="/admin-promotion-management" icon={HiShoppingBag}>Promotions</SidebarItem>
           <SidebarItem icon={HiArrowSmRight}>Sign In</SidebarItem>
         </SidebarItemGroup>
 
