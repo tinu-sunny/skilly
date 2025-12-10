@@ -55,6 +55,7 @@ function Adminheader() {
 
           <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
           <SidebarItem as={Link} to="/admin-courses-workshop-management" icon={HiTable}>Courses</SidebarItem>
+          <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
 
           <SidebarItem icon={HiShoppingBag}>Products</SidebarItem>
           <SidebarItem icon={HiArrowSmRight}>Sign In</SidebarItem>
@@ -62,7 +63,6 @@ function Adminheader() {
 
         <SidebarItemGroup>
           <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
-          <SidebarItem icon={HiViewBoards}>Documentation</SidebarItem>
           <SidebarItem icon={BiBuoy}>Help</SidebarItem>
 
          

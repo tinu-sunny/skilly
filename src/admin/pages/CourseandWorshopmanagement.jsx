@@ -37,7 +37,7 @@ function AdminLandingpage() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product name</TableHeadCell>
+            <TableHeadCell>Instutue name</TableHeadCell>
             <TableHeadCell>Color</TableHeadCell>
             <TableHeadCell>Category</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>
@@ -93,7 +93,7 @@ function AdminLandingpage() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product name</TableHeadCell>
+            <TableHeadCell>Course  name</TableHeadCell>
             <TableHeadCell>Color</TableHeadCell>
             <TableHeadCell>Category</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>
