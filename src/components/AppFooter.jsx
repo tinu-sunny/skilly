@@ -11,7 +11,7 @@ function AppFooter() {
                   <div className='flex justify-evenly items-center sm:mt-9'>
                       <Link to={'/'}>  <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Home</p></Link>
                       <Link to={'/about'}> <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >About</p></Link>
-                      <Link to={'/service'}><p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Services</p></Link>
+                      <Link to={'/services'}><p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Services</p></Link>
                       <Link to={'/contact'}>  <p className='text-[#617589] text-base font-normal leading-normal hover:underline hover:text-blue-600' >Contact</p></Link>
                   </div>
             <div className='mt-10'>

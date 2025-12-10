@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { BiBuoy } from "react-icons/bi";
 import {
+  HiArrowSmLeft,
   HiArrowSmRight,
   HiChartPie,
   HiInbox,
@@ -58,12 +59,13 @@ function Adminheader() {
           <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
 
           <SidebarItem as={Link} to="/admin-promotion-management" icon={HiShoppingBag}>Promotions</SidebarItem>
-          <SidebarItem icon={HiArrowSmRight}>Sign In</SidebarItem>
+        
         </SidebarItemGroup>
 
-        <SidebarItemGroup>
-          <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
-          <SidebarItem icon={BiBuoy}>Help</SidebarItem>
+        <SidebarItemGroup className="sm:mt-90  mt-60">
+            <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
+          {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
+          <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}
 
          
         </SidebarItemGroup>

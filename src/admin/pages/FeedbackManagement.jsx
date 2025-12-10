@@ -1,11 +1,12 @@
+
 import React from "react";
 import Adminheader from "../components/Adminheader";
 import { motion } from "framer-motion";
 import { Card, TabItem, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, Tabs, TextInput } from "flowbite-react";
 
-function AdminLandingpage() {
+function FeedbackManagement() {
   return (
-    <>
+      <>
       <div className="flex sm:flex-row flex-col  ">
         {/* header */}
         <div className="w-80">
@@ -217,7 +218,9 @@ function AdminLandingpage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default AdminLandingpage;
+export default FeedbackManagement
+
+

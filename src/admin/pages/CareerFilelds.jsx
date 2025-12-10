@@ -1,10 +1,12 @@
+
 import React, { useState } from "react";
 import Adminheader from "../components/Adminheader";
 import { motion } from "framer-motion";
 import { Button, Checkbox, Pagination, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, TextInput } from "flowbite-react";
 
-function AdminLandingpage() {
 
+function CareerFilelds() {
+  
     const data = [
   { id: 1, title: "Software Developer", description: "Builds and maintains applications and systems." },
   { id: 2, title: "Data Analyst", description: "Analyzes data to provide insights and support decisions." },
@@ -69,9 +71,9 @@ function AdminLandingpage() {
       const endIndex = startIndex + itemsPerPage;
     
       const currentItems = data.slice(startIndex, endIndex);
-      // 
+      
   return (
-    <>
+   <>
       <div className="flex sm:flex-row flex-col  ">
         {/* header */}
         <div className="w-80">
@@ -196,7 +198,11 @@ function AdminLandingpage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default AdminLandingpage;
+export default CareerFilelds
+
+
+
+
