@@ -11,6 +11,7 @@ import FeedbackManagement from './admin/pages/FeedbackManagement'
 import CourseandWorshopmanagement from'./admin/pages/CourseandWorshopmanagement'
 import CareerFilelds from'./admin/pages/CareerFilelds'
 import PromotionsManagement from './admin/pages/PromotionsManagement'
+import StudentLandingpage from './Student/pages/StudentLandingpage'
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
     <Route path='/admin-courses-workshop-management'element={<CourseandWorshopmanagement/>}/>
     <Route path='/admin-careerFields-management' element={<CareerFilelds/>}/>
     <Route path='/admin-promotion-management'element={<PromotionsManagement/>}/>
+
+    {/* Student Paths */}
+    <Route path='/student-Landing-page' element={<StudentLandingpage/>}/>
 
 
 
