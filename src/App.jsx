@@ -8,6 +8,7 @@ import Contact from './Pages/Contact'
 import AdminLandingpage from './admin/pages/AdminLandingpage'
 import UserManagemet from './admin/pages/UserManagemet'
 import FeedbackManagement from './admin/pages/FeedbackManagement'
+import CourseandWorshopmanagement from'./admin/pages/CourseandWorshopmanagement'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
     <Route path='/admin-landing-page' element={<AdminLandingpage/>}/>
     <Route path='/admin-user-management' element={<UserManagemet/>}/>
     <Route path='/admin-feedback-management' element={<FeedbackManagement/>}/>
+    <Route path='/admin-courses-workshop-management'element={<CourseandWorshopmanagement/>}/>
 
 
 
