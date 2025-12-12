@@ -2,7 +2,7 @@ import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems } from 'flowbite-r
 import { div } from 'framer-motion/client';
 import React, { useEffect, useState } from 'react'
 import { HiArrowSmLeft, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
-import { IoSearchSharp } from 'react-icons/io5';
+import { IoDocument, IoSearchSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 function StudentHeader() {
@@ -40,12 +40,12 @@ function StudentHeader() {
               <SidebarItem as={Link} to="/student-career-search-page" icon={IoSearchSharp}>
                    Career
               </SidebarItem>
+              <SidebarItem as={Link} to="/student-jobAplication" icon={IoDocument}>Job Application</SidebarItem>
     
-              <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
-              <SidebarItem as={Link} to="/admin-courses-workshop-management" icon={HiTable}>Courses</SidebarItem>
-              <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
+              <SidebarItem as={Link} to="/" icon={HiInbox}>FeedBack</SidebarItem>
+              <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem>
+              <SidebarItem as={Link} to="/" icon={HiViewBoards}>Career Fields</SidebarItem>
     
-              <SidebarItem as={Link} to="/admin-promotion-management" icon={HiShoppingBag}>Promotions</SidebarItem>
             
             </SidebarItemGroup>
     

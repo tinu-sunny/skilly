@@ -13,6 +13,7 @@ import CareerFilelds from'./admin/pages/CareerFilelds'
 import PromotionsManagement from './admin/pages/PromotionsManagement'
 import StudentLandingpage from './Student/pages/StudentLandingpage'
 import StudentCareer from './Student/pages/StudentCareer'
+import JobApplication from './Student/pages/JobApplication'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
     {/* Student Paths */}
     <Route path='/student-Landing-page' element={<StudentLandingpage/>}/>
     <Route path='/student-career-search-page' element={<StudentCareer/>}/>
+    <Route path='/student-jobAplication' element={<JobApplication/>}/>
 
 
 
