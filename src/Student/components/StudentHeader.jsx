@@ -1,15 +1,19 @@
 import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems } from 'flowbite-react';
 import { div } from 'framer-motion/client';
 import React, { useEffect, useState } from 'react'
+import { BsFillPeopleFill } from 'react-icons/bs';
 import { HiArrowSmLeft, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { IoDocument, IoSearchSharp } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function StudentHeader() {
 
     const [isMobile,setIsMobile]=useState(false);
   const [open, setOpen] = useState(false);
 
+  // const location =useLocation();
+  // console.log(location.pathname);
+  
     const checkScreen =()=>{
         if(window.innerWidth<768){
             setIsMobile(true);
@@ -41,10 +45,10 @@ function StudentHeader() {
                    Career
               </SidebarItem>
               <SidebarItem as={Link} to="/student-jobAplication" icon={IoDocument}>Job Application</SidebarItem>
+              <SidebarItem as={Link} to="/student-counesling" icon={BsFillPeopleFill }>Counesling</SidebarItem>
     
               <SidebarItem as={Link} to="/" icon={HiInbox}>FeedBack</SidebarItem>
               <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem>
-              <SidebarItem as={Link} to="/" icon={HiViewBoards}>Career Fields</SidebarItem>
     
             
             </SidebarItemGroup>
