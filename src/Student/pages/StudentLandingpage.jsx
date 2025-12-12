@@ -9,15 +9,15 @@ function StudentLandingpage() {
    <div className='flex flex-col sm:flex-row'>
                 {/* Header */}
 
-                <div>
+                <div className='fixed'>
                     <StudentHeader/>
                 </div>
                           
                           {/* DashBoard content */}
-                <div className='p-10 w-full'>
+                <div className='p-10 w-full sm:ml-50'>
                 
                 {/* welcome message with name */}
-                <section className='mb-15'>
+                <section className='mb-8'>
                     <h1 className='text-[#111418] text-4xl font-bold leading-tight '>Welcome Back,<span>Babu!</span></h1>
                 </section>
                   
@@ -122,7 +122,7 @@ function StudentLandingpage() {
 
                         <section>
                                    {/* heading */}
-                            <div className='mb-5'>
+                            <div className='mb-5 mt-10'>
                                  <h1 className='text-[#111418] text-3xl font-bold leading-tight'>My Courses</h1>
                             </div>
 
@@ -155,15 +155,15 @@ function StudentLandingpage() {
                         </section>
 
 
+
  
                 </div>
 
    
 
    </div>
-
      {/* footer */}
-  <div className='sm:ml-50'> <AppFooter/></div>
+  <div className='mt-10'> <AppFooter/></div>
    </>
   )
 }

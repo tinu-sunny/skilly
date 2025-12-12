@@ -2,6 +2,7 @@ import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems } from 'flowbite-r
 import { div } from 'framer-motion/client';
 import React, { useEffect, useState } from 'react'
 import { HiArrowSmLeft, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
+import { IoSearchSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 function StudentHeader() {
@@ -26,8 +27,8 @@ function StudentHeader() {
 
     const SidebarContent = () => (
         <Sidebar
-          aria-label="Sidebar Navigation"
-          style={{ backgroundColor: "white", width: "200px", height: "100vh" }}
+          aria-label="Sidebar Navigation" 
+          style={{ backgroundColor: "white", width: "200px",height:'100vh' }}
         >
           <SidebarItems>
             <SidebarItemGroup>
@@ -36,8 +37,8 @@ function StudentHeader() {
                 Dashboard
               </SidebarItem>
     
-              <SidebarItem as={Link} to="/admin-user-management" icon={HiUser}>
-             User
+              <SidebarItem as={Link} to="/student-career-search-page" icon={IoSearchSharp}>
+                   Career
               </SidebarItem>
     
               <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
