@@ -17,6 +17,7 @@ import JobApplication from './Student/pages/JobApplication'
 import Counesling from './Student/pages/Counesling'
 import CounsellorsChat from './Student/components/CounsellorsChat'
 import FeedBack from './Student/pages/FeedBack'
+import Experts from './Student/pages/Experts'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
     <Route path='/student-counesling' element={<Counesling/>}/>
     <Route path='/student-couneslingchat' element={<CounsellorsChat/>}/>
     <Route path='/student-feedback' element={<FeedBack/>}/>
+    <Route path='/student-experts' element={<Experts/>}/>
 
 
 

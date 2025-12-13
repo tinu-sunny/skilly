@@ -28,7 +28,7 @@ function FeedBack() {
           {/* welcome message with name */}
           <section className="mb-8">
             <h1 className="text-[#111418] text-4xl font-bold leading-tight mb-3 ">
-              We Value{" "}
+              We Value You
             </h1>
             <p className="text-slate-500 font-medium leading-tight mb-5">
               Your feedback helps us build a better platform for your career

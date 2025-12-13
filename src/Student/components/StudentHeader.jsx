@@ -2,6 +2,7 @@ import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems } from 'flowbite-r
 import { div } from 'framer-motion/client';
 import React, { useEffect, useState } from 'react'
 import { BsFillPeopleFill } from 'react-icons/bs';
+import { FaPeopleGroup } from 'react-icons/fa6';
 import { HiArrowSmLeft, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { IoDocument, IoSearchSharp } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
@@ -48,7 +49,7 @@ function StudentHeader() {
               <SidebarItem as={Link} to="/student-counesling" icon={BsFillPeopleFill }>Counesling</SidebarItem>
     
               <SidebarItem as={Link} to="/student-feedback" icon={HiInbox}>FeedBack</SidebarItem>
-              {/* <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem> */}
+              <SidebarItem as={Link} to="/student-experts" icon={FaPeopleGroup}>Experts</SidebarItem>
     
             
             </SidebarItemGroup>
