@@ -15,6 +15,8 @@ import StudentLandingpage from './Student/pages/StudentLandingpage'
 import StudentCareer from './Student/pages/StudentCareer'
 import JobApplication from './Student/pages/JobApplication'
 import Counesling from './Student/pages/Counesling'
+import CounsellorsChat from './Student/components/CounsellorsChat'
+import FeedBack from './Student/pages/FeedBack'
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
     <Route path='/student-career-search-page' element={<StudentCareer/>}/>
     <Route path='/student-jobAplication' element={<JobApplication/>}/>
     <Route path='/student-counesling' element={<Counesling/>}/>
+    <Route path='/student-couneslingchat' element={<CounsellorsChat/>}/>
+    <Route path='/student-feedback' element={<FeedBack/>}/>
 
 
 

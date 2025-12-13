@@ -47,8 +47,8 @@ function StudentHeader() {
               <SidebarItem as={Link} to="/student-jobAplication" icon={IoDocument}>Job Application</SidebarItem>
               <SidebarItem as={Link} to="/student-counesling" icon={BsFillPeopleFill }>Counesling</SidebarItem>
     
-              <SidebarItem as={Link} to="/" icon={HiInbox}>FeedBack</SidebarItem>
-              <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem>
+              <SidebarItem as={Link} to="/student-feedback" icon={HiInbox}>FeedBack</SidebarItem>
+              {/* <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem> */}
     
             
             </SidebarItemGroup>
