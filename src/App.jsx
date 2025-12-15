@@ -18,6 +18,7 @@ import Counesling from './Student/pages/Counesling'
 import CounsellorsChat from './Student/components/CounsellorsChat'
 import FeedBack from './Student/pages/FeedBack'
 import Experts from './Student/pages/Experts'
+import DashBoard from './Counsellor/Pages/DashBoard'
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
     <Route path='/student-couneslingchat' element={<CounsellorsChat/>}/>
     <Route path='/student-feedback' element={<FeedBack/>}/>
     <Route path='/student-experts' element={<Experts/>}/>
+
+    {/* counselors path */}
+
+    <Route path='/counsellor-dashboard' element={<DashBoard/>}/>
 
 
 

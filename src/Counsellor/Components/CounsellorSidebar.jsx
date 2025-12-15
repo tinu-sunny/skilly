@@ -7,6 +7,7 @@ import {
 } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { BiBuoy } from "react-icons/bi";
+import { FaMessage } from "react-icons/fa6";
 import {
   HiArrowSmLeft,
   HiArrowSmRight,
@@ -17,12 +18,16 @@ import {
   HiUser,
   HiViewBoards,
 } from "react-icons/hi";
+import { MdEditCalendar, MdPayments } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+function CounsellorSidebar() {
 
-function Adminheader() {
-  const [isMobile, setIsMobile] = useState(false);
+     const [isMobile, setIsMobile] = useState(false);
   const [open, setOpen] = useState(false);
+  console.log(isMobile);
+  console.log(open);
+  
 
   const checkScreen = () => {
     if (window.innerWidth < 768) {
@@ -47,19 +52,17 @@ function Adminheader() {
       <SidebarItems>
         <SidebarItemGroup>
         { isMobile?<SidebarItem className="text-end  text-red-700 font-bold text-2xl" onClick={()=>setOpen(false)}> <button>×</button></SidebarItem>:''}
-          <SidebarItem as={Link} to="/admin-landing-page" icon={HiChartPie}>
+          <SidebarItem as={Link} to="/counsellor-dashboard" icon={HiChartPie}>
             Dashboard
           </SidebarItem>
 
-          <SidebarItem as={Link} to="/admin-user-management" icon={HiUser}>
-         User
+          <SidebarItem as={Link} to="/" icon={MdEditCalendar }>
+         Bookings
           </SidebarItem>
 
-          <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
-          <SidebarItem as={Link} to="/admin-courses-workshop-management" icon={HiTable}>Courses</SidebarItem>
-          <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
-
-          <SidebarItem as={Link} to="/admin-promotion-management" icon={HiShoppingBag}>Promotions</SidebarItem>
+          <SidebarItem as={Link} to="/" icon={FaMessage }>Message</SidebarItem>
+          <SidebarItem as={Link} to="/" icon={MdPayments }>Payments</SidebarItem>
+         
         
         </SidebarItemGroup>
 
@@ -74,8 +77,9 @@ function Adminheader() {
     </Sidebar>
   );
 
+
   return (
-    <>
+     <>
       {/* MOBILE HAMBURGER BUTTON */}
       {isMobile && !open && (
         <button
@@ -111,7 +115,7 @@ function Adminheader() {
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default Adminheader;
+export default CounsellorSidebar
