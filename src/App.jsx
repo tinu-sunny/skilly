@@ -19,6 +19,7 @@ import CounsellorsChat from './Student/components/CounsellorsChat'
 import FeedBack from './Student/pages/FeedBack'
 import Experts from './Student/pages/Experts'
 import DashBoard from './Counsellor/Pages/DashBoard'
+import InstitutionDashBoard from './institution/pages/InstitutionDashBoard'
 
 function App() {
   return (
@@ -51,6 +52,13 @@ function App() {
 
     <Route path='/counsellor-dashboard' element={<DashBoard/>}/>
 
+
+
+    {/*Institution  */}
+    <Route path='/institution-dashboard' element={<InstitutionDashBoard/>}/>
+    
+    {/* Company */}
+    {/* Career experts */}
 
 
     {/* Page Not Found */}

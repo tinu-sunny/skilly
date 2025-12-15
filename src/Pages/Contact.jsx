@@ -33,7 +33,7 @@ function Contact() {
          </div>
          {/* time response */}
          <div>
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-row gap-3'>
                 <p className='border-2 rounded-4xl sm:w-50 sm:px-5 p-3 sm:py-2 text-center'>Response time:<span className='font-bold'> 24 hrs</span></p>
                 <p className='border-2 rounded-4xl sm:w-70 sm:px-5 sm:py-2 p-3 text-center'>Support:<span className='font-bold'>Mon–Fri, 9am–6pm</span> </p>
             </div>
