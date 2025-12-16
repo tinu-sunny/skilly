@@ -4,6 +4,7 @@ import React from "react";
 import Header from "../components/Header";
 import AppFooter from "../components/AppFooter";
 import { motion } from "framer-motion";
+import Auth from "../components/Auth";
 function Index() {
   return (
     <>
@@ -31,9 +32,7 @@ function Index() {
           Empowering students, counselors, institutions, and companies through
           comprehensive career guidance and professional networking.
         </h2>
-        <Button className="cursor-pointer items-center justify-center h-10 px-4 ">
-          <span className="truncate">Get Started</span>
-        </Button>
+       <Auth/>
       </section>
 
       {/* section  How skilly Works  */}

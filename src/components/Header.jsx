@@ -1,9 +1,10 @@
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 import { useState } from "react";
 import {  NavLink } from "react-router-dom";
+import Auth from "./Auth";
 
 function Header() {
-
+ const [open, setOpen] = useState(false);
 
     
     
@@ -16,7 +17,8 @@ function Header() {
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Skilly</span>
       </NavbarBrand>
       <div className="flex md:order-2">
-        <Button className="cursor-pointer sm:p-4  p-1 text-sm">Get started</Button>
+        {/* <Button className="cursor-pointer sm:p-4  p-1 text-sm">Get started</Button> */}
+        <Auth />
         <NavbarToggle />
       </div>
       <NavbarCollapse>
