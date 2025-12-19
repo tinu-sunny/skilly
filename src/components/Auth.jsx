@@ -1,10 +1,49 @@
 import { Select } from "flowbite-react";
 import React, { useState } from "react";
+import { userRegistration } from "../services/allAPIs";
 
 function Auth() {
       const [open, setOpen] = useState(false);
       const [regPage,setRegPage]=useState(false)
       console.log(regPage);
+
+      // user data save in state to register
+
+      const [userData,setUserData]=useState({
+        "username":"","email":"","phone":0,"role":"","password":"","password2":""
+      })
+      console.log(userData);
+
+
+      const registeruser = async()=>{
+        // console.log("user regiser susess full");
+        const {email,username,phone,role,password,password2}=userData
+        if(!email||!username||!phone||!role||!password||!password2){
+          alert('Please fill all fields')
+          
+        }
+        if(password !== password2){
+          alert('Passwords do not match')
+        }
+
+        else{
+         
+          try{
+            const response = await userRegistration(userData)
+            console.log(response);
+            
+
+          }
+
+          catch(err){
+           console.log(err);
+           
+          }
+          
+        }
+        
+        
+      }
       
   return (
    <>
@@ -56,7 +95,7 @@ function Auth() {
 
               <h1 className="text-2xl font-semibold">Welcome Back</h1>
               <p className="mt-1 text-sm text-gray-500">
-                Please enter your details to sign in.
+                Please enter your details to register .
               </p>
 
               {regPage ? <div>
@@ -70,6 +109,7 @@ function Auth() {
                         // defaultValue="counselor@institution.edu"
                         className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
                         placeholder="Enter Your name"
+                        onChange={(e)=>setUserData({...userData,username:e.target.value})}
                       />
                     </div>
                     <div>
@@ -81,6 +121,7 @@ function Auth() {
                         // defaultValue="counselor@institution.edu"
                         className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
                         placeholder="Enter Your Email"
+                         onChange={(e)=>setUserData({...userData,email:e.target.value})}
                       />
                     </div>
                       <div>
@@ -92,14 +133,16 @@ function Auth() {
                         // defaultValue="counselor@institution.edu"
                         className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
                         placeholder="Enter Your Number"
+                         onChange={(e)=>setUserData({...userData,phone:e.target.value})}
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-600">
-                        You are 
+                        You are a
                       </label>
-                      <Select name="" id="">
+                      <Select name="" id="" onChange={(e)=>setUserData({...userData,role:e.target.value})}>
+                        <option value='*'>Select</option>
                         <option value='Student'>Student</option>
                         <option value='Working'>Working</option>
                         <option value='Counsellor'>Counsellor</option>
@@ -118,6 +161,7 @@ function Auth() {
                         type="password"
                         placeholder="Enter your password"
                         className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                             onChange={(e)=>setUserData({...userData,password:e.target.value})}
                       />
                     </div>
 
@@ -132,12 +176,14 @@ function Auth() {
                         type="password"
                         placeholder="Re-Enter your password"
                         className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          onChange={(e)=>setUserData({...userData,password2:e.target.value})}
                       />
                     </div>
     
                     <button
-                      type="submit"
+                      type="button"
                       className="w-full rounded-lg bg-blue-600 py-2 font-medium text-white hover:bg-blue-700"
+                      onClick={registeruser}
                     >
                      Register
                     </button>
@@ -149,7 +195,10 @@ function Auth() {
                    Sign In
                     </span>
                   </p>
-              </div> : <div>
+              </div> 
+              
+              : 
+              <div>
                   <form className="mt-6 space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-600">

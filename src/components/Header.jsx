@@ -11,10 +11,10 @@ function Header() {
 
   return (
   <>
-   <Navbar fluid rounded className="shadow-lg">
+   <Navbar fluid rounded className="shadow-lg dark:bg-black dark:text-slate-500">
       <NavbarBrand href="#">
         <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2021/05/Logo-design-illustration-on-transparent-background-PNG.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Skilly</span>
+        <span className="self-center whitespace-nowrap text-xl font-semibold ">Skilly</span>
       </NavbarBrand>
       <div className="flex md:order-2">
         {/* <Button className="cursor-pointer sm:p-4  p-1 text-sm">Get started</Button> */}
