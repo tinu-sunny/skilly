@@ -1,13 +1,15 @@
 import { Select } from "flowbite-react";
 import React, { useState } from "react";
-import { userRegistration } from "../services/allAPIs";
+import { loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 function Auth() {
+    const  navigate= useNavigate();
+
   const [open, setOpen] = useState(false);
   const [regPage, setRegPage] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  
   // console.log(regPage);
 
   // user data save in state to register
@@ -84,6 +86,50 @@ function Auth() {
 
   const [loginData, SetLoginData] = useState({ email: "", password: "" });
   // console.log(loginData);
+
+  const userLogin = async () => {
+    let newErrors = {};
+    const { email, password } = loginData;
+    if (!email) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email is not valid";
+    }
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    try {
+      const response = await loginUser(loginData);
+      console.log(response);
+
+      if (response.status == 200) {
+        if (response.data.loginUser.role == "Working") {
+          alert("going to working page");
+          navigate('/')
+        } else if (response.data.loginUser.role == "Student") {
+          alert("going to student page");
+          navigate('/student-Landing-page')
+        } else if (response.data.loginUser.role == "Counsellor") {
+          alert("going to conusellor page");
+          navigate('/counsellor-dashboard')
+        }  else if (response.data.loginUser.role == "institution") {
+          alert("going to conusellor page institution");
+             navigate('/institution-dashboard')
+        }
+      } else {
+        alert(response.response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+    //
+  };
 
   return (
     <>
@@ -180,7 +226,7 @@ function Auth() {
                           Phone Number
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           // defaultValue="counselor@institution.edu"
                           className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
                           placeholder="Enter Your Number"
@@ -289,6 +335,7 @@ function Auth() {
                         <label className="block text-sm font-medium text-gray-600">
                           Email Address
                         </label>
+                        <p style={{ color: "red" }}>{errors.email}</p>
                         <input
                           type="email"
                           // defaultValue="counselor@institution.edu"
@@ -309,10 +356,12 @@ function Auth() {
                           <label className="block text-sm font-medium text-gray-600">
                             Password
                           </label>
+
                           <span className="cursor-pointer text-xs text-blue-600 hover:underline">
                             Forgot password?
                           </span>
                         </div>
+                        <p style={{ color: "red" }}>{errors.password}</p>
                         <div className="relative">
                           <input
                             type={showPassword ? "text" : "password"}
@@ -337,8 +386,9 @@ function Auth() {
                       </div>
 
                       <button
-                        type="submit"
+                        type="button"
                         className="w-full rounded-lg bg-blue-600 py-2 font-medium text-white hover:bg-blue-700"
+                        onClick={userLogin}
                       >
                         Sign In
                       </button>
