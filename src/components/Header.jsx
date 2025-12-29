@@ -11,7 +11,7 @@ function Header() {
 
   return (
   <>
-   <Navbar fluid rounded className="shadow-lg dark:bg-black dark:text-slate-500">
+   <Navbar fluid rounded className="shadow-lg dark:bg-black dark:text-slate-500 dark:rounded-none">
       <NavbarBrand href="#">
         <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2021/05/Logo-design-illustration-on-transparent-background-PNG.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold ">Skilly</span>

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import AppFooter from "../components/AppFooter";
 import { motion } from "framer-motion";
 import Auth from "../components/Auth";
+
 function Index() {
   return (
     <>
@@ -221,6 +222,8 @@ function Index() {
           </div>
         </section>
   
+
+
         {/* News And update section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}

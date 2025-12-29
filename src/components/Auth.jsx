@@ -1,4 +1,4 @@
-import { Select } from "flowbite-react";
+import { Select, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -121,6 +121,10 @@ function Auth() {
           alert("going to conusellor page institution");
              navigate('/institution-dashboard')
         }
+        else if (response.data.loginUser.role == "admin") {
+          alert("going to admin page ");
+             navigate('/admin-landing-page')
+        }
       } else {
         alert(response.response.data);
       }
@@ -172,7 +176,7 @@ function Auth() {
               </div>
 
               {/* Right Section */}
-              <div className="p-8">
+              <div className="p-8 dark:bg-black dark:text-white">
                 <button
                   onClick={() => setOpen(false)}
                   className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
@@ -181,7 +185,7 @@ function Auth() {
                 </button>
 
                 <h1 className="text-2xl font-semibold">Welcome Back</h1>
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-gray-500 dark:text-white">
                   Please enter your details to register .
                 </p>
 
@@ -189,13 +193,13 @@ function Auth() {
                   <div>
                     <form className="mt-6 space-y-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium text-gray-600 dark:text-white">
                           Name
                         </label>
-                        <input
+                        <TextInput
                           type="text"
                           // defaultValue="counselor@institution.edu"
-                          className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          className="mt-1 w-full "
                           placeholder="Enter Your name"
                           onChange={(e) =>
                             setUserData({
@@ -207,13 +211,13 @@ function Auth() {
                         <p style={{ color: "red" }}>{errors.name}</p>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium text-gray-600 dark:text-white">
                           Email
                         </label>
-                        <input
+                        <TextInput
                           type="email"
                           // defaultValue="counselor@institution.edu"
-                          className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          className="mt-1 w-full"
                           placeholder="Enter Your Email"
                           onChange={(e) =>
                             setUserData({ ...userData, email: e.target.value })
@@ -222,13 +226,13 @@ function Auth() {
                         <p style={{ color: "red" }}>{errors.email}</p>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium text-gray-600 dark:text-white">
                           Phone Number
                         </label>
-                        <input
+                        <TextInput
                           type="number"
                           // defaultValue="counselor@institution.edu"
-                          className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          className="mt-1 w-full"
                           placeholder="Enter Your Number"
                           onChange={(e) =>
                             setUserData({ ...userData, phone: e.target.value })
@@ -238,7 +242,7 @@ function Auth() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium text-gray-600 dark:text-white">
                           You are a
                         </label>
                         <Select
@@ -261,15 +265,15 @@ function Auth() {
 
                       <div>
                         <div className="flex items-center justify-between">
-                          <label className="block text-sm font-medium text-gray-600">
+                          <label className="block text-sm font-medium text-gray-600 dark:text-white">
                             Password
                           </label>
                         </div>
                         <div className="relative">
-                          <input
+                          <TextInput
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter your password"
-                            className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                            className="mt-1 w-full "
                             onChange={(e) =>
                               setUserData({
                                 ...userData,
@@ -279,7 +283,7 @@ function Auth() {
                           />
 
                           <span
-                            className="absolute right-3 top-5 cursor-pointer"
+                            className="absolute right-3 top-3 cursor-pointer"
                             onClick={() => setShowPassword(!showPassword)}
                           >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -289,15 +293,15 @@ function Auth() {
 
                       <div>
                         <div className="flex items-center justify-between">
-                          <label className="block text-sm font-medium text-gray-600">
+                          <label className="block text-sm font-medium text-gray-600 dark:text-white">
                             RE-Password
                           </label>
                         </div>
 
-                        <input
+                        <TextInput
                           type={showPassword ? "text" : "password"}
                           placeholder="Enter your password"
-                          className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          className="mt-1 w-full"
                           onChange={(e) =>
                             setUserData({
                               ...userData,
@@ -332,14 +336,14 @@ function Auth() {
                   <div>
                     <form className="mt-6 space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium text-gray-600 dark:text-white">
                           Email Address
                         </label>
                         <p style={{ color: "red" }}>{errors.email}</p>
-                        <input
+                        <TextInput
                           type="email"
                           // defaultValue="counselor@institution.edu"
-                          className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                          className="mt-1 w-full "
                           placeholder="Enter Your Email"
                           // value={loginData.email}
                           onChange={(e) =>
@@ -353,7 +357,7 @@ function Auth() {
 
                       <div>
                         <div className="flex items-center justify-between">
-                          <label className="block text-sm font-medium text-gray-600">
+                          <label className="block text-sm font-medium text-gray-600 dark:text-white">
                             Password
                           </label>
 
@@ -363,10 +367,10 @@ function Auth() {
                         </div>
                         <p style={{ color: "red" }}>{errors.password}</p>
                         <div className="relative">
-                          <input
+                          <TextInput
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter your password"
-                            className="mt-1 w-full rounded-lg border px-3 py-2 focus:border-blue-500 focus:outline-none"
+                            className="mt-1 w-full"
                             // value={loginData.password}
                             onChange={(e) =>
                               SetLoginData({
@@ -377,7 +381,7 @@ function Auth() {
                           />
 
                           <span
-                            className="absolute right-3 top-5 cursor-pointer"
+                            className="absolute right-3 top-3 cursor-pointer"
                             onClick={() => setShowPassword(!showPassword)}
                           >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
