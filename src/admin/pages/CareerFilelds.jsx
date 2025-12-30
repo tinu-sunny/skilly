@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Adminheader from "../components/Adminheader";
 import { motion } from "framer-motion";
 import { Button, Checkbox, Pagination, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, TextInput } from "flowbite-react";
+import CareerAdminaddModal from "../components/CareerAdminaddModal";
 
 
 function CareerFilelds() {
@@ -95,7 +96,8 @@ function CareerFilelds() {
             {/* Add button and side bar */}
 
             <div className="flex flex-col gap-3 p-4">
-               <div className="flex  justify-end"> <Button className="bg-[#111418]">Add new</Button></div>
+               <div className="flex  justify-end"><CareerAdminaddModal/></div>
+             
               <TextInput type="search" placeholder="🔍search here...." />
             </div>
 

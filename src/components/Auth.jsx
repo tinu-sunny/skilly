@@ -256,6 +256,7 @@ function Auth() {
                           <option value="Student">Student</option>
                           <option value="Working">Working</option>
                           <option value="Counsellor">Counsellor</option>
+                          <option value="Company">Company</option>
                           <option value="institution">
                             Education Institution
                           </option>
