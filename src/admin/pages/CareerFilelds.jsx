@@ -145,6 +145,8 @@ function CareerFilelds() {
                    <th className="px-6 py-3">ID</th>
                    <th className="px-6 py-3">title</th>
                    <th className="px-6 py-3">description</th>
+                   <th className="px-6 py-3"></th>
+                   <th className="px-6 py-3"></th>
                    {/* <th className="px-6 py-3">Role</th>
                    <th className="px-6 py-3">Phone</th>
                    <th className="px-6 py-3">Status</th>
@@ -161,6 +163,8 @@ function CareerFilelds() {
                      <td className="px-6 py-4">{user.id}</td>
                      <td className="px-6 py-4 font-medium">{user.title}</td>
                      <td className="px-6 py-4">{user.description}</td>
+                     <td className="px-6 py-4"><Button className="bg-indigo-500">edit</Button></td>
+                     <td className="px-6 py-4"><Button className="bg-red-800 hover:bg-red-400">delete</Button></td>
                      {/* <td className="px-6 py-4">{user.role}</td>
                      <td className="px-6 py-4">{user.phone}</td>
                      <td
