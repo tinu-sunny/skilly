@@ -5,6 +5,7 @@ import { BsFillPeopleFill } from 'react-icons/bs';
 import { FaPeopleGroup } from 'react-icons/fa6';
 import { HiArrowSmLeft, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { IoDocument, IoSearchSharp } from 'react-icons/io5';
+import { PiReadCvLogoLight } from 'react-icons/pi';
 import { Link, useLocation } from 'react-router-dom';
 
 function StudentHeader() {
@@ -50,11 +51,12 @@ function StudentHeader() {
     
               <SidebarItem as={Link} to="/student-feedback" icon={HiInbox}>FeedBack</SidebarItem>
               <SidebarItem as={Link} to="/student-experts" icon={FaPeopleGroup}>Experts</SidebarItem>
+              <SidebarItem as={Link} to="https://resume-builder-five-sandy.vercel.app/" target='_black' icon={PiReadCvLogoLight}>Resume Builder</SidebarItem>
     
             
             </SidebarItemGroup>
     
-            <SidebarItemGroup className="sm:mt-90  mt-60">
+            <SidebarItemGroup className="sm:mt-85  mt-50">
                 <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
               {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
               <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}
