@@ -13,7 +13,7 @@ function Auth() {
   // console.log(regPage);
 
   // user data save in state to register
-
+const todaydate = new Date()
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -21,10 +21,22 @@ function Auth() {
     role: "",
     password: "",
     password2: "",
+    regdate:`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
+   
   });
-  // console.log(userData);
+  //  
+      
+  console.log(userData);
   const [errors, setErrors] = useState({});
 
+
+  
+//   const todaydate = new Date()
+// const reqDate =`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
+// setUserData({
+//     ...userData,   
+//     regdate: reqDate 
+// });
   //  console.log(errors);
 
   const registeruser = async () => {
@@ -34,6 +46,9 @@ function Auth() {
     //   alert('Please fill all fields')
 
     // }
+
+//   console.log(todaydate.getFullYear() ,todaydate.getMonth()+1,todaydate.getDate());
+
 
     let newErrors = {};
 
@@ -70,7 +85,10 @@ function Auth() {
     }
 
     try {
+      console.log("userdata",userData);
+      
       const response = await userRegistration(userData);
+      
       console.log(response);
       if (response.status == 200) {
         alert(response.data.message);

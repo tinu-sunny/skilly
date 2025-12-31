@@ -130,16 +130,16 @@ const totalPages =
                 <td className="px-6 py-4">{user.phone}</td>
                 <td
                   className={`px-6 py-4 font-semibold ${
-                    user.status === "Active"
+                    user.status === true
                       ? "text-green-600"
-                      : user.status === "Inactive"
+                      : user.status === false
                       ? "text-red-600"
                       : "text-orange-500"
                   }`}
                 >
-                  {user.status}
+                  {user.status===true?<p>Active</p>:<p>inactive</p>}
                 </td>
-                <td className="px-6 py-4">{user.createdAt}</td>
+                <td className="px-6 py-4">{user.regdate}</td>
               </tr>
             ))}
           </tbody>
