@@ -2,10 +2,12 @@ import React from 'react'
 import StudentHeader from '../components/StudentHeader'
 import { Button } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
-import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
+import Calendar from '../components/Calendar'
+
+
 
 function CounselingBooking() {
+  
   return (
     <>
    <div className='flex flex-col sm:flex-row'>
@@ -26,19 +28,12 @@ function CounselingBooking() {
 
                       {/* section type and date selection */}
 
-                      <div className='mt-10'>
-                        {/* type */}
-                        <div>
-                                 <h1 className='text-2xl font-bold leading-tight'>Select Session Type</h1>
-                                 <div className='flex gap-5 mt-5'>
-                                    <Button>Online</Button>
-                                    <Button>Offline</Button>
-                                 </div>
-                        </div>
-                        {/* date selection */}
-                        <div>
-                            
-                        </div>
+                      <div className='mt-10 w-full'>
+                       
+                       
+                      
+                            <Calendar/>
+                      
                       </div>
                  
                   

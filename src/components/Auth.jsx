@@ -21,7 +21,7 @@ const todaydate = new Date()
     role: "",
     password: "",
     password2: "",
-    regdate:`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
+    // regdate:`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
    
   });
   //  
@@ -85,7 +85,7 @@ const todaydate = new Date()
     }
 
     try {
-      console.log("userdata",userData);
+      console.log("userdata",userData );
       
       const response = await userRegistration(userData);
       
@@ -103,7 +103,7 @@ const todaydate = new Date()
   };
 
   const [loginData, SetLoginData] = useState({ email: "", password: "" });
-  // console.log(loginData);
+  console.log(loginData);
 
   const userLogin = async () => {
     let newErrors = {};
