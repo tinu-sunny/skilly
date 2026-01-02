@@ -2,10 +2,12 @@ import React from 'react'
 import StudentHeader from '../components/StudentHeader'
 import { Button } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
+import ChatBot from '../components/ChatBot'
 
 function StudentLandingpage() {
   return (
    <>
+   
    <div className='flex flex-col sm:flex-row'>
                 {/* Header */}
 
@@ -15,6 +17,13 @@ function StudentLandingpage() {
                           
                           {/* DashBoard content */}
                 <div className='p-10 w-full sm:ml-50'>
+
+
+                    <div className='flex justify-end items-end  '>
+                            <div className=''> 
+                                <ChatBot/>
+                            </div>
+                       </div>
                 
                 {/* welcome message with name */}
                 <section className='mb-8'>

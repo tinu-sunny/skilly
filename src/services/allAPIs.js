@@ -12,3 +12,7 @@ export const loginUser = async(reqbody)=>{
 export const users = async()=>{
     return await commonAPI('GET',`${serverURL}/admin-user-management`,{})
 }
+
+export const chatBot = async(reqbody,reqHeader)=>{
+    return await commonAPI('POST',`${serverURL}/chat`,reqbody,reqHeader)
+}

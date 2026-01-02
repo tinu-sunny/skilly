@@ -4,6 +4,7 @@ import { Button } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+
 function Counesling() {
   return (
      <>
@@ -56,7 +57,9 @@ function Counesling() {
                 <Button color="yellow" className="w-32 text-white font-semibold shadow-md hover:shadow-lg">
                     Book Section
                 </Button>
+               
             </Link>
+           
     </div>
     </div>
 
