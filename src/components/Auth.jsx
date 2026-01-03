@@ -4,16 +4,16 @@ import { loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 function Auth() {
-    const  navigate= useNavigate();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const [regPage, setRegPage] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  
+
   // console.log(regPage);
 
   // user data save in state to register
-const todaydate = new Date()
+  const todaydate = new Date();
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -21,22 +21,21 @@ const todaydate = new Date()
     role: "",
     password: "",
     password2: "",
-    // regdate:`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
-   
+    regdate: `${todaydate.getDate()}-${
+      todaydate.getMonth() + 1
+    }-${todaydate.getFullYear()}`,
   });
-  //  
-      
+  //
+
   console.log(userData);
   const [errors, setErrors] = useState({});
 
-
-  
-//   const todaydate = new Date()
-// const reqDate =`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
-// setUserData({
-//     ...userData,   
-//     regdate: reqDate 
-// });
+  //   const todaydate = new Date()
+  // const reqDate =`${todaydate.getDate()}-${todaydate.getMonth()+1}-${todaydate.getFullYear()}`
+  // setUserData({
+  //     ...userData,
+  //     regdate: reqDate
+  // });
   //  console.log(errors);
 
   const registeruser = async () => {
@@ -47,8 +46,7 @@ const todaydate = new Date()
 
     // }
 
-//   console.log(todaydate.getFullYear() ,todaydate.getMonth()+1,todaydate.getDate());
-
+    //   console.log(todaydate.getFullYear() ,todaydate.getMonth()+1,todaydate.getDate());
 
     let newErrors = {};
 
@@ -85,10 +83,10 @@ const todaydate = new Date()
     }
 
     try {
-      console.log("userdata",userData );
-      
+      console.log("userdata", userData);
+
       const response = await userRegistration(userData);
-      
+
       console.log(response);
       if (response.status == 200) {
         alert(response.data.message);
@@ -126,22 +124,34 @@ const todaydate = new Date()
       console.log(response);
 
       if (response.status == 200) {
-        if (response.data.loginUser.role == "Working") {
-          alert("going to working page");
-          navigate('/')
-        } else if (response.data.loginUser.role == "Student") {
-          alert("going to student page");
-          navigate('/student-Landing-page')
-        } else if (response.data.loginUser.role == "Counsellor") {
-          alert("going to conusellor page");
-          navigate('/counsellor-dashboard')
-        }  else if (response.data.loginUser.role == "institution") {
-          alert("going to conusellor page institution");
-             navigate('/institution-dashboard')
-        }
-        else if (response.data.loginUser.role == "admin") {
-          alert("going to admin page ");
-             navigate('/admin-landing-page')
+        switch (response.data.loginUser.role) {
+          case "admin":
+            navigate("/admin-landing-page");
+            break;
+          case "student":
+            navigate("/student-Landing-page");
+            break;
+          case "working":
+            navigate("/");
+            break;
+
+          case "counsellor":
+            navigate("/counsellor-dashboard");
+            break;
+
+          case "institution":
+            navigate("/institution-dashboard");
+            break;
+
+          case "company":
+            navigate("/company-dashboard");
+            break;
+
+          default:
+            alert(
+              "Unknown role or id is decativated Connect to admin for help"
+            );
+          // console.error("Unhandled role:", role);
         }
       } else {
         alert(response.response.data);
@@ -271,10 +281,10 @@ const todaydate = new Date()
                           }
                         >
                           <option value="*">Select</option>
-                          <option value="Student">Student</option>
-                          <option value="Working">Working</option>
-                          <option value="Counsellor">Counsellor</option>
-                          <option value="Company">Company</option>
+                          <option value="student">Student</option>
+                          <option value="working">Working</option>
+                          <option value="counsellor">Counsellor</option>
+                          <option value="company">Company</option>
                           <option value="institution">
                             Education Institution
                           </option>
