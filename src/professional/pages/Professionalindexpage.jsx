@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 import { IoMdCloudUpload } from 'react-icons/io'
 import { RiShareForwardLine } from "react-icons/ri";
+import Headerprofessionals from '../components/HeaderProfessionals'
+import AppFooter from '../../components/AppFooter';
 
 function Professionalindexpage() {
       const [activeChat, setActiveChat] = useState(null);
@@ -16,11 +18,11 @@ function Professionalindexpage() {
   ];
   return (
  <>
- <div> header</div>
+ <div className='mb-3'> <Headerprofessionals/></div>
 
- <div className='flex justify-between  p-10 w-full gap-5 '>
+ <div className='flex justify-between  p-10 w-full gap-5 h-[100vh] '>
     {/* left section  profile view */}
-    <section className=' w-[50%]'>
+    <section className=' w-[50%] h-full'>
         <div>
            <div className='flex flex-col p-5 gap-5  bg-gray-100 rounded-3xl shadow-2xl' >
                 <h1 className='text-[#111418] font-bold text-start shadow-2xl'>Your profile</h1>
@@ -37,7 +39,7 @@ function Professionalindexpage() {
         </section>
 
 {/* center section to see post */}
-    <section className='w-full flex flex-col gap-10'>
+    <section className='w-full flex flex-col gap-10 h-full overflow-y-auto '>
         <div className='bg-gray-100 rounded-3xl shadow-xl p-5 '>
             {/* upload image for showcase */}
             <div className=''>
@@ -127,7 +129,7 @@ function Professionalindexpage() {
 
 
 {/* mesg */}
-    <section className="border-2 w-[50%] h-[500px] mx-auto rounded-xl overflow-hidden">
+    <section className="border-2 w-[50%] h-full mx-auto rounded-xl overflow-hidden">
 
       {!activeChat ? (
         // Chat List
@@ -199,6 +201,10 @@ function Professionalindexpage() {
     </section>
  </div>
  
+
+ <div>
+    <AppFooter/>
+ </div>
  </>
   )
 }
