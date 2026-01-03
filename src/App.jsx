@@ -22,6 +22,7 @@ import DashBoard from './Counsellor/Pages/DashBoard'
 import InstitutionDashBoard from './institution/pages/InstitutionDashBoard'
 import CompayDashboard from './company/pages/CompayDashboard'
 import CounselingBooking from './Student/pages/counselingBooking'
+import Professionalindexpage from './professional/pages/Professionalindexpage'
 
 
 function App() {
@@ -66,7 +67,7 @@ function App() {
 
     {/* Career experts */}
 
-    
+    <Route path='/professional-index-page' element={<Professionalindexpage/>}/>
 
 
     {/* Page Not Found */}
