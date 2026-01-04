@@ -6,7 +6,7 @@ import { Button, Card, TabItem, Table, TableBody, TableCell, TableHead, TableHea
 function PromotionsManagement() {
   return (
    <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black  " style={{height:"100vh"}}>
         {/* header */}
         <div className="w-80">
           {" "}
@@ -17,11 +17,11 @@ function PromotionsManagement() {
         <div className="sm:mt-5 p-5 sm:p-0 w-full ">
         {/* heading */}
              <div className='sm:text-start text-center'>
-          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight">
+          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight dark:text-white">
   Promotions Management Panel
 </h1>
 
-            <p className='text-slate-500 font-medium leading-tight m-2 max-w-200'>Monitor, approve, reject, activate, edit, and deactivate promotion requests from institutions or counsellors. View active and expired promotions with performance insights.</p>
+            <p className='text-slate-500 font-medium leading-tight m-2 max-w-200 dark:text-white'>Monitor, approve, reject, activate, edit, and deactivate promotion requests from institutions or counsellors. View active and expired promotions with performance insights.</p>
             </div>
 
           

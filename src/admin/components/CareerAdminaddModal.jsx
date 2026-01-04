@@ -17,15 +17,15 @@ function CareerAdminaddModal() {
         <ModalBody>
           <div className="space-y-6 p-6">
           <div>
-                <label> Coures Name</label>
+                <label className="dark:text-white"> Coures Name</label>
               <TextInput type="text"/>
           </div>
           <div>
-            <label htmlFor="">Description</label>
+            <label className="dark:text-white" htmlFor="">Description</label>
           <Textarea/>
           </div>
          <div>
-            <label htmlFor="">thumbnail</label> 
+            <label className="dark:text-white" htmlFor="">thumbnail</label> 
             <TextInput type="file"/>
               </div>
 

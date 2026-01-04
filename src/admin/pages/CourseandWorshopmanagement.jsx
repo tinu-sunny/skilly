@@ -7,7 +7,7 @@ import { Card, TabItem, Table, TableBody, TableCell, TableHead, TableHeadCell, T
 function CourseandWorshopmanagement() {
   return (
       <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black   " style={{height:"100vh"}}>
         {/* header */}
         <div className="w-80">
           {" "}
@@ -18,11 +18,11 @@ function CourseandWorshopmanagement() {
         <div className="sm:mt-5 p-5 sm:p-0 w-full ">
         {/* heading */}
              <div className='sm:text-start text-center'>
-          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight">
+          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight dark:text-white">
   Course and  Workshop Approval
 </h1>
 
-            <p className='text-slate-500 font-medium leading-tight m-2'>Review and approve or reject submitted courses and workshop</p>
+            <p className='text-slate-500 font-medium leading-tight m-2 dark:text-white'>Review and approve or reject submitted courses and workshop</p>
             </div>
 
                      {/* workshop and coursessss */}

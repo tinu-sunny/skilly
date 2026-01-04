@@ -7,22 +7,22 @@ import { Card, TabItem, Table, TableBody, TableCell, TableHead, TableHeadCell, T
 function FeedbackManagement() {
   return (
       <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black    " style={{height:"100vh"}}>
         {/* header */}
-        <div className="w-80">
+        <div className="">
           {" "}
           <Adminheader />
         </div>
 
         {/*feedback management  */}
-        <div className="sm:mt-5 p-5 sm:p-0 w-full ">
+        <div className=" p-5 w-full  dark:bg-black ">
         {/* heading */}
              <div className='sm:text-start text-center'>
-          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight">
+          <h1 className="text-[#111418] font-bold text-2xl sm:text-[30px] md:text-4xl leading-tight dark:text-white">
   Feedback
 </h1>
 
-            <p className='text-slate-500 font-medium leading-tight m-2'>Manage and respond to user feedback</p>
+            <p className='text-slate-500 font-medium leading-tight m-2 dark:text-white'>Manage and respond to user feedback</p>
             </div>
 
                      {/* search bar and sort menu */}
@@ -36,7 +36,7 @@ function FeedbackManagement() {
 
                         {/*implement pagenation  */}
                         <div>
-                               <div className=' p-5  ' style={{ width: '100%' }}>
+                               <div className=' p-5   ' style={{ width: '100%' }}>
             <Tabs aria-label="Default tabs" variant="default">
               <TabItem active title="All-Feedback" >
                        <div className="overflow-x-auto">
@@ -99,7 +99,7 @@ function FeedbackManagement() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product name</TableHeadCell>
+            <TableHeadCell> name</TableHeadCell>
             <TableHeadCell>Color</TableHeadCell>
             <TableHeadCell>Category</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>
@@ -156,7 +156,7 @@ function FeedbackManagement() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product name</TableHeadCell>
+            <TableHeadCell>Product </TableHeadCell>
             <TableHeadCell>Color</TableHeadCell>
             <TableHeadCell>Category</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>

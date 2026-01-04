@@ -63,7 +63,7 @@ function CareerFilelds() {
 
 
     // pagenation try
-     const itemsPerPage = 7;  // change as needed
+     const itemsPerPage = 5;  // change as needed
       const [currentPage, setCurrentPage] = useState(1);
     
       const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -75,7 +75,7 @@ function CareerFilelds() {
       
   return (
    <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black ">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -88,7 +88,7 @@ function CareerFilelds() {
           <div className="p-3">
             {/* heading */}
             <div className="mb-5">
-              <h1 className="text-2xl sm:text-4xl text-[#111418] font-bold leading-tight ">
+              <h1 className="text-2xl sm:text-4xl text-[#111418] font-bold leading-tight dark:text-white ">
              Manage Carrer Fields
               </h1>
             </div>
@@ -105,7 +105,7 @@ function CareerFilelds() {
 
             <div className="flex  flex-row justify-evenly items-center">
                 {/* Career Field */}
-                <div className="bg-slate-300  shadow-2xl p-1 rounded-3xl">
+                <div className="bg-slate-300  shadow-2xl p-1 rounded-3xl dark:bg-blue-500">
                         <select className="w-full  ">
                             <option> Carreer Field</option>
                             <option value="">sample</option>
@@ -119,7 +119,7 @@ function CareerFilelds() {
 
                 {/* Category */}
                 
-                 <div  className="bg-slate-300  shadow-2xl p-1 rounded-3xl">
+                 <div  className="bg-slate-300  shadow-2xl p-1 rounded-3xl dark:bg-blue-500">
                         <select className="w-full">
                             <option>Category</option>
                             <option value="">sample</option>
@@ -140,7 +140,7 @@ function CareerFilelds() {
            {/* TABLE */}
            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
              <table className="w-full text-sm text-left text-gray-600">
-               <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+               <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-green-400">
                  <tr>
                    <th className="px-6 py-3">ID</th>
                    <th className="px-6 py-3">title</th>
@@ -158,13 +158,13 @@ function CareerFilelds() {
                  {currentItems.map((user) => (
                    <tr
                      key={user.id}
-                     className="bg-white border-b hover:bg-gray-50"
+                     className="bg-white border-b hover:bg-gray-50 dark:bg-green-200"
                    >
                      <td className="px-6 py-4">{user.id}</td>
                      <td className="px-6 py-4 font-medium">{user.title}</td>
                      <td className="px-6 py-4">{user.description}</td>
-                     <td className="px-6 py-4"><Button className="bg-indigo-500">edit</Button></td>
-                     <td className="px-6 py-4"><Button className="bg-red-800 hover:bg-red-400">delete</Button></td>
+                     <td className="px-6 py-4"><Button className="bg-indigo-500 dark:bg-indigo-500">edit</Button></td>
+                     <td className="px-6 py-4"><Button className="bg-red-800 hover:bg-red-400 dark:bg-red-800">delete</Button></td>
                      {/* <td className="px-6 py-4">{user.role}</td>
                      <td className="px-6 py-4">{user.phone}</td>
                      <td

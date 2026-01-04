@@ -43,10 +43,11 @@ function Adminheader() {
     <Sidebar
       aria-label="Sidebar Navigation"
       style={{ backgroundColor: "white", width: "200px", height: "100vh" }}
+      
     >
-      <SidebarItems>
+      <SidebarItems >
         <SidebarItemGroup>
-        { isMobile?<SidebarItem className="text-end  text-red-700 font-bold text-2xl" onClick={()=>setOpen(false)}> <button>×</button></SidebarItem>:''}
+        { isMobile?<SidebarItem className="text-end  text-red-700 font-bold text-2xl " onClick={()=>setOpen(false)}> <button>×</button></SidebarItem>:''}
           <SidebarItem as={Link} to="/admin-landing-page" icon={HiChartPie}>
             Dashboard
           </SidebarItem>
@@ -85,7 +86,7 @@ function Adminheader() {
                      inline-flex sm:hidden"
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
