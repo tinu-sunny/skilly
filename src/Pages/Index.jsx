@@ -9,11 +9,10 @@ import Auth from "../components/Auth";
 function Index() {
   return (
     <>
-    <div className="dark:bg-black "> 
-      {/* App Header */}
-      <Header />
+      <div className="dark:bg-black ">
+        {/* App Header */}
+        <Header />
 
-   
         {/* section banner */}
         <section
           className="mt-5 ml-5 mr-5 h-100 flex flex-col justify-center align-center items-center "
@@ -24,22 +23,18 @@ function Index() {
             borderRadius: "20px",
           }}
         >
-      <h1 className="text-white text-3xl sm:text-xl lg:text-5xl font-black leading-tight tracking-[-0.033em] mt-3 mb-5 sm:mb-2">
-  
-  
-            
+          <h1 className="text-white text-3xl sm:text-xl lg:text-5xl font-black leading-tight tracking-[-0.033em] mt-3 mb-5 sm:mb-2">
             Navigate Your Future with Skillly
           </h1>
           <h2 className="text-dark text-sm font-normal leading-normal mb-5 p-4 ">
-            
             Empowering students, counselors, institutions, and companies through
             comprehensive career guidance and professional networking.
           </h2>
-         <Auth/>
+          <Auth />
         </section>
-  
+
         {/* section  How skilly Works  */}
-  
+
         <section>
           <div className="flex flex-col gap-10 px-4 py-10  ">
             {/* heading */}
@@ -54,7 +49,7 @@ function Index() {
               </p>
             </div>
             {/* card section */}
-  
+
             <div className="grid   sm:grid-cols-1     md:grid-cols-2  lg:grid-cols-4  gap-3 w">
               {/* card 1 */}
               <div className="flex flex-col gap-3 pb-3">
@@ -72,13 +67,12 @@ function Index() {
                     For Students
                   </p>
                   <p className="text-[#617589] text-sm font-normal leading-normal dark:text-slate-500">
-                    
                     Students can explore career options, connect with
                     professionals, and access personalized guidance.
                   </p>
                 </div>
               </div>
-  
+
               {/* card 2 */}
               <div className="flex flex-col gap-3 pb-3">
                 {/* image section  */}
@@ -100,7 +94,7 @@ function Index() {
                   </p>
                 </div>
               </div>
-  
+
               {/* card 3 */}
               <div className="flex flex-col gap-3 pb-3">
                 {/* image section  */}
@@ -123,7 +117,7 @@ function Index() {
                   </p>
                 </div>
               </div>
-  
+
               {/* card 4 */}
               <div className="flex flex-col gap-3 pb-3">
                 {/* image section  */}
@@ -149,9 +143,9 @@ function Index() {
             </div>
           </div>
         </section>
-  
+
         {/* About section */}
-  
+
         <section>
           <div className="grid grid-cols sm:grid-cols-2 m-5 ">
             {/* Heading section */}
@@ -169,11 +163,11 @@ function Index() {
                 </h1>
                 <p className="text-[#111418] text-base font-medium leading-normal  sm:pt-1 sm:px-2 sm:font-normal sm:text-base dark:text-slate-500">
                   {" "}
-                  Skillly is a leading career guidance and professional networking
-                  platform designed to connect students, counselors, educational
-                  institutions, and companies. Our mission is to empower
-                  individuals to make informed career decisions and build
-                  meaningful professional relationships.
+                  Skillly is a leading career guidance and professional
+                  networking platform designed to connect students, counselors,
+                  educational institutions, and companies. Our mission is to
+                  empower individuals to make informed career decisions and
+                  build meaningful professional relationships.
                 </p>
               </div>
               {/* Vison */}
@@ -195,16 +189,16 @@ function Index() {
                 </h1>
                 <p className="text-[#111418] text-base font-medium leading-normal  sm:pt-1 sm:px-2 sm:font-normal sm:text-base dark:text-slate-500">
                   {" "}
-                  Integrity: We uphold the highest standards of honesty and ethics
-                  in all our interactions. Innovation: We continuously seek new
-                  and improved ways to serve our users. Collaboration: We believe
-                  in the power of working together to achieve common goals.
-                  Empowerment: We are committed to empowering individuals to take
-                  control of their career paths.
+                  Integrity: We uphold the highest standards of honesty and
+                  ethics in all our interactions. Innovation: We continuously
+                  seek new and improved ways to serve our users. Collaboration:
+                  We believe in the power of working together to achieve common
+                  goals. Empowerment: We are committed to empowering individuals
+                  to take control of their career paths.
                 </p>
               </div>
             </motion.div>
-  
+
             {/* image section */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -221,8 +215,6 @@ function Index() {
             </motion.div>
           </div>
         </section>
-  
-
 
         {/* News And update section */}
         <motion.section
@@ -243,7 +235,7 @@ function Index() {
             {/* news */}
             <div className="flex flex-wrap flex-col gap-3">
               {/* news-1 */}
-  
+
               <div className="flex flex-row justify-around flex-wrap gap-3 p-4 sm:p-0  ">
                 {/* title */}
                 <div>
@@ -271,7 +263,7 @@ function Index() {
                   />
                 </div>
               </div>
-  
+
               {/* news-2 */}
               <div className="flex flex-row justify-around flex-wrap gap-3  ">
                 {/* title */}
@@ -284,8 +276,8 @@ function Index() {
                     Career Fair 2024: Connect with Top Employers
                   </h1>
                   <p className="text-[#617589] text-sm font-normal leading-normal">
-                    Join us for our annual career fair featuring leading companies
-                    and recruiters.
+                    Join us for our annual career fair featuring leading
+                    companies and recruiters.
                   </p>
                 </div>
                 {/* image /poster  */}
@@ -303,10 +295,9 @@ function Index() {
             </div>
           </div>
         </motion.section>
-   
 
-      {/* App Footer */}
-      <AppFooter />
+        {/* App Footer */}
+        <AppFooter />
       </div>
     </>
   );
