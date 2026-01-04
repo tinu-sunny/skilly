@@ -1,5 +1,6 @@
 import { Avatar, Dropdown, DropdownDivider, DropdownHeader, DropdownItem, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function headerProfessionals() {
   return (
@@ -22,7 +23,7 @@ function headerProfessionals() {
             <span className="block text-sm">Bonnie Green</span>
             <span className="block truncate text-sm font-medium">name@flowbite.com</span>
           </DropdownHeader>
-          <DropdownItem>Dashboard</DropdownItem>
+        <Link to='/professional-profile'>  <DropdownItem>Dashboard</DropdownItem></Link>
          
           <DropdownDivider />
           <DropdownItem>Sign out</DropdownItem>

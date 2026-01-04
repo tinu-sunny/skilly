@@ -27,7 +27,7 @@ function Auth() {
   });
   //
 
-  console.log(userData);
+  // console.log(userData);
   const [errors, setErrors] = useState({});
 
   //   const todaydate = new Date()
@@ -83,11 +83,11 @@ function Auth() {
     }
 
     try {
-      console.log("userdata", userData);
+      // console.log("userdata", userData);
 
       const response = await userRegistration(userData);
 
-      console.log(response);
+      // console.log(response);
       if (response.status == 200) {
         alert(response.data.message);
         setRegPage(false);
@@ -101,7 +101,7 @@ function Auth() {
   };
 
   const [loginData, SetLoginData] = useState({ email: "", password: "" });
-  console.log(loginData);
+  // console.log(loginData);
 
   const userLogin = async () => {
     let newErrors = {};
@@ -121,7 +121,7 @@ function Auth() {
 
     try {
       const response = await loginUser(loginData);
-      console.log(response);
+      // console.log(response);
 
       if (response.status == 200) {
         switch (response.data.loginUser.role) {

@@ -16,3 +16,6 @@ export const users = async()=>{
 export const chatBot = async(reqbody,reqHeader)=>{
     return await commonAPI('POST',`${serverURL}/chat`,reqbody,reqHeader)
 }
+export const contact = async(reqbody)=>{
+    return await commonAPI('POST',`${serverURL}/contact`,reqbody)
+}

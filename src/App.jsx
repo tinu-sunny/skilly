@@ -23,6 +23,7 @@ import InstitutionDashBoard from './institution/pages/InstitutionDashBoard'
 import CompayDashboard from './company/pages/CompayDashboard'
 import CounselingBooking from './Student/pages/counselingBooking'
 import Professionalindexpage from './professional/pages/Professionalindexpage'
+import ProfessionalProfile from './professional/pages/ProfessionalProfile'
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
     {/* Career experts */}
 
     <Route path='/professional-index-page' element={<Professionalindexpage/>}/>
+    <Route path='/professional-profile' element={<ProfessionalProfile/>}/>
 
 
     {/* Page Not Found */}
