@@ -24,6 +24,7 @@ import CompayDashboard from './company/pages/CompayDashboard'
 import CounselingBooking from './Student/pages/counselingBooking'
 import Professionalindexpage from './professional/pages/Professionalindexpage'
 import ProfessionalProfile from './professional/pages/ProfessionalProfile'
+import ContactViewpage from './admin/pages/ContactViewpage'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
     <Route path='/admin-courses-workshop-management'element={<CourseandWorshopmanagement/>}/>
     <Route path='/admin-careerFields-management' element={<CareerFilelds/>}/>
     <Route path='/admin-promotion-management'element={<PromotionsManagement/>}/>
+    <Route path='/admin-contact-view'element={<ContactViewpage/>}/>
 
     {/* Student Paths */}
     <Route path='/student-Landing-page' element={<StudentLandingpage/>}/>

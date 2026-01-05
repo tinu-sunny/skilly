@@ -18,6 +18,7 @@ import {
   HiViewBoards,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { MdConnectWithoutContact } from "react-icons/md";
 
 
 function Adminheader() {
@@ -59,12 +60,13 @@ function Adminheader() {
           <SidebarItem as={Link} to="/admin-feedback-management" icon={HiInbox}>FeedBack</SidebarItem>
           <SidebarItem as={Link} to="/admin-courses-workshop-management" icon={HiTable}>Courses</SidebarItem>
           <SidebarItem as={Link} to="/admin-careerFields-management" icon={HiViewBoards}>Career Fields</SidebarItem>
+          <SidebarItem as={Link} to="/admin-contact-view" icon={MdConnectWithoutContact}>Contact</SidebarItem>
 
           <SidebarItem as={Link} to="/admin-promotion-management" icon={HiShoppingBag}>Promotions</SidebarItem>
         
         </SidebarItemGroup>
 
-        <SidebarItemGroup className="sm:mt-90  mt-60">
+        <SidebarItemGroup className="sm:mt-80  mt-50">
             <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
           {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
           <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}

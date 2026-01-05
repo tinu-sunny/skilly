@@ -121,7 +121,7 @@ function Auth() {
 
     try {
       const response = await loginUser(loginData);
-      // console.log(response);
+      console.log(response);
 
       if (response.status == 200) {
         switch (response.data.loginUser.role) {
