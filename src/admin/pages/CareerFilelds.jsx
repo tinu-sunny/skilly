@@ -62,6 +62,12 @@ function CareerFilelds() {
 ];
 
 
+
+
+
+
+
+
     // pagenation try
      const itemsPerPage = 5;  // change as needed
       const [currentPage, setCurrentPage] = useState(1);
@@ -72,6 +78,13 @@ function CareerFilelds() {
       const endIndex = startIndex + itemsPerPage;
     
       const currentItems = data.slice(startIndex, endIndex);
+
+
+
+
+
+
+
       
   return (
    <>

@@ -32,7 +32,7 @@ function StudentHeader() {
     },[])
 
     const SidebarContent = () => (
-        <Sidebar
+        <Sidebar 
           aria-label="Sidebar Navigation" 
           style={{ backgroundColor: "white", width: "200px",height:'100vh' }}
         >
@@ -82,7 +82,7 @@ function StudentHeader() {
                      inline-flex sm:hidden"
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -21,5 +21,9 @@ export const contact = async(reqbody)=>{
 }
 
 export const contactAdminView = async()=>{
-    return await commonAPI('POST',`${serverURL}/contact-admin-view`,{})
+    return await commonAPI('GET',`${serverURL}/contact-admin-view`,{})
+}
+
+export const addcarreerAPI = async(reqbody)=>{
+    return await commonAPI('POST',`${serverURL}/carrerfield-add`,reqbody,{})
 }
