@@ -61,7 +61,7 @@ function CounsellorSidebar() {
           </SidebarItem>
 
           <SidebarItem as={Link} to="/counsellor-chatapp" icon={FaMessage }>Message</SidebarItem>
-          <SidebarItem as={Link} to="" icon={MdPayments }>Payments</SidebarItem>
+          <SidebarItem as={Link} to="/counsellor-transactions" icon={MdPayments }>Payments</SidebarItem>
          
         
         </SidebarItemGroup>

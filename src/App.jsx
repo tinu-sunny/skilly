@@ -27,6 +27,7 @@ import ProfessionalProfile from './professional/pages/ProfessionalProfile'
 import ContactViewpage from './admin/pages/ContactViewpage'
 import ViewBookings from './Counsellor/Pages/ViewBookings'
 import CounsellorChatapp from './Counsellor/Pages/CounsellorChatapp'
+import Transactions from './Counsellor/Pages/Transactions'
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
     <Route path='/counsellor-dashboard' element={<DashBoard/>}/>
     <Route path='/booking-view' element={<ViewBookings/>}/>
     <Route path='/counsellor-chatapp' element={<CounsellorChatapp/>}/>
+    <Route path='/counsellor-transactions' element={<Transactions/>}/>
 
 
 
