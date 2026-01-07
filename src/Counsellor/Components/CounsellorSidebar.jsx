@@ -66,7 +66,7 @@ function CounsellorSidebar() {
         
         </SidebarItemGroup>
 
-        <SidebarItemGroup className="sm:mt-90  mt-60">
+        <SidebarItemGroup className="sm:mt-[500px]  mt-80">
             <SidebarItem as={Link} to="" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
           {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
           <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}
