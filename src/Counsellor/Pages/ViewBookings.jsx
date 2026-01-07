@@ -4,6 +4,7 @@ import { FaCheckCircle } from 'react-icons/fa'
 import { IoIosTrendingUp } from 'react-icons/io'
 import { MdEventAvailable, MdPendingActions } from 'react-icons/md'
 import { Button, Pagination } from 'flowbite-react'
+import AppFooter from '../../components/AppFooter'
 
 function ViewBookings() {
 const data = [
@@ -141,7 +142,7 @@ const data = [
     const currentItems = data.slice(startIndex, endIndex);
   return (
       <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black  ">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -154,67 +155,67 @@ const data = [
 
 <section>
   <div>
-        <h1 className='text-4xl font-bold text-[#111418] leading-tight'>Booking Management</h1>
-        <p className='text-xl font-medium text-slate-500 mt-2'>Manage your Upcoming Sessions </p>
+        <h1 className='text-4xl font-bold text-[#111418] leading-tight dark:text-white'>Booking Management</h1>
+        <p className='text-xl font-medium text-slate-500 mt-2 dark:text-white'>Manage your Upcoming Sessions </p>
   </div>
 
    {/*qucik cards  */}
                       <section>
-                          <div className='flex sm:flex-col  lg:flex-row md:flex-row gap-5 p-8 justify-evenly items-center'>
+                          <div className='flex flex-col  lg:flex-row gap-5 p-8 justify-evenly items-center'>
                               {/* Upcoming Count */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                     <div className='text-blue-700'> <MdEventAvailable /> </div>
-                                      <p className='text-[#111418]'>
+                                     <div className='text-blue-700 dark:text-white'> <MdEventAvailable /> </div>
+                                      <p className='text-[#111418] dark:text-white'>
                                           Upcoming Today
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white '>
                                       5
                                   </span>
-                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'> <IoIosTrendingUp /> <span>+2</span> from Yesterday</p>
+                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-white'> <IoIosTrendingUp /> <span>+2</span> from Yesterday</p>
                               </div>
   
                                {/* Pending Count */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
                                      <div className='text-orange-700'><MdPendingActions /> </div>
-                                      <p className='text-[#111418]'>
+                                      <p className='text-[#111418] dark:text-white'>
                                          Pending Approval
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                       8
                                   </span>
-                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'>  Requires attention</p>
+                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-white'>  Requires attention</p>
                               </div>
   
                                  {/* Completed  Count () */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                     <div className='text-green-700'><FaCheckCircle /> </div>
-                                      <p className='text-[#111418]'>
+                                     <div className='text-green-700 dark:text-white'><FaCheckCircle /> </div>
+                                      <p className='text-[#111418] dark:text-white'>
                                         completed
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                       18
                                   </span>
-                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'> <IoIosTrendingUp /><span>18%</span> increase</p>
+                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-white'> <IoIosTrendingUp /><span>18%</span> increase</p>
                               </div>
   
                                  {/* Completed  Count () */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                     <div className='text-green-700'><FaCheckCircle /> </div>
-                                      <p className='text-[#111418]'>
+                                     <div className='text-green-700 dark:text-white'><FaCheckCircle /> </div>
+                                      <p className='text-[#111418] dark:text-white'>
                                        Cancellations
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                       1
                                   </span>
-                                 <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'></p>
+                                 {/* <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'></p> */}
                               </div>
                           </div>
                       </section>
@@ -225,7 +226,7 @@ const data = [
                {/* TABLE */}
                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                  <table className="w-full text-sm text-left text-gray-600">
-                   <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-green-400">
+                   <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
                      <tr>
                        <th className="px-6 py-3">name</th>
                        <th className="px-6 py-3">date & time</th>
@@ -240,7 +241,7 @@ const data = [
                      {currentItems.map((user) => (
                        <tr
                          key={user.id}
-                         className="bg-white border-b hover:bg-gray-50 dark:bg-green-200"
+                         className="bg-white border-b hover:bg-gray-50 dark:bg-200"
                        >
                          <td className="px-6 py-4 font-medium">{user.name}</td>
                          <td className="px-6 py-4"><span>{user.date}</span><br /><span>{user.time}</span></td>
@@ -288,6 +289,9 @@ const data = [
 </div>
 
         </div>
+      </div>
+      <div>
+        <AppFooter/>
       </div>
     </>
   )

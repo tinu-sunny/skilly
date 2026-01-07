@@ -5,6 +5,7 @@ import { IoIosTrendingUp } from 'react-icons/io'
 import { MdEventAvailable, MdPendingActions } from 'react-icons/md'
 import { Button, Pagination } from 'flowbite-react'
 import { CiMoneyCheck1 } from 'react-icons/ci'
+import AppFooter from '../../components/AppFooter'
 
 function Transactions() {
     const data = [
@@ -158,7 +159,7 @@ function Transactions() {
         const currentItems = data.slice(startIndex, endIndex);
   return (
      <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black ">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -171,35 +172,35 @@ function Transactions() {
 
 <section>
   <div>
-        <h1 className='text-4xl font-bold text-[#111418] leading-tight'> Transactions</h1>
-        <p className='text-xl font-medium text-slate-500 mt-2'>Manage your Payment Transactions </p>
+        <h1 className='text-4xl font-bold text-[#111418] leading-tight dark:text-white'> Transactions</h1>
+        <p className='text-xl font-medium text-slate-500 mt-2 dark:text-white'>Manage your Payment Transactions </p>
   </div>
 
    {/*qucik cards  */}
                       <section>
-                          <div className='flex sm:flex-col  lg:flex-row md:flex-row gap-5 p-8 justify-evenly items-center'>
+                          <div className='flex  flex-wrap gap-5 p-8 justify-evenly items-center'>
                               {/* Upcoming Count */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                     <div className='text-blue-700'> <CiMoneyCheck1 /> </div>
-                                      <p className='text-[#111418]'>
+                                     <div className='text-blue-700 dark:text-white'> <CiMoneyCheck1 /> </div>
+                                      <p className='text-[#111418] dark:text-white'>
                                         Total Amount
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                       5
                                   </span>
                               </div>
   
                                {/* Pending Count */}
-                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                              <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                   <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                     <div className='text-orange-700'><MdPendingActions /> </div>
-                                      <p className='text-[#111418]'>
+                                     <div className='text-orange-700 dark:text-white'><MdPendingActions /> </div>
+                                      <p className='text-[#111418] dark:text-white'>
                                          Pending Amount
                                       </p>
                                   </div>
-                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                  <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                       8
                                   </span>
                               </div>
@@ -207,7 +208,7 @@ function Transactions() {
                           
                           </div>
 
-                          <div className='flex justify-end items-end mr-20'>
+                          <div className='flex justify-end items-end sm:mr-20'>
                           
                                 <Button>export</Button>
                           
@@ -220,7 +221,7 @@ function Transactions() {
                {/* TABLE */}
                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                  <table className="w-full text-sm text-left text-gray-600">
-                   <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-green-400">
+                   <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
                      <tr>
                        <th className="px-6 py-3">Date</th>
                        <th className="px-6 py-3">Name</th>
@@ -236,7 +237,7 @@ function Transactions() {
                      {currentItems.map((user) => (
                        <tr
                          key={user.id}
-                         className="bg-white border-b hover:bg-gray-50 dark:bg-green-200"
+                         className="bg-white border-b hover:bg-gray-100 dark:bg-gary-200"
                        >
                          <td className="px-6 py-4 font-medium">{user.date}</td>
                          <td className="px-6 py-4"><span>{user.name}</span></td>
@@ -285,6 +286,9 @@ function Transactions() {
 </div>
 
         </div>
+      </div>
+      <div>
+        <AppFooter/>
       </div>
     </>
   )

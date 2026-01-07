@@ -8,10 +8,12 @@ import { IoIosTrendingUp } from 'react-icons/io'
 import { FaAngleDoubleRight, FaCheckCircle } from 'react-icons/fa'
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import { PiUploadFill } from 'react-icons/pi'
+import AppFooter from '../../components/AppFooter'
+import { Link } from 'react-router-dom'
 function DashBoard() {
   return (
     <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col  dark:bg-black">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -22,105 +24,107 @@ function DashBoard() {
         <div className="sm:mt-5 p-5 sm:p-0 w-full ">
         
 {/* Heading */}
-                    <div className='flex flex-row justify-between items-center p-5'>
-                       <div>
-                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight'>Welcome back, <span>Name</span>. </h1>
-                        <p className='font-medium text-slate-500 leading-tight text-xl'>Here's what's happening today. </p>
+                    <div className='flex flex-row flex-wrap justify-between items-center p-5'>
+                       <div className='mb-5'>
+                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight dark:text-white'>Welcome back, <span>Name</span>. </h1>
+                        <p className='font-medium text-slate-500 leading-tight text-xl dark:text-white'>Here's what's happening today. </p>
                        </div>
 {/* view Calender And Booking Button */}
                        <div className='flex gap-5'>
-                         <Button outline ><SlCalender />View Calender</Button>
-                         <Button><IoAddSharp /> New Booking</Button>
+                         <Button outline ><SlCalender /> View Calender</Button>
+                         {/* <Button><IoAddSharp /> New Booking</Button> */}
                        </div>
                     </div>
 
                     {/*qucik cards  */}
                     <section>
-                        <div className='flex sm:flex-col  lg:flex-row md:flex-row gap-5 p-8 justify-evenly items-center'>
+                        <div className='flex flex-row flex-wrap gap-5 p-8 justify-evenly items-center'>
                             {/* Upcoming Count */}
-                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                 <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                   <div className='text-blue-700'> <MdEventAvailable /> </div>
-                                    <p className='text-[#111418]'>
+                                   <div className='text-blue-700 dark:text-white'> <MdEventAvailable /> </div>
+                                    <p className='text-[#111418] dark:text-white'>
                                         Upcoming Today
                                     </p>
                                 </div>
-                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                     5
                                 </span>
-                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'> <IoIosTrendingUp /> <span>+2</span> from Yesterday</p>
+                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-black'> <IoIosTrendingUp /> <span>+2</span> from Yesterday</p>
                             </div>
 
                              {/* Pending Count */}
-                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                 <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
                                    <div className='text-orange-700'><MdPendingActions /> </div>
-                                    <p className='text-[#111418]'>
+                                    <p className='text-[#111418] dark:text-white'>
                                        Pending Approval
                                     </p>
                                 </div>
-                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                     8
                                 </span>
-                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'>  Requires attention</p>
+                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-black'>  Requires attention</p>
                             </div>
 
                                {/* Completed  Count () */}
-                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                 <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                   <div className='text-green-700'><FaCheckCircle /> </div>
-                                    <p className='text-[#111418]'>
+                                   <div className='text-green-700 dark:text-white'><FaCheckCircle /> </div>
+                                    <p className='text-[#111418] dark:text-white'>
                                       completed
                                     </p>
                                 </div>
-                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                     18
                                 </span>
-                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'> <IoIosTrendingUp /><span>18%</span> increase</p>
+                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-black'> <IoIosTrendingUp /><span>18%</span> increase</p>
                             </div>
 
                                {/* Completed  Count () */}
-                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
+                            <div className='bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
                                 <div className='flex  justify-Start items-center gap-2 text-[18px] font-medium'>
-                                   <div className='text-green-700'><FaCheckCircle /> </div>
-                                    <p className='text-[#111418]'>
+                                   <div className='text-green-700 dark:text-white'><FaCheckCircle /> </div>
+                                    <p className='text-[#111418] dark:text-white'>
                                      Cancellations
                                     </p>
                                 </div>
-                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex'>
+                                <span className='text-slate-800 font-medium text-[18px] items-center justify-Start flex dark:text-white'>
                                     1
                                 </span>
-                               <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2'></p>
+                               {/* <p className='text-[18px] text-green-700 flex items-center justify-Start gap-2 dark:text-black'></p> */}
                             </div>
                         </div>
                     </section>
 {/* 2 70%/30% */}
                     <section>
                         {/* 100% */}
-                              <div className='w-full flex  justify-center gap-5'>
+                              <div className='w-full flex flex-col lg:flex-row justify-center gap-5 '>
                                  {/* upcoming section 60% */}
-                                 <div className='w-[60%] bg-gray-300 rounded-2xl h-105'>
+                                 <div className='sm:w-[60%] lg-w-full bg-gray-300 rounded-2xl h-105 dark:bg-blue-500'>
                                        <div className='flex justify-between items-center p-5 '>
-                                        <h1 className='font-bold text-[#111418] leading-tight  text-2xl'>Upcoming Sessions</h1>
-                                        <Button>
-                                            View All<FaAngleDoubleRight />
-                                        </Button>
+                                        <h1 className='font-bold text-[#111418] leading-tight  text-2xl dark:text-white'>Upcoming Sessions</h1>
+                                       <Link to={'/booking-view'}>
+                                          <Button>
+                                              View All<FaAngleDoubleRight />
+                                          </Button>
+                                       </Link>
                                        </div>
                                        <hr />
                                        {/* table */}
-                                        <div className="overflow-x-auto w-full px-2 py-1">
+                                        <div className="overflow-x-auto w-full px-2 py-1 h-75">
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Name</TableHeadCell>
-            <TableHeadCell>Time</TableHeadCell>
-            <TableHeadCell>Type</TableHeadCell>
-            <TableHeadCell>Action</TableHeadCell>
+            <TableHeadCell className='dark:text-white'>Name</TableHeadCell>
+            <TableHeadCell className='dark:text-white'>Time</TableHeadCell>
+            <TableHeadCell className='dark:text-white'>Type</TableHeadCell>
+            <TableHeadCell className='dark:text-white'>Action</TableHeadCell>
           
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          <TableRow className="bg-white dark:border-gray-700 ">
+          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-300 dark:hover:bg-white  ">
             <TableCell className="whitespace-nowrap font-medium text-gray-900">
            Emma Roberts <br/> <span>Career Guidance</span>
             </TableCell>
@@ -133,7 +137,7 @@ function DashBoard() {
               </Button>
             </TableCell>
           </TableRow>
-            <TableRow className="bg-white dark:border-gray-700 ">
+            <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-300 dark:hover:bg-white ">
             <TableCell className="whitespace-nowrap font-medium text-gray-900">
            Emma Roberts <br/> <span>Career Guidance</span>
             </TableCell>
@@ -146,8 +150,8 @@ function DashBoard() {
               </Button>
             </TableCell>
           </TableRow>
-            <TableRow className="bg-white dark:border-gray-700 ">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900">
+            <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-300  dark:hover:bg-white ">
+            <TableCell className="whitespace-nowrap font-medium text-gray-900 ">
            Emma Roberts <br/> <span>Career Guidance</span>
             </TableCell>
             <TableCell>10:00 AM<br/> <span>60 mins</span></TableCell>
@@ -159,8 +163,8 @@ function DashBoard() {
               </Button>
             </TableCell>
           </TableRow>
-            <TableRow className="bg-white dark:border-gray-700 ">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900">
+            <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-300 dark:hover:bg-white ">
+            <TableCell className="whitespace-nowrap font-medium text-gray-900 ">
            Emma Roberts <br/> <span>Career Guidance</span>
             </TableCell>
             <TableCell>10:00 AM<br/> <span>60 mins</span></TableCell>
@@ -178,29 +182,27 @@ function DashBoard() {
       </Table>
       
     </div>
-    
-  
                                  </div>
 
                                  {/* 40% */}
-                                 <div className='w-[40%] flex gap-5 flex-col'>
+                                 <div className=' lg:w-[40%] w-full flex gap-5 flex-col'>
                                     {/* quick ction */}
-                                      <div className='bg-gray-200 h-105 w-[90%] rounded-2xl p-10'>
-                                        <h3 className=' text-2xl font-bold leading-tight mb-2 text-center '>Quick Actions</h3>
-                                        <div className='grid grid-cols-2 gap-5 py-5 px-10 w-full'>
-                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center '>
+                                      <div className='bg-gray-200 h-105 sm:w-[90%] rounded-2xl p-10 dark:bg-blue-500 '>
+                                        <h3 className=' text-2xl font-bold leading-tight mb-2 text-center dark:text-white '>Quick Actions</h3>
+                                        <div className='grid grid-cols-2 gap-5 py-5  w-full'>
+                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center dark:bg-gray-300 dark:hover:bg-white '>
                                                 <span><MdEditCalendar /></span>
                                                 <p>Availability</p>
                                             </div>
-                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center '>
+                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center dark:bg-gray-300 dark:hover:bg-white '>
                                                 <span><IoPersonAddSharp /></span>
                                                 <p>Student</p>
                                             </div>
-                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center '>
+                                            <div className='bg-white rounded-xl p-2 h-30 flex flex-col items-center justify-center dark:bg-gray-300 dark:hover:bg-white '>
                                                 <span><MdNoteAdd /></span>
                                                 <p>Log Note</p>
                                             </div>
-                                            <div className='bg-white rounded-xl p-2 flex flex-col items-center justify-center h-30'>
+                                            <div className='bg-white rounded-xl p-2 flex flex-col items-center justify-center h-30 dark:bg-gray-300 dark:hover:bg-white'>
                                                 <PiUploadFill />
                                                 <p>Resources</p>
                                             </div>
@@ -210,7 +212,12 @@ function DashBoard() {
                                  </div>
                               </div>
                     </section>
+                    
         </div>
+    
+      </div>
+          <div>
+        <AppFooter/>
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CounsellorSidebar from "../Components/CounsellorSidebar";
-import { Button } from "flowbite-react";
+import { Button, TextInput } from "flowbite-react";
+import AppFooter from "../../components/AppFooter";
 
 
 
@@ -60,7 +61,7 @@ function CounsellorChatApp() {
   return (
 
     <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col  dark:bg-black">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -68,30 +69,30 @@ function CounsellorChatApp() {
         </div>
 
         {/* dashbord content  */}
-        <div className="w-full ">
+        <div className="w-full  ">
         
 
 
- <div className="h-screen flex bg-gray-100">
+ <div className="h-screen flex bg-gray-100 ">
 
       {/* LEFT SIDEBAR */}
       <div
-        className={`w-full md:w-1/4 bg-white border-r
+        className={`w-full md:w-1/4 bg-white border-r dark:bg-black
         ${showChat ? "hidden md:block" : "block"}`}
       >
         <div className="p-4">
-          <input
+          <TextInput
             type="text"
             placeholder="Search students..."
-            className="w-full border rounded-lg px-3 py-2"
+            className="w-full "
           />
         </div>
 
         <div className="flex gap-2 px-4 mb-2">
-          <button className="px-3 py-1 bg-blue-500 text-white rounded-md text-sm">
+          <button className="px-3 py-1 bg-blue-500 text-white rounded-md text-sm dark:text-white">
             Active
           </button>
-          <button className="px-3 py-1 border rounded-md text-sm">
+          <button className="px-3 py-1 border rounded-md text-sm dark:text-white">
             Archived
           </button>
         </div>
@@ -103,15 +104,15 @@ function CounsellorChatApp() {
               setSelectedStudent(student);
               setShowChat(true);
             }}
-            className={`flex justify-between items-center px-4 py-3 cursor-pointer hover:bg-gray-100 ${
-              selectedStudent.id === student.id && "bg-blue-50"
+            className={`flex justify-between items-center px-4 py-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-blue-300 ${
+              selectedStudent.id === student.id && "bg-blue-500"
             }`}
           >
             <div>
-              <p className="font-medium">{student.name}</p>
-              <p className="text-xs text-gray-500">{student.lastMessage}</p>
+              <p className="font-medium dark:text-white">{student.name}</p>
+              <p className="text-xs text-gray-500 dark:text-white">{student.lastMessage}</p>
             </div>
-            <span className="text-xs text-blue-500">{student.time}</span>
+            <span className="text-xs text-blue-500 dark:text-white">{student.time}</span>
           </div>
         ))}
       </div>
@@ -123,7 +124,7 @@ function CounsellorChatApp() {
       >
 
         {/* HEADER */}
-        <div className="bg-white border-b px-6 py-4 flex justify-between items-center">
+        <div className="bg-white border-b px-6 py-4 flex justify-between items-center dark:bg-black">
           <div className="flex items-center gap-3">
             {/* Back Button - Mobile only */}
             <Button
@@ -134,21 +135,21 @@ function CounsellorChatApp() {
             </Button>
 
             <div>
-              <h2 className="font-semibold">{selectedStudent.name}</h2>
-              <p className="text-sm text-gray-500">
+              <h2 className="font-semibold dark:text-white">{selectedStudent.name}</h2>
+              <p className="text-sm text-gray-500 dark:text-white">
                 {selectedStudent.grade} • Session in Progress
               </p>
             </div>
           </div>
 
-          <button className="border px-3 py-1 rounded-md text-sm">
+          <button className="border px-3 py-1 rounded-md text-sm dark:text-white">
             View Profile
           </button>
         </div>
 
         {/* MESSAGES */}
-        <div className="flex-1 p-6 overflow-y-auto bg-gray-50">
-          <div className="text-center text-xs text-gray-400 mb-4">
+        <div className="flex-1 p-6 overflow-y-auto bg-gray-50 dark:bg-black">
+          <div className="text-center text-xs text-gray-400 mb-4 dark:text-white">
             Today
           </div>
 
@@ -182,13 +183,13 @@ function CounsellorChatApp() {
         </div>
 
         {/* INPUT */}
-        <div className="p-4 bg-white border-t flex gap-2">
-          <input
+        <div className="p-4 bg-white border-t flex gap-2 dark:bg-black">
+          <TextInput
             value={message}
             onChange={e => setMessage(e.target.value)}
             onKeyDown={e => e.key === "Enter" && sendMessage()}
             placeholder="Type a message..."
-            className="flex-1 border rounded-lg px-4 py-2"
+            className="flex-1"
           />
           <button
             onClick={sendMessage}
@@ -204,6 +205,9 @@ function CounsellorChatApp() {
 
         </div>
       </div>
+      {/* <div>
+        <AppFooter/>
+      </div> */}
     </>
     
   );
