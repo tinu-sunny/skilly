@@ -56,18 +56,18 @@ function CounsellorSidebar() {
             Dashboard
           </SidebarItem>
 
-          <SidebarItem as={Link} to="/" icon={MdEditCalendar }>
+          <SidebarItem as={Link} to="/booking-view" icon={MdEditCalendar }>
          Bookings
           </SidebarItem>
 
-          <SidebarItem as={Link} to="/" icon={FaMessage }>Message</SidebarItem>
-          <SidebarItem as={Link} to="/" icon={MdPayments }>Payments</SidebarItem>
+          <SidebarItem as={Link} to="" icon={FaMessage }>Message</SidebarItem>
+          <SidebarItem as={Link} to="" icon={MdPayments }>Payments</SidebarItem>
          
         
         </SidebarItemGroup>
 
         <SidebarItemGroup className="sm:mt-90  mt-60">
-            <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
+            <SidebarItem as={Link} to="" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
           {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
           <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}
 

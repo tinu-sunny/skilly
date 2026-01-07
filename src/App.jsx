@@ -25,6 +25,7 @@ import CounselingBooking from './Student/pages/counselingBooking'
 import Professionalindexpage from './professional/pages/Professionalindexpage'
 import ProfessionalProfile from './professional/pages/ProfessionalProfile'
 import ContactViewpage from './admin/pages/ContactViewpage'
+import ViewBookings from './Counsellor/Pages/ViewBookings'
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
     {/* counselors path */}
 
     <Route path='/counsellor-dashboard' element={<DashBoard/>}/>
+    <Route path='/booking-view' element={<ViewBookings/>}/>
 
 
 

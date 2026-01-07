@@ -16,7 +16,7 @@ function StudentCareer() {
                   </div>
                             
                             {/* DashBoard content */}
-                  <div className='p-10 w-full sm:ml-50'>
+                  <div className='p-10 w-full'>
                   
                   {/* welcome message with name */}
                   <section className='mb-8'>
