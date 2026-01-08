@@ -30,6 +30,7 @@ import CounsellorChatapp from './Counsellor/Pages/CounsellorChatapp'
 import Transactions from './Counsellor/Pages/Transactions'
 import CourseManagement from './institution/pages/CourseManagement'
 import WorkshopInstitution from './institution/pages/WorkshopInstitution'
+import Enquiries from './institution/pages/Enquiries'
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
     <Route path='/institution-dashboard' element={<InstitutionDashBoard/>}/>
     <Route path='/institution-Course-management' element={<CourseManagement/>}/>
     <Route path='/institution-workshop-management' element={<WorkshopInstitution/>}/>
+    <Route path='/institution-enduiries-management' element={<Enquiries/>}/>
     
     {/* Company */}
     <Route path='/company-dashboard' element={<CompayDashboard/>}/>
