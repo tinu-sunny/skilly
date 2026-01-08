@@ -52,7 +52,7 @@ function InstitutionSidebar() {
 
 
           <SidebarItem as={Link} to="/institution-Course-management" icon={HiTable}>Courses</SidebarItem>
-          <SidebarItem as={Link} to="/" icon={HiViewBoards}>WorkShops</SidebarItem>
+          <SidebarItem as={Link} to="/institution-workshop-management" icon={HiViewBoards}>WorkShops</SidebarItem>
           <SidebarItem as={Link} to="/" icon={ HiInbox}>Enquiries</SidebarItem>
 
           <SidebarItem as={Link} to="/" icon={HiShoppingBag}>Promotions</SidebarItem>

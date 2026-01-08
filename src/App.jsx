@@ -29,6 +29,7 @@ import ViewBookings from './Counsellor/Pages/ViewBookings'
 import CounsellorChatapp from './Counsellor/Pages/CounsellorChatapp'
 import Transactions from './Counsellor/Pages/Transactions'
 import CourseManagement from './institution/pages/CourseManagement'
+import WorkshopInstitution from './institution/pages/WorkshopInstitution'
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
     {/*Institution  */}
     <Route path='/institution-dashboard' element={<InstitutionDashBoard/>}/>
     <Route path='/institution-Course-management' element={<CourseManagement/>}/>
+    <Route path='/institution-workshop-management' element={<WorkshopInstitution/>}/>
     
     {/* Company */}
     <Route path='/company-dashboard' element={<CompayDashboard/>}/>
