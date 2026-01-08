@@ -11,11 +11,12 @@ import { PiUploadFill } from 'react-icons/pi'
 import InstitutionSidebar from '../Components/InstitutionSidebar'
 import { BiSolidMessage } from 'react-icons/bi'
 import { FaBook, FaCreditCard, FaUserPlus } from 'react-icons/fa6'
+import AppFooter from '../../components/AppFooter'
 
 function InstitutionDashBoard() {
   return (
     <>
-      <div className="flex sm:flex-row flex-col  ">
+      <div className="flex sm:flex-row flex-col dark:bg-black  ">
         {/* header */}
         <div className="w-80">
           {" "}
@@ -28,55 +29,55 @@ function InstitutionDashBoard() {
 {/* Heading */}
                     <div className='p-5'>
                        <div>
-                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight'>Welcome back, <span>Institution Name</span>. </h1>
-                        <p className='font-medium text-slate-500 leading-tight text-xl'>Here's what's happening at your institution today. </p>
+                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight dark:text-white'>Welcome back, <span>Institution Name</span>. </h1>
+                        <p className='font-medium text-slate-500 leading-tight text-xl dark:text-white'>Here's what's happening at your institution today. </p>
                        </div>
 
                     </div>
 
                     {/*qucik cards  */}
                     <section>
-                        <div className='flex sm:flex-col  lg:flex-row md:flex-row gap-5 p-8 justify-evenly items-center'>
+                        <div className='flex  flex-wrap gap-5 p-8 justify-evenly items-center'>
                             {/* Total Enquiries */}
-                            <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
-                                <div className=' text-[18px] font-medium'>
+                            <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
+                                <div className=' text-[18px] font-medium dark:text-white'>
                                    <h1>Total Enquiries</h1>
-                                   <p className='text-slate-800'>125</p>
+                                   <p className='text-slate-800 dark:text-white'>125</p>
                                 </div>
-                                   <div className='text-blue-700 text-4xl'> <BiSolidMessage /></div>
+                                   <div className='text-blue-700 text-4xl dark:text-white'> <BiSolidMessage /></div>
 
                       
                             </div>
 
                              {/*  Active course */}
-                       <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
-                                <div className=' text-[18px] font-medium'>
+                       <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
+                                <div className=' text-[18px] font-medium dark:text-white'>
                                    <h1>Active course</h1>
-                                   <p className='text-slate-800'>15</p>
+                                   <p className='text-slate-800 dark:text-white'>15</p>
                                 </div>
-                                   <div className='text-blue-700 text-4xl'> <FaBook /></div>
+                                   <div className='text-blue-700 text-4xl dark:text-white'> <FaBook /></div>
 
                       
                             </div>
 
                                {/* Pending Applicants */}
-                         <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
-                                <div className=' text-[18px] font-medium'>
+                         <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
+                                <div className=' text-[18px] font-medium dark:text-white'>
                                    <h1>Pending Applicants</h1>
-                                   <p className='text-slate-800'>25</p>
+                                   <p className='text-slate-800 dark:text-white'>25</p>
                                 </div>
-                                   <div className='text-blue-700 text-4xl'> <FaUserPlus /></div>
+                                   <div className='text-blue-700 text-4xl dark:text-white'> <FaUserPlus /></div>
 
                       
                             </div>
 
                                {/*Monthly revenue */}
-                               <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35'>
-                                <div className=' text-[18px] font-medium'>
+                               <div className='flex  flex-row gap-5 items-center justify-between bg-gray-200 rounded-2xl p-5 shadow-2xl w-70 h-35 dark:bg-blue-500'>
+                                <div className=' text-[18px] font-medium dark:text-white'>
                                    <h1>Monthly revenue </h1>
-                                   <p className='text-slate-800'>125</p>
+                                   <p className='text-slate-800 dark:text-white'>125</p>
                                 </div>
-                                   <div className='text-blue-700 text-4xl'><FaCreditCard /></div>
+                                   <div className='text-blue-700 text-4xl dark:text-white'><FaCreditCard /></div>
 
                       
                             </div>
@@ -84,90 +85,87 @@ function InstitutionDashBoard() {
                         </div>
                     </section>
 {/* 2 70%/30% */}
-                    <section>
-                        {/* 100% */}
-                              <div className='w-full flex  justify-center gap-5'>
-                                 {/*quick 60% */}
-                                 <div className='w-[80%]  rounded-2xl h-105'>
-                                 <h1 className='text-3xl font-bold  ml-5'>Quick Access</h1>
-                                <div className='grid grid-cols-2 gap-5 p-5 text-center justify-evenly items-center w-full h-full'>
-                                      <div className=' text-white h-40  rounded-2xl p-5 text-start ' style={{backgroundImage:`url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDVIK8kxtjASrAr3y8JReW6oSswdXyaiZjNsp7EWDeZ_rYwGuzavaSb1QvKm1orx9TNcGAMOLGfEQOIRn2-dD-s3_AVDTTdvvJYQo8AFE7dVNnDwS9reRSi1H-r0tqb2T8Dba9AbAkAX1Ft6dZqhfUi7qKDOgsK6VlZmKTmfh87m3dWIVyI_ZhvEt4GC3wHVaxLxI__oJctILyf3jfCpu_XDYL52PdEwRebjfynXejr-40RvT9_Y8WmNYkFv7JhaapsDCb5bFdqbY")`, backgroundRepeat:"no-repeat", backgroundSize:"cover",backgroundPosition:"center" ,  opacity: 0.9}}>
-                                        <p className='text-black font-medium text-xl mt-10'>course Management</p>
-                                      </div>
-                                       <div className=' text-white h-40  rounded-2xl p-5 text-start ' style={{backgroundImage:`url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1CsEEcWbotGnLdYxBeKxFehVQseTInQjJiCFCoeu6DNuMq9nwC2J9RJu0JRB9maRKqHl6JlxAF7ok2thGMIdl6IeY-cmu6eSW1UQnvrNUi_NR_tL9AlcHIY-OLMeWWLi_vsP7tI0L3LmqXtdmfZqNQ0HAU5Cwk8wqjHdjZ9HFFELE5rkdFpcSKOp7kyAHUT92i7G47L-WNsEUYSPz0m4qlTbQk4CMDZfMCnB444H4V2lVcuYYJcA6O085uCBGaBA4aPiE36nGoeA")`, backgroundRepeat:"no-repeat", backgroundSize:"cover",backgroundPosition:"center",opacity:0.9}}>
-                                     <p className='text-black font-medium text-xl mt-10'> Enquiries &amp; Bookings</p>
-                                      </div>
-                                       <div className=' text-white h-40  rounded-2xl p-5 text-start ' style={{backgroundImage:`url("https://lh3.googleusercontent.com/aida-public/AB6AXuC60tC-h5zTPKQZRo7rA-lVZf3qcunrZcdBYnM-zqCTND4-1QJ31qENBeFBIHrPxBMICNmzMFk2Ytlb4esCcQ2nwMB9ozA8S4kEmq2ApOT45VH5D5WLO4ZB3Ki3IFD3S0_KsvUzVGkLRxN9iAniYWvZkN36f13_ZG5ayAYjJ_pTN7J7y0CDZpVouy0GfPFF3I7Ka5OJBcH1Og8qc9gO6ECnA1JWC0iSqNQhFe5288DN43xWOWQmJp2-bDklMX2lLtiGvm3qHIe01KU")`, backgroundRepeat:"no-repeat", backgroundSize:"cover",backgroundPosition:"center",opacity: 0.9}}>
-                                       <p className='text-black font-medium text-xl mt-10'>Promotions</p>
-                                      </div>
-                                       <div className=' text-white h-40  rounded-2xl p-5 text-start ' style={{backgroundImage:`url("https://lh3.googleusercontent.com/aida-public/AB6AXuCe7kp2OYAjJ2O0mMFsMX4IPl1LXb2STLB8UkbqE9o83iXKY-caFg4n9l-ZoHcoguJi38wnvNz1_wktWkfRJWzO4e-pfVaCeqHTzlIWg2u0dYjU8WYOQktl37B4DRL2vzojuLLM5Ff9p8Hl5VcgzJ4nPH3xTfmsGRmoChp3AeMwNAON26GMbzekVgkh20HqIQFDiIBI_KZ8jvoRKl5EqmBihNMYq9-ZOmo1KSkT_IN2Jt6zJ-LX5R4comlMG1PBNFztaScBjzW8tpM")`, backgroundRepeat:"no-repeat", backgroundSize:"cover",backgroundPosition:"center",opacity: 0.9}}>
-                                        <p className='text-black font-medium text-xl mt-10'>Faculty Management</p>
-                                      </div>
-                                </div>
-  
-                                 </div>
+                   <section className="w-full px-4">
+  <div className="w-full flex flex-col lg:flex-row justify-center gap-6">
 
-                                 {/* 40% */}
-                                 <div className='w-[20%] flex gap-5 flex-col'>
-                                    {/*recent enquiries*/}
-                                      <div className='bg-gray-200 h-105 w-[90%] rounded-2xl '>
-                                        {/* Heading */}
-                                          <div className='text-center'>
-                                            <h1 className=' font-bold text-xl mt-5 '>Recent Equiries  </h1>  
-                                          </div>
-                                          {/* enquiries */}
-                                         <div className='flex flex-col p-5 gap-5 '>
-                                          {/*  */}
-                                            <div className='flex justify-between items-center'>
-                                              <div className='flex flex-col'>
-                                                <p className='font-medium tracking-tight leading-tight'>name</p>
-                                                <p className='text-slate-600 font-medium leading-tight'>course</p>
-                                              </div>
-                                              <div className='font-bold leading-tight rounded-2xl bg-gray-100 p-3'>status</div>
-                                            </div>
+    {/* QUICK ACCESS */}
+    <div className="w-full lg:w-[80%] rounded-2xl">
+      <h1 className="text-2xl sm:text-3xl font-bold ml-2 sm:ml-5 mb-4 dark:text-white">
+        Quick Access
+      </h1>
 
-                                            {/*  */}
-                                             <div className='flex justify-between items-center'>
-                                              <div className='flex flex-col'>
-                                                <p className='font-medium tracking-tight leading-tight'>name</p>
-                                                <p className='text-slate-600 font-medium leading-tight'>course</p>
-                                              </div>
-                                              <div className='font-bold leading-tight rounded-2xl bg-gray-100 p-3'>status</div>
-                                            </div>
-                                            
-                                            {/*  */}
-                                              <div className='flex justify-between items-center'>
-                                              <div className='flex flex-col'>
-                                                <p className='font-medium tracking-tight leading-tight'>name</p>
-                                                <p className='text-slate-600 font-medium leading-tight'>course</p>
-                                              </div>
-                                              <div className='font-bold leading-tight rounded-2xl bg-gray-100 p-3'>status</div>
-                                            </div>
-                                            {/*  */}
-                                             <div className='flex justify-between items-center'>
-                                              <div className='flex flex-col'>
-                                                <p className='font-medium tracking-tight leading-tight'>name</p>
-                                                <p className='text-slate-600 font-medium leading-tight'>course</p>
-                                              </div>
-                                              <div className='font-bold leading-tight rounded-2xl bg-gray-100 p-3'>status</div>
-                                            </div>
-                                            {/*  */}
-                                             <div className='flex justify-between items-center'>
-                                              <div className='flex flex-col'>
-                                                <p className='font-medium tracking-tight leading-tight'>name</p>
-                                                <p className='text-slate-600 font-medium leading-tight'>course</p>
-                                              </div>
-                                              <div className='font-bold leading-tight rounded-2xl bg-gray-100 p-3'>status</div>
-                                            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 p-2 sm:p-5">
 
-                                         </div>
-                                                <div className=' border-2 text-center rounded-3xl bg-transparent hover:bg-amber-50 text-black font-bold shadow-2xl'>  <button>View All</button></div>
-                                      </div>
-                                    
-                                 </div>
-                              </div>
-                    </section>
+        {[
+          {
+            title: "Course Management",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmY-fXa83-F0Bs6X0TkwtAd38uJIQICXSK4g&s",
+          },
+          {
+            title: "Enquiries & Bookings",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1CsEEcWbotGnLdYxBeKxFehVQseTInQjJiCFCoeu6DNuMq9nwC2J9RJu0JRB9maRKqHl6JlxAF7ok2thGMIdl6IeY-cmu6eSW1UQnvrNUi_NR_tL9AlcHIY-OLMeWWLi_vsP7tI0L3LmqXtdmfZqNQ0HAU5Cwk8wqjHdjZ9HFFELE5rkdFpcSKOp7kyAHUT92i7G47L-WNsEUYSPz0m4qlTbQk4CMDZfMCnB444H4V2lVcuYYJcA6O085uCBGaBA4aPiE36nGoeA",
+          },
+          {
+            title: "Promotions",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC60tC-h5zTPKQZRo7rA-lVZf3qcunrZcdBYnM-zqCTND4-1QJ31qENBeFBIHrPxBMICNmzMFk2Ytlb4esCcQ2nwMB9ozA8S4kEmq2ApOT45VH5D5WLO4ZB3Ki3IFD3S0_KsvUzVGkLRxN9iAniYWvZkN36f13_ZG5ayAYjJ_pTN7J7y0CDZpVouy0GfPFF3I7Ka5OJBcH1Og8qc9gO6ECnA1JWC0iSqNQhFe5288DN43xWOWQmJp2-bDklMX2lLtiGvm3qHIe01KU",
+          },
+          {
+            title: "Faculty Management",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCe7kp2OYAjJ2O0mMFsMX4IPl1LXb2STLB8UkbqE9o83iXKY-caFg4n9l-ZoHcoguJi38wnvNz1_wktWkfRJWzO4e-pfVaCeqHTzlIWg2u0dYjU8WYOQktl37B4DRL2vzojuLLM5Ff9p8Hl5VcgzJ4nPH3xTfmsGRmoChp3AeMwNAON26GMbzekVgkh20HqIQFDiIBI_KZ8jvoRKl5EqmBihNMYq9-ZOmo1KSkT_IN2Jt6zJ-LX5R4comlMG1PBNFztaScBjzW8tpM",
+          },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="h-40 rounded-2xl p-5 flex items-end text-black font-semibold text-lg shadow-md"
+            style={{
+              backgroundImage: `url(${item.img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <p className='text-[#11418]'>{item.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* RECENT ENQUIRIES */}
+    <div className="w-full lg:w-[25%] flex justify-center">
+      <div className="bg-gray-200 w-full lg:w-[90%] rounded-2xl p-4 flex flex-col dark:bg-blue-500">
+        <h1 className="text-center font-bold text-lg mb-4 dark:text-white">
+          Recent Enquiries
+        </h1>
+
+        <div className="flex flex-col gap-4 overflow-y-auto max-h-[350px]">
+          {[1, 2, 3, 4].map((_, i) => (
+            <div
+              key={i}
+              className="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm"
+            >
+              <div>
+                <p className="font-medium leading-tight">Name</p>
+                <p className="text-sm text-gray-500">Course</p>
+              </div>
+              <span className="px-3 py-1 text-sm rounded-full bg-gray-100 font-semibold">
+                Status
+              </span>
+            </div>
+          ))}
         </div>
+
+        <button className="mt-4 border rounded-full py-2 font-bold hover:bg-amber-50 transition">
+          View All
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+        </div>
+      </div>
+
+      <div>
+        <AppFooter/>
       </div>
     </>
   )

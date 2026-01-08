@@ -51,7 +51,7 @@ function InstitutionSidebar() {
           </SidebarItem>
 
 
-          <SidebarItem as={Link} to="/" icon={HiTable}>Courses</SidebarItem>
+          <SidebarItem as={Link} to="/institution-Course-management" icon={HiTable}>Courses</SidebarItem>
           <SidebarItem as={Link} to="/" icon={HiViewBoards}>WorkShops</SidebarItem>
           <SidebarItem as={Link} to="/" icon={ HiInbox}>Enquiries</SidebarItem>
 
@@ -80,7 +80,7 @@ function InstitutionSidebar() {
                      inline-flex sm:hidden"
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

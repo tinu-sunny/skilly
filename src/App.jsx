@@ -28,6 +28,7 @@ import ContactViewpage from './admin/pages/ContactViewpage'
 import ViewBookings from './Counsellor/Pages/ViewBookings'
 import CounsellorChatapp from './Counsellor/Pages/CounsellorChatapp'
 import Transactions from './Counsellor/Pages/Transactions'
+import CourseManagement from './institution/pages/CourseManagement'
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
 
     {/*Institution  */}
     <Route path='/institution-dashboard' element={<InstitutionDashBoard/>}/>
+    <Route path='/institution-Course-management' element={<CourseManagement/>}/>
     
     {/* Company */}
     <Route path='/company-dashboard' element={<CompayDashboard/>}/>
