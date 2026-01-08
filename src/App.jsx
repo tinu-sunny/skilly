@@ -31,6 +31,7 @@ import Transactions from './Counsellor/Pages/Transactions'
 import CourseManagement from './institution/pages/CourseManagement'
 import WorkshopInstitution from './institution/pages/WorkshopInstitution'
 import Enquiries from './institution/pages/Enquiries'
+import PromotionAdd from './institution/pages/PromotionAdd'
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
     <Route path='/institution-Course-management' element={<CourseManagement/>}/>
     <Route path='/institution-workshop-management' element={<WorkshopInstitution/>}/>
     <Route path='/institution-enduiries-management' element={<Enquiries/>}/>
+    <Route path='/institution-promotionadd-management' element={<PromotionAdd/>}/>
     
     {/* Company */}
     <Route path='/company-dashboard' element={<CompayDashboard/>}/>

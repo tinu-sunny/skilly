@@ -55,7 +55,7 @@ function InstitutionSidebar() {
           <SidebarItem as={Link} to="/institution-workshop-management" icon={HiViewBoards}>WorkShops</SidebarItem>
           <SidebarItem as={Link} to="/institution-enduiries-management" icon={ HiInbox}>Enquiries</SidebarItem>
 
-          <SidebarItem as={Link} to="/" icon={HiShoppingBag}>Promotions</SidebarItem>
+          <SidebarItem as={Link} to="/institution-promotionadd-management" icon={HiShoppingBag}>Promotions</SidebarItem>
         
         </SidebarItemGroup>
 

@@ -28,7 +28,7 @@ function Professionalindexpage() {
                 <h1 className='text-[#111418] font-bold text-start shadow-2xl'>Your profile</h1>
                <div className="w-20 h-20 rounded-full overflow-hidden ml-20 shadow-2xl" >
   <img
-    src="https://mythemeshop.com/wp-content/themes/mts19/images/testimonials/Ryan-360x290.jpg"
+    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
     alt="user"
     className="w-full h-full object-cover"
   />
