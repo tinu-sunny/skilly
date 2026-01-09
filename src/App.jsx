@@ -32,6 +32,8 @@ import CourseManagement from './institution/pages/CourseManagement'
 import WorkshopInstitution from './institution/pages/WorkshopInstitution'
 import Enquiries from './institution/pages/Enquiries'
 import PromotionAdd from './institution/pages/PromotionAdd'
+import JobAddPage from './company/pages/JobAddPage'
+import CandidatesView from './company/pages/CandidatesView'
 
 
 function App() {
@@ -81,6 +83,8 @@ function App() {
     
     {/* Company */}
     <Route path='/company-dashboard' element={<CompayDashboard/>}/>
+    <Route path='/company-job-add' element={<JobAddPage/>}/>
+    <Route path='/company-candidates-view' element={<CandidatesView/>}/>
 
     {/* Career experts */}
 

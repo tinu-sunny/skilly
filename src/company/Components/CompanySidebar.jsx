@@ -49,9 +49,9 @@ function CompanySidebar() {
               <SidebarItem as={Link} to="/company-dashboard" icon={HiChartPie}>
                 Dashboard
               </SidebarItem>
-              <SidebarItem as={Link} to="/" icon={IoBag}>Jobs</SidebarItem>
+              <SidebarItem as={Link} to="/company-job-add" icon={IoBag}>Jobs</SidebarItem>
     
-              <SidebarItem as={Link} to="/" icon={IoPeople}>
+              <SidebarItem as={Link} to="/company-candidates-view" icon={IoPeople}>
              Candidates
               </SidebarItem>
               <SidebarItem as={Link} to="/" icon={IoBag}> Schedule Interview</SidebarItem>
