@@ -1,4 +1,5 @@
- import { Button,
+import {
+  Button,
   Sidebar,
   SidebarItem,
   SidebarItemGroup,
@@ -20,59 +21,73 @@ import { IoBag, IoPeople } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 function CompanySidebar() {
-    const [isMobile, setIsMobile] = useState(false);
-      const [open, setOpen] = useState(false);
-    
-      const checkScreen = () => {
-        if (window.innerWidth < 768) {
-          setIsMobile(true);
-          setOpen(false);
-        } else {
-          setIsMobile(false);
-        }
-      };
-    
-      useEffect(() => {
-        checkScreen();
-        window.addEventListener("resize", checkScreen);
-        return () => window.removeEventListener("resize", checkScreen);
-      }, []);
-    
-      const SidebarContent = () => (
-        <Sidebar
-          aria-label="Sidebar Navigation"
-          style={{ backgroundColor: "white", width: "200px", height: "100vh" }}
-        >
-          <SidebarItems>
-            <SidebarItemGroup>
-            { isMobile?<SidebarItem className="text-end  text-red-700 font-bold text-2xl" onClick={()=>setOpen(false)}> <button>×</button></SidebarItem>:''}
-              <SidebarItem as={Link} to="/company-dashboard" icon={HiChartPie}>
-                Dashboard
-              </SidebarItem>
-              <SidebarItem as={Link} to="/company-job-add" icon={IoBag}>Jobs</SidebarItem>
-    
-              <SidebarItem as={Link} to="/company-candidates-view" icon={IoPeople}>
-             Candidates
-              </SidebarItem>
-              <SidebarItem as={Link} to="/" icon={IoBag}> Schedule Interview</SidebarItem>
-    
-              {/* <SidebarItem as={Link} to="/" icon={HiTable}>Jobs</SidebarItem>
+  const [isMobile, setIsMobile] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const checkScreen = () => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+      setOpen(false);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const SidebarContent = () => (
+    <Sidebar
+      aria-label="Sidebar Navigation"
+      style={{ backgroundColor: "white", width: "200px", height: "100vh" }}
+    >
+      <SidebarItems>
+        <SidebarItemGroup>
+          {isMobile ? (
+            <SidebarItem
+              className="text-end  text-red-700 font-bold text-2xl"
+              onClick={() => setOpen(false)}
+            >
+              {" "}
+              <button>×</button>
+            </SidebarItem>
+          ) : (
+            ""
+          )}
+          <SidebarItem as={Link} to="/company-dashboard" icon={HiChartPie}>
+            Dashboard
+          </SidebarItem>
+          <SidebarItem as={Link} to="/company-job-add" icon={IoBag}>
+            Jobs
+          </SidebarItem>
+
+          <SidebarItem as={Link} to="/company-candidates-view" icon={IoPeople}>
+            Candidates
+          </SidebarItem>
+          <SidebarItem as={Link} to="/" icon={IoBag}>
+            {" "}
+            Schedule Interview
+          </SidebarItem>
+
+          {/* <SidebarItem as={Link} to="/" icon={HiTable}>Jobs</SidebarItem>
               <SidebarItem as={Link} to="/" icon={HiViewBoards}>Career Fields</SidebarItem>
     
               <SidebarItem as={Link} to="/" icon={HiShoppingBag}>Promotions</SidebarItem> */}
-            
-            </SidebarItemGroup>
-    
-            <SidebarItemGroup className="sm:mt-90  mt-60">
-                <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>Sign Out</SidebarItem>
-              {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
+        </SidebarItemGroup>
+
+        <SidebarItemGroup className="sm:mt-90  mt-60">
+          <SidebarItem as={Link} to="/" icon={HiArrowSmLeft}>
+            Sign Out
+          </SidebarItem>
+          {/* <SidebarItem icon={HiChartPie}>Upgrade to Pro</SidebarItem>
               <SidebarItem icon={BiBuoy}>Help</SidebarItem> */}
-    
-             
-            </SidebarItemGroup>
-          </SidebarItems>
-        </Sidebar>
-      );
+        </SidebarItemGroup>
+      </SidebarItems>
+    </Sidebar>
+  );
   return (
     <>
       {/* MOBILE HAMBURGER BUTTON */}
@@ -110,7 +125,7 @@ function CompanySidebar() {
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default CompanySidebar
+export default CompanySidebar;
