@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CompanySidebar from "../Components/CompanySidebar";
 
 import {
@@ -15,6 +15,8 @@ import {
   TableCell,
   TextInput,
   Dropdown,
+  Tabs,
+  TabItem,
 } from "flowbite-react";
 
 import { HiSearch } from "react-icons/hi";
@@ -23,7 +25,7 @@ import AppFooter from "../../components/AppFooter";
 import InterviewScheduleModal from "../Components/InterviewScheduleModal";
 
 function CandidatesView() {
-  const data = [
+  const userdata = [
     {
       name: "Sarah Jenkins",
       email: "sarah.j@design.com",
@@ -107,17 +109,34 @@ function CandidatesView() {
       color: "gray",
     },
   ];
-
-  const itemsPerPage = 7; // change as needed
+  const tabs = ["New", "All", "Rejected"];
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentItems,SetCurrentItem]=useState([])
+  const [totalPages ,SetTotalPages]=useState()
 
-  const totalPages =
+  const handleTabChange = (tab="New") => {
+    console.log(tab);
+   
+    
+const data = tab==="All"?userdata: userdata.filter(item => item.status==tab) 
+
+    
+
+  const itemsPerPage = 5; // change as needed
+
+  const pages =
     data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
-
+SetTotalPages(pages)
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const currentItems = data.slice(startIndex, endIndex);
+  const dataItems = data.slice(startIndex, endIndex);
+  SetCurrentItem(dataItems)
+  }
+  
+useEffect(()=>{
+  handleTabChange()
+},[currentPage])
   return (
     <>
       <div className=" flex sm:flex-row flex-col w-full dark:bg-black">
@@ -172,61 +191,73 @@ function CandidatesView() {
 
           {/* table and pagenation */}
 
-          <div className="p-4">
-            {/* TABLE */}
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg ">
-              <table className="w-full text-sm text-left text-gray-600 ">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-green-300 ">
-                  <tr>
-                    <th className="px-6 py-3">name</th>
-                    <th className="px-6 py-3">role</th>
-                    <th className="px-6 py-3">Email</th>
-                    <th className="px-6 py-3">date</th>
-                    <th className="px-6 py-3">Status</th>
-                    <th className="px-6 py-3">View Cv</th>
-                    <th className="px-6 py-3"></th>
-                  </tr>
-                </thead>
+              {/*implement pagenation  */}
+                                  <div>
+                                         <div className=' p-5   ' style={{ width: '100%' }}>
+                      <Tabs aria-label="Candidates tabs" variant="default"   onActiveTabChange={(index) => handleTabChange(tabs[index])} >
+                             {tabs.map((tab) => (
+          <TabItem
+            key={tab}
+            title={tab}
+             onClick={() => handleTabChange(tab)}
+          >
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableHeadCell>Name</TableHeadCell>
+                  <TableHeadCell>Role</TableHeadCell>
+                  <TableHeadCell>Email</TableHeadCell>
+                  <TableHeadCell>Date</TableHeadCell>
+                  <TableHeadCell>Status</TableHeadCell>
+                  <TableHeadCell>Action</TableHeadCell>
+                </TableRow>
+              </TableHead>
 
-                <tbody>
-                  {currentItems.map((user) => (
-                    <tr
-                      key={user.id}
-                      className="bg-white border-b hover:bg-gray-50 dark:bg-green-100"
-                    >
-                      <td className="px-6 py-4">{user.name}</td>
-                      <td className="px-6 py-4 font-medium">{user.role}</td>
-                      <td className="px-6 py-4">{user.email}</td>
-                      <td className="px-6 py-4">{user.date}</td>
-                      <td className="px-6 py-4">{user.status}</td>
+              <TableBody>
+                {currentItems.length > 0 ? (
+                  currentItems.map((user) => (
+                    <TableRow key={user.id}>
+                      <TableCell>{user.name}</TableCell>
+                      <TableCell>{user.role}</TableCell>
+                      <TableCell>{user.email}</TableCell>
+                      <TableCell>{user.date}</TableCell>
+                      <TableCell>{user.status}</TableCell>
+                      <TableCell>
+                        <InterviewScheduleModal />
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={6} className="text-center">
+                      No data found
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+              {totalPages > 1 && (
+              <div className="flex justify-center mt-5">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                />
+              </div>
+            )}
+            </Table>
 
-                      <td className="px-6 py-4">
-                        <Button outline>view</Button>
-                      </td>
-                       <td className="px-6 py-4">
-                       <InterviewScheduleModal/>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            
+          </TabItem>
 
-            {/* PAGINATION */}
-            <div className="flex justify-center mt-5">
-              {totalPages > 0 && (
-                <div className="flex justify-center mt-5">
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={(p) => setCurrentPage(p)}
-                    previousLabel="←"
-                    nextLabel="→"
-                  />
-                </div>
-              )}
-            </div>
-          </div>
+        ))}
+        
+        
+
+                      </Tabs>
+                    </div>
+                                  </div>
+
+          
         </div>
       </div>
       {/* appfooter */}
