@@ -20,6 +20,7 @@ import {
 import { HiSearch } from "react-icons/hi";
 import { FiFilter } from "react-icons/fi";
 import AppFooter from "../../components/AppFooter";
+import InterviewScheduleModal from "../Components/InterviewScheduleModal";
 
 function CandidatesView() {
   const data = [
@@ -183,6 +184,7 @@ function CandidatesView() {
                     <th className="px-6 py-3">date</th>
                     <th className="px-6 py-3">Status</th>
                     <th className="px-6 py-3">View Cv</th>
+                    <th className="px-6 py-3"></th>
                   </tr>
                 </thead>
 
@@ -200,6 +202,9 @@ function CandidatesView() {
 
                       <td className="px-6 py-4">
                         <Button outline>view</Button>
+                      </td>
+                       <td className="px-6 py-4">
+                       <InterviewScheduleModal/>
                       </td>
                     </tr>
                   ))}
