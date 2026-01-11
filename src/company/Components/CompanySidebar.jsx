@@ -67,7 +67,7 @@ function CompanySidebar() {
           <SidebarItem as={Link} to="/company-candidates-view" icon={IoPeople}>
             Candidates
           </SidebarItem>
-          <SidebarItem as={Link} to="/" icon={IoBag}>
+          <SidebarItem as={Link} to="/company-schedule-intervier" icon={IoBag}>
             {" "}
             Schedule Interview
           </SidebarItem>
