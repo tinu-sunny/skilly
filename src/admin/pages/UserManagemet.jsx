@@ -1,20 +1,50 @@
 import React, { useEffect, useState } from "react";
 import Adminheader from "../components/Adminheader";
-import { Pagination, TextInput } from "flowbite-react";
+import { Button, Pagination, TextInput } from "flowbite-react";
 import { users } from "../../services/allAPIs";
 
 function UserManagemet() {
   const [data, setData] = useState([]);
+  const [sortData ,setSortData]=useState([])
+  const [keyword,setKeyword]=useState('')
+console.log(sortData);
+
+  console.log(keyword);
+
+  
+    // search and sort 
+
+    const searchdata =  ()=>{
+      if(keyword){
+        const search = keyword.trim().toLowerCase()
+       const fliterdata = data.filter(item=>item.username.toLowerCase().includes(search)||item.role.toLowerCase().includes(search) || item.status==keyword)
+       console.log(fliterdata);
+       setSortData(fliterdata)
+      console.log("inside");
+      }
+      else{
+        console.log('n0 data');
+       setSortData(data)
+       
+        
+      }
+      
+    }
+   
+    useEffect(()=>{
+      searchdata()
+    },[keyword,data])
+
 
   // userdetails
 
   const userdata = async () => {
     const response = await users();
-    console.log(response);
+    // console.log(response);
     if (response.status == 200) {
-      console.log(response.data.userData);
+      // console.log(response.data.userData);
       setData(response.data.userData || []);
-      console.log(setData);
+      // console.log(setData);
     }
   };
 
@@ -22,17 +52,21 @@ function UserManagemet() {
     userdata();
   }, []);
 
+
+
+
+
   // pagenation try
   const itemsPerPage = 7; // change as needed
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages =
-    data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
+    sortData.length > 0 ? Math.ceil(sortData.length / itemsPerPage) : 0;
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const currentItems = data.slice(startIndex, endIndex);
+  const currentItems = sortData.slice(startIndex, endIndex);
   //
   return (
     <>
@@ -64,7 +98,8 @@ function UserManagemet() {
             <div>
               <TextInput
                 type="search"
-                placeholder="🔍Search Here.."
+                placeholder="🔍Search Here.." 
+                onChange={(e) => setKeyword(e.target.value)}
               ></TextInput>
             </div>
             {/* sort menu */}
@@ -73,35 +108,25 @@ function UserManagemet() {
                 {/* uerType */}
                 <select
                   className="lg:p-1 sm:p-0 rounded-lg shadow-2xl sm:bg-transparent sm:border-1 md:border-1 lg:border-0 lg:bg-slate-200
-              font-medium dark:text-white dark:bg-blue-500 "
+              font-medium dark:text-white dark:bg-blue-500 "  onClick={(e)=>setKeyword(e.target.value)}
                 >
                   <option value="">user type</option>
-                  <option value="">s type</option>
-                  <option value=""> type</option>
-                  <option value="">u type</option>
+                  <option value="student">student</option>
+                  <option value="working"> working</option>
+                  <option value="counsellor">counsellor</option>
+                  <option value="institution"> institution</option>
+                  <option value="company"> company</option>
                 </select>
                 {/* Status */}
                 <select
                   className="lg:p-1 sm:p-0 rounded-lg shadow-2xl sm:bg-transparent sm:border-1 md:border-1 lg:border-0 lg:bg-slate-200
-              font-medium dark:text-white dark:bg-blue-500 
-              "
+              font-medium dark:text-white dark:bg-blue-500 "onClick={(e)=>setKeyword(e.target.value)}
                 >
                   <option value="">user status</option>
-                  <option value="">s type</option>
-                  <option value=""> type</option>
-                  <option value="">u type</option>
+                  <option value="1">Active</option>
+                  <option value="0"> InActive</option>
                 </select>
-                {/* role */}
-                <select
-                  className="lg:p-1 sm:p-0 rounded-lg shadow-2xl sm:bg-transparent sm:border-1 md:border-1 lg:border-0 lg:bg-slate-200
-              font-medium dark:text-white dark:bg-blue-500 
-              "
-                >
-                  <option value="">user role</option>
-                  <option value="">s type</option>
-                  <option value=""> type</option>
-                  <option value="">u type</option>
-                </select>
+              
               </div>
             </div>
           </div>
@@ -119,15 +144,17 @@ function UserManagemet() {
                     <th className="px-6 py-3">Email</th>
                     <th className="px-6 py-3">Role</th>
                     <th className="px-6 py-3">Phone</th>
-                    <th className="px-6 py-3">Status</th>
                     <th className="px-6 py-3">Created At</th>
+                    <th className="px-6 py-3">Status</th>
+                    <th></th>
+
                   </tr>
                 </thead>
 
                 <tbody>
                   {currentItems.map((user) => (
                     <tr
-                      key={user.id}
+                      key={user._id}
                       className="bg-white border-b hover:bg-gray-50 dark:bg-green-100"
                     >
                       <td className="px-6 py-4">{user._id}</td>
@@ -135,6 +162,8 @@ function UserManagemet() {
                       <td className="px-6 py-4">{user.email}</td>
                       <td className="px-6 py-4">{user.role}</td>
                       <td className="px-6 py-4">{user.phone}</td>
+                      <td className="px-6 py-4">{user.regdate}</td>
+
                       <td
                         className={`px-6 py-4 font-semibold ${
                           user.status === true
@@ -146,7 +175,7 @@ function UserManagemet() {
                       >
                         {user.status === true ? <p>Active</p> : <p>inactive</p>}
                       </td>
-                      <td className="px-6 py-4">{user.regdate}</td>
+                      <td>{user.status === true ? <Button color={'red'}>inactive</Button> : <Button color={'green'}>Active</Button>}</td>
                     </tr>
                   ))}
                 </tbody>
