@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "flowbite-react";
 import AppFooter from "../../components/AppFooter";
+import { Link } from "react-router-dom";
 
 function CompayDashboard() {
   return (
@@ -77,9 +78,11 @@ function CompayDashboard() {
                 <p className="text-[#11418] font-bold leading-tight text-xl">
                   Recent Application
                 </p>
-                <Button outline className="dark:text-white">
-                  view all
-                </Button>
+               <Link to={'/company-candidates-view'}>
+                  <Button outline className="dark:text-white">
+                    view all
+                  </Button>
+               </Link>
               </div>
               <hr className="mt-4 " />
 

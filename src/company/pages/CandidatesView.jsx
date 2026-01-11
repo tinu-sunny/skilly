@@ -109,34 +109,60 @@ function CandidatesView() {
       color: "gray",
     },
   ];
-  const tabs = ["New", "All", "Rejected"];
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentItems,SetCurrentItem]=useState([])
-  const [totalPages ,SetTotalPages]=useState()
+  const tabs = ["All", "New", "Shortlisted", "Under Review", "Rejected"];
+  const [data, SetData] = useState([]);
+  const userview = (value) => {
+    let sortdata;
+    console.log(value);
+    switch (value) {
+      case 0:
+        sortdata = userdata;
+        SetData(sortdata);
+        break;
+      case 1:
+        sortdata = userdata.filter((item) => item.status == "New");
+        SetData(sortdata);
 
-  const handleTabChange = (tab="New") => {
-    console.log(tab);
-   
-    
-const data = tab==="All"?userdata: userdata.filter(item => item.status==tab) 
+        break;
 
-    
+      case 2:
+        sortdata = userdata.filter((item) => item.status == "Shortlisted");
+        SetData(sortdata);
+        break;
 
+      case 3:
+        sortdata = userdata.filter((item) => item.status == "Under Review");
+        SetData(sortdata);
+        break;
+
+      case 4:
+        sortdata = userdata.filter((item) => item.status == "Rejected");
+        SetData(sortdata);
+        break;
+      default:
+        SetData([]);
+        break;
+    }
+    // const sortdata = value=="0"?userdata: userdata.filter(item => item.status=="New" && value==1)
+    // SetData(sortdata)
+  };
+
+  useEffect(() => {
+    userview(0);
+  }, []);
+
+  // pagenation try
   const itemsPerPage = 5; // change as needed
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const pages =
+  const totalPages =
     data.length > 0 ? Math.ceil(data.length / itemsPerPage) : 0;
-SetTotalPages(pages)
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const dataItems = data.slice(startIndex, endIndex);
-  SetCurrentItem(dataItems)
-  }
-  
-useEffect(()=>{
-  handleTabChange()
-},[currentPage])
+  const currentItems = data.slice(startIndex, endIndex);
+
   return (
     <>
       <div className=" flex sm:flex-row flex-col w-full dark:bg-black">
@@ -169,95 +195,73 @@ useEffect(()=>{
                 placeholder="search here .... 🔎"
               ></TextInput>
             </div>
-            <div className="mt-5 flex sm:justify-center lg:justify-end items-center  gap-10">
-              {/* sort */}
-              <div className=" ">
-                <select
-                  name=""
-                  id=""
-                  className="bg-gray-300 border-0 rounded-2xl shadow-2xl p-2 dark:bg-blue-500 dark:text-white"
-                >
-                  <option value="">New</option>
-                  <option value="">ongoing</option>
-                  <option value="">Interview</option>
-                  <option value="">rejected</option>
-                </select>
-              </div>
-              <div>
-                <Button>Export</Button>
-              </div>
-            </div>
           </div>
 
           {/* table and pagenation */}
 
-              {/*implement pagenation  */}
-                                  <div>
-                                         <div className=' p-5   ' style={{ width: '100%' }}>
-                      <Tabs aria-label="Candidates tabs" variant="default"   onActiveTabChange={(index) => handleTabChange(tabs[index])} >
-                             {tabs.map((tab) => (
-          <TabItem
-            key={tab}
-            title={tab}
-             onClick={() => handleTabChange(tab)}
-          >
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeadCell>Name</TableHeadCell>
-                  <TableHeadCell>Role</TableHeadCell>
-                  <TableHeadCell>Email</TableHeadCell>
-                  <TableHeadCell>Date</TableHeadCell>
-                  <TableHeadCell>Status</TableHeadCell>
-                  <TableHeadCell>Action</TableHeadCell>
-                </TableRow>
-              </TableHead>
-
-              <TableBody>
-                {currentItems.length > 0 ? (
-                  currentItems.map((user) => (
-                    <TableRow key={user.id}>
-                      <TableCell>{user.name}</TableCell>
-                      <TableCell>{user.role}</TableCell>
-                      <TableCell>{user.email}</TableCell>
-                      <TableCell>{user.date}</TableCell>
-                      <TableCell>{user.status}</TableCell>
-                      <TableCell>
-                        <InterviewScheduleModal />
-                      </TableCell>
-                    </TableRow>
-                  ))
-                ) : (
-                  <TableRow>
-                    <TableCell colSpan={6} className="text-center">
-                      No data found
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-              {totalPages > 1 && (
-              <div className="flex justify-center mt-5">
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={setCurrentPage}
-                />
+          {/*implement pagenation  */}
+          <div>
+            <div className=" p-5   " style={{ width: "100%" }}>
+              <div className="flex justify-end mb-[-20px]">
+                <Button>Export</Button>
               </div>
-            )}
-            </Table>
+              <Tabs
+                aria-label="Candidates tabs"
+                variant="default"
+                onActiveTabChange={(e) => userview(e)}
+              >
+                {tabs.map((tab) => (
+                  <TabItem key={tab} title={tab}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableHeadCell>Name</TableHeadCell>
+                          <TableHeadCell>Role</TableHeadCell>
+                          <TableHeadCell>Email</TableHeadCell>
+                          <TableHeadCell>Date</TableHeadCell>
+                          <TableHeadCell>Status</TableHeadCell>
+                          <TableHeadCell>Action</TableHeadCell>
+                        </TableRow>
+                      </TableHead>
 
-            
-          </TabItem>
+                      <TableBody>
+                        {currentItems.length > 0 ? (
+                          currentItems.map((user) => (
+                            <TableRow key={user.id}>
+                              <TableCell>{user.name}</TableCell>
+                              <TableCell>{user.role}</TableCell>
+                              <TableCell>{user.email}</TableCell>
+                              <TableCell>{user.date}</TableCell>
+                              <TableCell>{user.status}</TableCell>
+                              <TableCell>
+                                <InterviewScheduleModal />
+                              </TableCell>
+                            </TableRow>
+                          ))
+                        ) : (
+                          <TableRow>
+                            <TableCell colSpan={6} className="text-center">
+                              No data found
+                            </TableCell>
+                          </TableRow>
+                        )}
+                      </TableBody>
+                    </Table>
 
-        ))}
-        
-        
-
-                      </Tabs>
-                    </div>
-                                  </div>
-
-          
+                    {totalPages > 1 && (
+                      <div className="flex justify-center mt-5">
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPages}
+                          onPageChange={setCurrentPage}
+                        />
+                      </div>
+                    )}
+                  </TabItem>
+                ))}
+              </Tabs>
+            </div>
+          </div>
         </div>
       </div>
       {/* appfooter */}
