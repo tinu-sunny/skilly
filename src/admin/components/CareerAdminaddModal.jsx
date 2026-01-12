@@ -3,7 +3,9 @@ import { div } from "framer-motion/client";
 import { useState } from "react";
 import { addcarreerAPI } from "../../services/allAPIs";
 
-function CareerAdminaddModal() {
+function CareerAdminaddModal({setRefresh}) {
+  console.log(setRefresh);
+  
     const [openModal, setOpenModal] = useState(false);
     
     const instialdata ={
@@ -51,6 +53,7 @@ setCourseData({...courseData,thumbnail:e.target.files[0]})
       if(response.status==200){
         alert(response.data.message)
         setOpenModal(false)
+        setRefresh(false)
       }
       else{
         alert(response.response.data)

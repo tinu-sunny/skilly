@@ -1,23 +1,51 @@
 import React, { useEffect, useState } from "react";
 import Adminheader from "../components/Adminheader";
 import { motion } from "framer-motion";
-import {
-  Card,
-  TabItem,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-  Tabs,
-  TextInput,
-} from "flowbite-react";
+import {Card,TabItem,Table,TableBody,TableCell,TableHead,TableHeadCell,TableRow,Tabs,TextInput,} from "flowbite-react";
 import { contactAdminView } from "../../services/allAPIs";
 
 function ContactViewpage() {
   const [contactData, setContactData] = useState([]);
   // console.log(contactData);
+// sort data for store sorted data 
+const [sortData,setSortData]=useState([])
+
+// is userd to store search words
+const [keyword,setKeyword]=useState('')
+
+// err mesage is searchdata not found
+
+const [errMsg, setErrMsg]=useState('')
+
+
+ // search and sort
+ 
+  const searchdata =  ()=>{
+   console.log(keyword);
+   
+       if(keyword){
+         const search = keyword.trim().toLowerCase()
+         console.log("trim keyword",search);
+         
+        const fliterdata = contactData.filter(item=>item.username?.toLowerCase().includes(search) || item.inquiryType?.toLowerCase().includes(search))
+        console.log(fliterdata);
+        setSortData(fliterdata)
+       // console.log("inside");
+       }
+       else{
+         console.log('no data');
+        setErrMsg("no data found...!!")
+        setSortData(contactData)
+        
+         
+       }
+       
+     }
+    
+     useEffect(()=>{
+       searchdata()
+     },[keyword,contactData])
+ 
 
   const contactview = async () => {
     const response = await contactAdminView();
@@ -60,7 +88,7 @@ function ContactViewpage() {
 
           {/* search bar */}
           <div className="mt-5">
-            <TextInput type="search" placeholder="🔍Search Here.."></TextInput>
+            <TextInput type="search" placeholder="🔍Search Here.."  onChange={(e) => setKeyword(e.target.value)}></TextInput>
           </div>
 
           {/*implement pagenation  */}
@@ -84,7 +112,7 @@ function ContactViewpage() {
                         </TableRow>
                       </TableHead>
                       <TableBody className="divide-y">
-                        {contactData.map((data, index) => (
+                        {sortData && sortData.length > 0 ?sortData.map((data, index) => (
                           <TableRow
                             className="bg-white dark:border-gray-700 dark:bg-gray-800"
                             key={index}
@@ -112,7 +140,7 @@ function ContactViewpage() {
                               </a>
                             </TableCell>
                           </TableRow>
-                        ))}
+                        )):<TableCell colSpan={5}> <p className="bg-gray-500 text-center text-black text-2xl font-bold p-5">{errMsg}</p></TableCell>}
                       </TableBody>
                     </Table>
                   </div>
