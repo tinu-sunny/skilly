@@ -124,6 +124,9 @@ function Auth() {
       console.log(response);
 
       if (response.status == 200) {
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("user",JSON.stringify(response.data.loginUser));
+
         switch (response.data.loginUser.role) {
           case "admin":
             navigate("/admin-landing-page");
@@ -154,7 +157,7 @@ function Auth() {
           // console.error("Unhandled role:", role);
         }
       } else {
-        alert(response.response.data);
+        alert(response.response.data.message);
       }
     } catch (err) {
       console.log(err);

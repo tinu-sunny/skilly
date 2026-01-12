@@ -1,33 +1,52 @@
 import commonAPI from "./CommonAPI";
 import { serverURL } from "./serverURL";
 
+
+// user registration 
 export const userRegistration = async (reqbody)=>{
     return await commonAPI('POST', `${serverURL}/register`,reqbody,{})
 }
 
+
+// users login
 export const loginUser = async(reqbody)=>{
     return await commonAPI('POST',`${serverURL}/login`,reqbody,{})
 }
 
+// admin all user view 
 export const users = async()=>{
     return await commonAPI('GET',`${serverURL}/admin-user-management`,{})
 }
 
+// for chat bot api call
 export const chatBot = async(reqbody,reqHeader)=>{
     return await commonAPI('POST',`${serverURL}/chat`,reqbody,reqHeader)
 }
+
+// add contact data from index page 
 export const contact = async(reqbody)=>{
     return await commonAPI('POST',`${serverURL}/contact`,reqbody,{})
 }
 
+
+// contact view  admin
 export const contactAdminView = async()=>{
     return await commonAPI('GET',`${serverURL}/contact-admin-view`,{})
 }
 
+
+// admin carreer add 
 export const addcarreerAPI = async(reqbody)=>{
     return await commonAPI('POST',`${serverURL}/carrerfield-add`,reqbody,{})
 }
 
+// admin carreer view 
 export const viewCarreerAPI = async()=>{
     return await commonAPI('GEt',`${serverURL}/carrerfield-admin-view`,{})
+}
+
+// admin user activation and deactivation
+
+export const  statusupdateadmin = async(reqbody)=>{
+    return await commonAPI('PUT',`${serverURL}/admin-user-statusupdate`,reqbody,{})
 }

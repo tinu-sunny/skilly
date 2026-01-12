@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Adminheader from "../components/Adminheader";
 import { Button, Pagination, TextInput } from "flowbite-react";
-import { users } from "../../services/allAPIs";
+import { statusupdateadmin, users } from "../../services/allAPIs";
+import { useNavigate } from "react-router-dom";
 
 function UserManagemet() {
+
+  // use to navigation
+ const  navigate=useNavigate()
+
+//  store data from backend
   const [data, setData] = useState([]);
+  // store sorted data {search }
   const [sortData ,setSortData]=useState([])
+  // used to  take value wj=hile  search or sort
   const [keyword,setKeyword]=useState('')
+
+  // set err message while any erroer mesage occueresss
+  const [errmsg,setErrmsg]=useState('')
+
+
 console.log(sortData);
 
   console.log(keyword);
 
   
-    // search and sort 
+    // search and sort function 
 
     const searchdata =  ()=>{
       if(keyword){
@@ -36,15 +49,24 @@ console.log(sortData);
     },[keyword,data])
 
 
-  // userdetails
+  // get userdetails
 
   const userdata = async () => {
+
     const response = await users();
     // console.log(response);
     if (response.status == 200) {
       // console.log(response.data.userData);
       setData(response.data.userData || []);
       // console.log(setData);
+    }
+
+    else if(response.status == 403){
+      navigate('/acces-decline')
+    }
+   
+    else{
+      setErrmsg(response.response.data.message)
     }
   };
 
@@ -53,10 +75,28 @@ console.log(sortData);
   }, []);
 
 
+  // activate deactivate 
+
+  const  statusupdate = async(status,email)=>{
+    console.log(status,email);
+
+    const reqbody ={
+      status,
+      email
+    }
+    
+    const response = await statusupdateadmin(reqbody)
+    console.log(response);
+    if(response.status==200){
+       userdata();
+    }
+           
+
+  }
 
 
+  // pagenation 
 
-  // pagenation try
   const itemsPerPage = 7; // change as needed
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -67,7 +107,7 @@ console.log(sortData);
   const endIndex = startIndex + itemsPerPage;
 
   const currentItems = sortData.slice(startIndex, endIndex);
-  //
+  
   return (
     <>
       <div className="flex sm:flex-row flex-col w-full dark:bg-black ">
@@ -152,7 +192,7 @@ console.log(sortData);
                 </thead>
 
                 <tbody>
-                  {currentItems.map((user) => (
+                  {currentItems && currentItems.length >0 ? currentItems.map((user) => (
                     <tr
                       key={user._id}
                       className="bg-white border-b hover:bg-gray-50 dark:bg-green-100"
@@ -175,9 +215,13 @@ console.log(sortData);
                       >
                         {user.status === true ? <p>Active</p> : <p>inactive</p>}
                       </td>
-                      <td>{user.status === true ? <Button color={'red'}>inactive</Button> : <Button color={'green'}>Active</Button>}</td>
+                      <td>{user.status === true ? <Button color={'red'} onClick={()=>{statusupdate(false,user.email)}}>inactive</Button> : <Button color={'green'} onClick={()=>{statusupdate(true,user.email)}}>Active</Button>}</td>
                     </tr>
-                  ))}
+                  )): <tr>
+      <td colSpan="7" className="text-center py-6 bg-red-900">
+        <p className="text-white">{errmsg}</p>
+      </td>
+    </tr>}
                 </tbody>
               </table>
             </div>

@@ -35,6 +35,7 @@ import PromotionAdd from './institution/pages/PromotionAdd'
 import JobAddPage from './company/pages/JobAddPage'
 import CandidatesView from './company/pages/CandidatesView'
 import ScheduleInterview from './company/pages/ScheduleInterview'
+import AccesDeclinepage from './Pages/AccesDeclinepage'
 
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
 
     {/* Page Not Found */}
     <Route path='*' element={<PageNotFound/>}/>
+    <Route path='/acces-decline' element={<AccesDeclinepage/>}/>
    </Routes>
    </>
   )
