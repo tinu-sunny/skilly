@@ -9,10 +9,24 @@ import { IoSendSharp } from "react-icons/io5";
 function FeedBack() {
   //   rating
   const [fill, setFill] = useState(0);
+console.log("fill:",fill);
+
   const [hover, setHover] = useState(0);
+console.log("hover:",hover);
 
   //
   const [review, setReview] = useState(0);
+console.log("review:",review);
+
+// to store data from input box 
+const [feedback,setFeedback]=useState({
+  feedbacktype:"general comments",
+  rating:"",
+  message:"",
+  uploadImg:""
+})
+
+console.log(feedback);
 
   return (
     <>
@@ -53,9 +67,9 @@ function FeedBack() {
                         ? "bg-blue-600 text-white p-2 rounded-2xl cursor-pointer"
                         : "cursor-pointer"
                     }
-                    onClick={() => setReview(0)}
+                    onClick={() => {setReview(0); setFeedback({...feedback,feedbacktype: "general comments", });}}
                   >
-                    General Comment
+                    General Comments
                   </p>
                   <p
                     className={
@@ -63,7 +77,8 @@ function FeedBack() {
                         ? "bg-blue-600 text-white p-2 rounded-2xl cursor-pointer"
                         : "cursor-pointer"
                     }
-                    onClick={() => setReview(1)}
+                                        onClick={() => {setReview(1); setFeedback({...feedback,feedbacktype: "feature request", });}}
+
                   >
                     Feature Request{" "}
                   </p>
@@ -73,7 +88,8 @@ function FeedBack() {
                         ? "bg-blue-600 text-white p-2 rounded-2xl cursor-pointer"
                         : "cursor-pointer"
                     }
-                    onClick={() => setReview(2)}
+                                       onClick={() => {setReview(2); setFeedback({...feedback,feedbacktype: "bug report", });}}
+
                   >
                     Bug Report{" "}
                   </p>
@@ -90,7 +106,7 @@ function FeedBack() {
                         <RatingStar
                           key={star}
                           filled={star <= (hover || fill)}
-                          onClick={() => setFill(star)}
+                          onClick={() => {setFill(star); setFeedback({...feedback,rating:star})}}
                           onMouseEnter={() => setHover(star)}
                           onMouseLeave={() => setHover(0)}
                         />
@@ -112,6 +128,7 @@ function FeedBack() {
                   </label>
                   <Textarea
                     rows={5}
+                    onChange={(e)=>{setFeedback({...feedback,message:e.target.value})}}
                     placeholder={
                       review == 0
                         ? "Share details of your own Experience"
