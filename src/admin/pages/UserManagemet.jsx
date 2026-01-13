@@ -36,10 +36,8 @@ console.log(sortData);
       console.log("inside");
       }
       else{
-        console.log('n0 data');
-       setSortData(data)
-       
-        
+        console.log('no data');
+       setSortData(data)    
       }
       
     }

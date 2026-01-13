@@ -8,9 +8,35 @@ import { careerview } from '../../services/allAPIs'
 import { h1 } from 'framer-motion/client'
 import { serverURL } from '../../services/serverURL'
 function StudentCareer() {
-
+// caerrfields view 
   const [careerfields,setCareerfields] = useState([])
 
+  // store search keyword 
+  const [keyword,setKeyword]=useState('')
+  const [sortData,setSortData]= useState([])
+
+console.log(keyword);
+
+const search = async ()=>{
+ if(keyword){
+  const search = keyword.trim().toLowerCase()
+  const fliterdata = careerfields.filter(item=>item.coursename?.toLowerCase().includes(search) || item.category?.toLowerCase().includes(search))
+   
+setSortData(fliterdata)
+
+
+ }
+
+ else{
+  setSortData(careerfields)
+ }
+}
+
+useEffect(()=>{
+  search()
+},[keyword,careerfields])
+
+// caerrfields view api function
   const careerfieldsView = async ()=>{
           
     const response = await careerview()
@@ -24,6 +50,8 @@ function StudentCareer() {
   useEffect(()=>{
     careerfieldsView()
   },[])
+
+  // search function 
 
 
   return (
@@ -51,8 +79,8 @@ function StudentCareer() {
   
                   <section>
                  <div className='flex w-full items-stretch justify-center rounded-xl h-14  p-2'>
-                     <div className='w-[50%] '> <TextInput type='search' placeholder='search for careers,skills or industries...'/></div>
-                    <div className=''> <Button>Explore</Button></div>
+                     <div className='w-[50%] '> <TextInput type='search' placeholder='search for careers,skills or industries...' onChange={(e)=>{setKeyword(e.target.value)}}/></div>
+                    <div className=''></div>
                  </div>
                   </section>
   
@@ -100,7 +128,7 @@ function StudentCareer() {
   
       <div className='grid sm:grid-cols-3 gap-5'>
           {/* cards */}
-         {careerfields && careerfields.length > 0 ? careerfields.map(item=>( <div>
+         {sortData && sortData.length > 0 ? sortData.map(item=>( <div>
               <div key={item._id} className=" rounded-xl border-2  hover:border-primary hover:shadow-[0_0_20px_rgba(43,238,121,0.1)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col dark:bg-blue-800">
   <div className="h-32 bg-cover bg-center relative" data-alt="Abstract visualization of data networks and graphs"  style={{
      backgroundImage: `url(${serverURL}/uploads/${item.thumbnail})`,
