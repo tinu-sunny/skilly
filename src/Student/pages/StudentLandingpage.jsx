@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import StudentHeader from '../components/StudentHeader'
 import { Button } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
 import ChatBot from '../components/ChatBot'
+import { activeuserAPI } from '../../services/allAPIs'
 
 function StudentLandingpage() {
+    const [userdata ,setUserdata]=useState([])
+
+    const activeuser = async()=>{
+        const response= await activeuserAPI()
+        console.log(response);    
+        if(response.status==200){
+            setUserdata(response.data.user)
+        } 
+    }
+
+    useEffect(()=>{
+        activeuser()
+    },[])
   return (
    <>
    
@@ -28,7 +42,7 @@ function StudentLandingpage() {
                     
                     {/* welcome message with name */}
                     <section className='mb-8'>
-                        <h1 className='text-[#111418] text-4xl font-bold leading-tight dark:text-white '>Welcome Back,<span>Babu!</span></h1>
+                        <h1 className='text-[#111418] text-4xl font-bold leading-tight dark:text-white '>Welcome Back,<span className='text-amber-500'>{userdata.username}!</span></h1>
                     </section>
                       
                       {/* Search Course

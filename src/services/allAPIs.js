@@ -50,3 +50,13 @@ export const viewCarreerAPI = async()=>{
 export const  statusupdateadmin = async(reqbody)=>{
     return await commonAPI('PUT',`${serverURL}/admin-user-statusupdate`,reqbody,{})
 }
+
+// view  login users 
+
+export const  activeuserAPI = async()=>{
+    return await commonAPI('GET',`${serverURL}/active-user`,null,{})
+}
+
+export const careerview = async()=>{
+    return await commonAPI("GET",`${serverURL}/career-view`,null,{})
+}
