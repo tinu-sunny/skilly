@@ -57,6 +57,12 @@ export const  activeuserAPI = async()=>{
     return await commonAPI('GET',`${serverURL}/active-user`,null,{})
 }
 
+// student career view
 export const careerview = async()=>{
     return await commonAPI("GET",`${serverURL}/career-view`,null,{})
+}
+
+// student  feedback add 
+export const studentfeedbackadd =async(reqbody)=>{
+    return await commonAPI("POST",`${serverURL}/feedback-add-student`,reqbody,{})
 }

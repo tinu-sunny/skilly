@@ -5,6 +5,8 @@ import AppFooter from "../../components/AppFooter";
 import { Rating, RatingStar } from "flowbite-react";
 import { useState } from "react";
 import { IoSendSharp } from "react-icons/io5";
+import { img } from "framer-motion/client";
+import { studentfeedbackadd } from "../../services/allAPIs";
 
 function FeedBack() {
   //   rating
@@ -13,20 +15,45 @@ console.log("fill:",fill);
 
   const [hover, setHover] = useState(0);
 console.log("hover:",hover);
+const [preview,setPreview]= useState('')
 
   //
   const [review, setReview] = useState(0);
 console.log("review:",review);
 
 // to store data from input box 
-const [feedback,setFeedback]=useState({
+const [feed,setFed]= useState({
   feedbacktype:"general comments",
   rating:"",
   message:"",
   uploadImg:""
 })
+const [feedback,setFeedback]=useState(feed)
 
 console.log(feedback);
+
+const handleImageuplod = (e)=>{
+  console.log(e);
+  const url =URL.createObjectURL(e.target.files[0])
+  setPreview(url)
+  setFeedback({...feedback,uploadImg:e.target.files[0]})
+}
+
+const handlefeedback = async()=>{
+   const reqbody = new FormData();
+    for (let key in feedback) {
+      reqbody.append(key, feedback[key]);
+    }
+  const response = await studentfeedbackadd(reqbody)
+  console.log(response);
+  if(response.status==200){
+    alert("feedback added sccessfully")
+    setFeedback(feed)
+    setReview(0)
+    setFill(0)
+  }
+  
+}
 
   return (
     <>
@@ -105,6 +132,7 @@ console.log(feedback);
                       {[1, 2, 3, 4, 5].map((star) => (
                         <RatingStar
                           key={star}
+
                           filled={star <= (hover || fill)}
                           onClick={() => {setFill(star); setFeedback({...feedback,rating:star})}}
                           onMouseEnter={() => setHover(star)}
@@ -128,6 +156,7 @@ console.log(feedback);
                   </label>
                   <Textarea
                     rows={5}
+                    value={feedback.message}
                     onChange={(e)=>{setFeedback({...feedback,message:e.target.value})}}
                     placeholder={
                       review == 0
@@ -140,11 +169,13 @@ console.log(feedback);
                 </div>
                 {/* uploading image or screen shots of the bug */}
                 {review == 2 ? (
-                  <div className="flex flex-col gap-3">
-                    <label className="text-[#111418] text-xl font-bold">
+                  <div className="flex flex-col gap-3 ">
+                    <label htmlFor="image" className="text-[#111418] text-xl font-bold ">
                       Attach your screenshot (optinal)
-                    </label>
-                    <TextInput type="file"></TextInput>
+               <p className="flex justify-center items-center "> <img src="https://cdn-icons-png.flaticon.com/512/5046/5046917.png" alt="upload img" srcset="" width={'200px'} height={'100px'} /></p>
+                    <TextInput type="file" id="image" hidden onChange={(e)=>{handleImageuplod(e)}}></TextInput>
+                        </label>
+                    {preview ?<div className="flex justify-center items-center"> <img src={preview} alt="bug image" srcset=""  width={'200px'} height={'200px'}/></div>:"" }
                   </div>
                 ) : (
                   ""
@@ -154,7 +185,7 @@ console.log(feedback);
                   <Button variant="outline" color={"alternative"}>
                     Cancel
                   </Button>
-                  <Button>
+                  <Button onClick={handlefeedback}>
                     Send FeedBack <IoSendSharp />
                   </Button>
                 </div>

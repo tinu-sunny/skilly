@@ -108,7 +108,7 @@ console.log(sortData);
   
   return (
     <>
-      <div className="flex sm:flex-row flex-col w-full dark:bg-black ">
+      <div className="flex sm:flex-row flex-col w-full dark:bg-blue-900 ">
         {/* header */}
         <div className="w-80">
           {" "}
