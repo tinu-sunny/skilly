@@ -1,11 +1,12 @@
 import { Button, Textarea, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 import { IoMdCloudUpload } from 'react-icons/io'
 import { RiShareForwardLine } from "react-icons/ri";
 import Headerprofessionals from '../components/HeaderProfessionals'
 import AppFooter from '../../components/AppFooter';
-import { workingpostadd } from '../../services/allAPIs';
+import { workingpostadd, workingpostView } from '../../services/allAPIs';
+import { serverURL } from '../../services/serverURL';
 
 function Professionalindexpage() {
       const [activeChat, setActiveChat] = useState(null);
@@ -17,11 +18,21 @@ function Professionalindexpage() {
       const [oldpost,setOldpost]=useState([])
 
 const [preview,setPreview]= useState('')
+const [view,setView]= useState(false)
       console.log(postData);
 // oldpost view 
 const oldpostview = async()=>{
-  
+
+  const response = await workingpostView()
+  console.log(response);
+  if(response.status==200){
+    setOldpost(response.data.oldpostdata)
+  }
 }
+
+useEffect(()=>{
+  oldpostview()
+},[view])
 
       // handle image upload
       const imageUpload = (e)=>{
@@ -51,6 +62,15 @@ const oldpostview = async()=>{
           // api call
           const response = await workingpostadd(reqbody)
           console.log(response);
+
+          if(response.status==200){
+            setPreview('')
+           view == false ? setView(true):setView(false)
+            alert('post add ')
+
+          }
+
+
           
         }
         else{
@@ -131,6 +151,7 @@ const oldpostview = async()=>{
 
         {/* posts  */}
 
+      { oldpost && oldpost.length > 0 ? oldpost.map(item=>(
         <div>
               <div className='bg-gray-100 shadow-xl rounded-2xl py-2'>
                 {/* profile */}
@@ -145,10 +166,10 @@ const oldpostview = async()=>{
                </div>
              
                {/* caption */}
-                 <p className='text-[#111418] font-medium leading-tight mb-3 p-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt deleniti similique dolores, ea nulla tempore repellat placeat fugiat culpa aut officiis, labore dolorum commodi in blanditiis cumque earum laborum recusandae.</p>
+                 <p className='text-[#111418] font-medium leading-tight mb-3 p-3'>{item.caption}</p>
               
                  {/* posted image */}
-                <img src="https://i.pravatar.cc/100?img=3" alt="post"  className='w-full h-80'/>
+               {item.post ? <img src={`${serverURL}/uploads/${item.post}`} alt="post"  className='w-full h-80'/>:""}
                 {/* Like  */}
                 <div className='p-3 flex flex-row gap-3'>
                      <div className='flex  items-center justify-start gap-2 '> <FaRegHeart className='hover:text-2xl' />like</div>
@@ -157,33 +178,9 @@ const oldpostview = async()=>{
                 </div>
               </div>
         </div>
+      )) : <h1>No post Yet add post to view </h1>}
 
-         <div>
-              <div className='bg-gray-100 shadow-xl rounded-2xl py-2'>
-                {/* profile */}
-               <div className='flex items-center gap-2 mb-3 p-3'>
-                     <img
-                    src='https://i.pravatar.cc/100?img=3'
-                    className="w-10 h-10 rounded-full object-cover"
-                    alt='profile'
-                  />
-                  {/* profile user name */}
-                     <h2 className='text-[#111418] font-bold leading-tight'>Jobin</h2>
-               </div>
-             
-               {/* caption */}
-                 <p className='text-[#111418] font-medium leading-tight mb-3 p-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt deleniti similique dolores, ea nulla tempore repellat placeat fugiat culpa aut officiis, labore dolorum commodi in blanditiis cumque earum laborum recusandae.</p>
-              
-                 {/* posted image */}
-                <img src="https://i.pravatar.cc/100?img=3" alt="post"  className='w-full h-80'/>
-                {/* Like  */}
-                <div className='p-3 flex flex-row gap-3'>
-                     <div className='flex  items-center justify-start gap-2 '> <FaRegHeart className='hover:text-2xl' />like</div>
-                     <div className='flex  items-center justify-start gap-2 '><FaRegComment className='hover:text-2xl' />comments</div>
-                     <div className='flex  items-center justify-start gap-2 '> <RiShareForwardLine className='hover:text-2xl' />Share</div>
-                </div>
-              </div>
-        </div>
+         
     </section>
 
 

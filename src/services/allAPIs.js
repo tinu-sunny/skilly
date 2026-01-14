@@ -71,3 +71,8 @@ export const studentfeedbackadd =async(reqbody)=>{
 export const workingpostadd =async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/post-add-working`,reqbody,{})
 }
+
+
+export const workingpostView =async()=>{
+    return await commonAPI("GET",`${serverURL}/post-view-working`,null,{})
+}
