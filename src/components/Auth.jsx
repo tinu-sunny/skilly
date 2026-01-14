@@ -135,7 +135,7 @@ function Auth() {
             navigate("/student-Landing-page");
             break;
           case "working":
-            navigate("/");
+            navigate("/professional-index-page");
             break;
 
           case "counsellor":

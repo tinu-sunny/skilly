@@ -5,10 +5,59 @@ import { IoMdCloudUpload } from 'react-icons/io'
 import { RiShareForwardLine } from "react-icons/ri";
 import Headerprofessionals from '../components/HeaderProfessionals'
 import AppFooter from '../../components/AppFooter';
+import { workingpostadd } from '../../services/allAPIs';
 
 function Professionalindexpage() {
       const [activeChat, setActiveChat] = useState(null);
+      const [postData,setPostData]= useState({
+        post:"",
+        caption:""
+      })
 
+      const [oldpost,setOldpost]=useState([])
+
+const [preview,setPreview]= useState('')
+      console.log(postData);
+// oldpost view 
+const oldpostview = async()=>{
+  
+}
+
+      // handle image upload
+      const imageUpload = (e)=>{
+
+        const image = e.target.files[0]
+        const url = URL.createObjectURL(image)
+        console.log(url);
+        setPreview(url)
+        
+        setPostData({...postData,post:image})
+             
+        
+      }
+
+
+      const  handlepostadd = async()=>{
+
+        const {post,caption}=postData
+        if(post != ''||caption!= ''){
+                  
+          const reqbody = new FormData();
+
+          for (let key in postData){
+            reqbody.append(key,postData[key])
+          }
+
+          // api call
+          const response = await workingpostadd(reqbody)
+          console.log(response);
+          
+        }
+        else{
+          alert('for post update you need to add caption or image ')
+        }
+      }
+      
   const profiles = [
     { id: 1, name: "John Doe", img: "https://i.pravatar.cc/100?img=1" },
     { id: 2, name: " Doe", img: "https://i.pravatar.cc/100?img=1" },
@@ -16,6 +65,10 @@ function Professionalindexpage() {
     { id: 4, name: "Alex Brown", img: "https://i.pravatar.cc/100?img=3" },
     { id: 5, name: " Brown", img: "https://i.pravatar.cc/100?img=3" }
   ];
+
+
+
+
   return (
  <>
  <div className='mb-3'> <Headerprofessionals/></div>
@@ -42,12 +95,16 @@ function Professionalindexpage() {
     <section className='w-full flex flex-col gap-10 h-full overflow-y-auto '>
         <div className='bg-gray-100 rounded-3xl shadow-xl p-5 '>
             {/* upload image for showcase */}
-            <div className=''>
-                <h1 className='text-[#111418] font-bold leading-tight text-xl'>New Post</h1>
+            <div>
+              <div  className='flex justify-between items-center' >  <h1 className='text-[#111418] font-bold leading-tight text-xl'>New Post</h1>
+              <Button onClick={handlepostadd}>Post </Button>
+              </div>
 
                   <div className='p-5 gap-1 flex flex-col'>
                         <label className='text-[#111418] font-bold leading-tight'> What's In your mind.....</label>
-        <Textarea className='' type='text'></Textarea>
+        <Textarea className='' type='text' onChange={(e=>{
+          setPostData({...postData,caption:e.target.value})
+        })}></Textarea>
                   </div>
                 <div className='px-5'>
                     <label
@@ -60,11 +117,15 @@ function Professionalindexpage() {
         type="file"
         id="image"
         className="hidden"
+        onChange={(e)=>{imageUpload(e)}}
       />
     </label>
 
 
                 </div>
+                {preview ? <div>
+                  <img src={preview} alt="post-preview" srcset="" className='h-100 w-full' />
+                </div>:''}
             </div>
         </div>
 
