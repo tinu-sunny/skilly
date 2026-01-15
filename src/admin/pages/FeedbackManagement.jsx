@@ -1,10 +1,31 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Adminheader from "../components/Adminheader";
 import { motion } from "framer-motion";
 import { Card, TabItem, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, Tabs, TextInput } from "flowbite-react";
+import { feedbackadminview } from "../../services/allAPIs";
+import { serverURL } from "../../services/serverURL";
 
 function FeedbackManagement() {
+
+  const [feedbackdata,setFeedbackdata]=useState([])
+    
+    const getfeedback = async()=>{
+      const response = await feedbackadminview()
+      console.log(response);
+      if(response.status==200){
+        setFeedbackdata(response.data.feedbackdata)
+      }
+      else{
+        alert('err,try after some time')
+      }
+      
+    }
+
+    useEffect(()=>{
+      getfeedback()
+    },[])
+
   return (
       <>
       <div className="flex sm:flex-row flex-col dark:bg-black    " style={{height:"100vh"}}>
@@ -38,68 +59,47 @@ function FeedbackManagement() {
                         <div>
                                <div className=' p-5   ' style={{ width: '100%' }}>
             <Tabs aria-label="Default tabs" variant="default">
-              <TabItem active title="All-Feedback" >
+              <TabItem active title="General-Comments" >
                        <div className="overflow-x-auto">
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product name</TableHeadCell>
-            <TableHeadCell>Color</TableHeadCell>
-            <TableHeadCell>Category</TableHeadCell>
-            <TableHeadCell>Price</TableHeadCell>
+            <TableHeadCell> Email</TableHeadCell>
+            {/* <TableHeadCell>feedbacktype</TableHeadCell> */}
+            {/* <TableHeadCell>role</TableHeadCell> */}
+            <TableHeadCell>rating</TableHeadCell>
+            <TableHeadCell>message</TableHeadCell>
             <TableHeadCell>
               <span className="sr-only">Edit</span>
             </TableHeadCell>
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { feedbackdata && feedbackdata.length > 0 ? feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Apple MacBook Pro 17"
+              {item.email}
             </TableCell>
-            <TableCell>Sliver</TableCell>
-            <TableCell>Laptop</TableCell>
-            <TableCell>$2999</TableCell>
+            {/* <TableCell>{item.feedbacktype}</TableCell> */}
+            {/* <TableCell>{item.usertype}</TableCell> */}
+            <TableCell>{item.rating}</TableCell>
+            <TableCell>{item.message}</TableCell>
             <TableCell>
               <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
+                Reply
               </a>
             </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Microsoft Surface Pro
-            </TableCell>
-            <TableCell>White</TableCell>
-            <TableCell>Laptop PC</TableCell>
-            <TableCell>$1999</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-            <TableCell>Black</TableCell>
-            <TableCell>Accessories</TableCell>
-            <TableCell>$99</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
+          </TableRow>)):<h1>data not found</h1>}
+         
         </TableBody>
       </Table>
     </div>
               </TabItem>
-              <TabItem title="New "  >
+              <TabItem title="Feature request "  >
                        <div className="overflow-x-auto">
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell> name</TableHeadCell>
+            <TableHeadCell> c</TableHeadCell>
             <TableHeadCell>Color</TableHeadCell>
             <TableHeadCell>Category</TableHeadCell>
             <TableHeadCell>Price</TableHeadCell>
@@ -109,100 +109,58 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { feedbackdata && feedbackdata.length > 0 ?feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Apple MacBook Pro 17"
+              {item.email}
             </TableCell>
-            <TableCell>Sliver</TableCell>
-            <TableCell>Laptop</TableCell>
-            <TableCell>$2999</TableCell>
+            {/* <TableCell>{item.feedbacktype}</TableCell> */}
+            {/* <TableCell>{item.usertype}</TableCell> */}
+            <TableCell>{item.rating}</TableCell>
+            <TableCell>{item.message}</TableCell>
             <TableCell>
               <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
+                Reply
               </a>
             </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Microsoft Surface Pro
-            </TableCell>
-            <TableCell>White</TableCell>
-            <TableCell>Laptop PC</TableCell>
-            <TableCell>$1999</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-            <TableCell>Black</TableCell>
-            <TableCell>Accessories</TableCell>
-            <TableCell>$99</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
+          </TableRow>)):<h1>data not found</h1>}
         </TableBody>
       </Table>
     </div>
               </TabItem>
 
-               <TabItem title="Resolved "  >
+               <TabItem title="Bug report "  >
                   <div className="overflow-x-auto">
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Product </TableHeadCell>
-            <TableHeadCell>Color</TableHeadCell>
-            <TableHeadCell>Category</TableHeadCell>
-            <TableHeadCell>Price</TableHeadCell>
+            <TableHeadCell>Email </TableHeadCell>
+            {/* <TableHeadCell></TableHeadCell> */}
+            {/* <TableHeadCell>Category</TableHeadCell> */}
+            <TableHeadCell>Message</TableHeadCell>
+            <TableHeadCell>image</TableHeadCell>
             <TableHeadCell>
               <span className="sr-only">Edit</span>
             </TableHeadCell>
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          { feedbackdata && feedbackdata.length > 0 ? feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Apple MacBook Pro 17"
+              {item.email}
             </TableCell>
-            <TableCell>Sliver</TableCell>
-            <TableCell>Laptop</TableCell>
-            <TableCell>$2999</TableCell>
+            {/* <TableCell>{item.feedbacktype}</TableCell> */}
+            {/* <TableCell>{item.usertype}</TableCell> */}
+            {/* <TableCell>{item.rating}</TableCell> */}
+            <TableCell>{item.message}</TableCell>
+            <TableCell><motion.img initial={{ opacity: 1, scale: 1 }}
+                    whileHover={{ opacity: 1, scale: 8 }}
+                    transition={{ duration: 0.7 }} src={`${serverURL}/uploads/${item.uploadImg}`} alt="bug-sreenshot" srcset="" className="h-20  w-20" /></TableCell>
             <TableCell>
               <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
+                Reply
               </a>
             </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Microsoft Surface Pro
-            </TableCell>
-            <TableCell>White</TableCell>
-            <TableCell>Laptop PC</TableCell>
-            <TableCell>$1999</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-            <TableCell>Black</TableCell>
-            <TableCell>Accessories</TableCell>
-            <TableCell>$99</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
+          </TableRow>)):<h1>data not found</h1>}
         </TableBody>
       </Table>
     </div>

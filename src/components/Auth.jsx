@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google';
 function Auth() {
   const navigate = useNavigate();
 
@@ -429,6 +430,17 @@ function Auth() {
                         Sign In
                       </button>
                     </form>
+
+                   <div className="mt-5">
+                      <GoogleLogin
+    onSuccess={credentialResponse => {
+      console.log(credentialResponse);
+    }}
+    onError={() => {
+      console.log('Login Failed');
+    }}
+  />
+                   </div>
 
                     <p className="mt-6 text-center text-sm text-gray-500">
                       Don’t have an account?{" "}

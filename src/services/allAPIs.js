@@ -76,3 +76,7 @@ export const workingpostadd =async(reqbody)=>{
 export const workingpostView =async()=>{
     return await commonAPI("GET",`${serverURL}/post-view-working`,null,{})
 }
+
+export const feedbackadminview =async()=>{
+    return await commonAPI("GET",`${serverURL}/admin-feedback-view`,null,{})
+}
