@@ -4,6 +4,7 @@ import { loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 function Auth() {
   const navigate = useNavigate();
 
@@ -166,7 +167,28 @@ function Auth() {
 
     //
   };
+// hanndle google login 
+const  handlegooglelogin = async (credentialResponse)=>{
 
+  console.log("inside the google login function",credentialResponse);
+  const decode = jwtDecode(credentialResponse.credential)
+  console.log(decode);
+  const userdata={
+    username:decode.name,
+    email:decode.email,
+    profile:decode.picture,
+    role:'',
+  }
+  if(decode.email!=''){
+    
+  }
+
+  console.log(userdata);
+  
+
+  
+
+}
   return (
     <>
       <div className="">
@@ -435,6 +457,7 @@ function Auth() {
                       <GoogleLogin
     onSuccess={credentialResponse => {
       console.log(credentialResponse);
+     handlegooglelogin(credentialResponse)
     }}
     onError={() => {
       console.log('Login Failed');
