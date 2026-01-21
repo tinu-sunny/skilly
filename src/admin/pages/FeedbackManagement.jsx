@@ -9,7 +9,8 @@ import { serverURL } from "../../services/serverURL";
 function FeedbackManagement() {
 
   const [feedbackdata,setFeedbackdata]=useState([])
-    
+    const[keyword,setKeyword]=useState('')
+    const[sortData,setSortData]=useState([])
     const getfeedback = async()=>{
       const response = await feedbackadminview()
       console.log(response);
@@ -26,6 +27,21 @@ function FeedbackManagement() {
       getfeedback()
     },[])
 
+
+     const search =()=>{
+      if(keyword){
+          const search = keyword.trim().toLowerCase()
+           const fliterdata = feedbackdata.filter(item=>item.usertype.toLowerCase().includes(search)||item.email.toLowerCase().includes(search))
+       setSortData(fliterdata)
+          }
+      else{
+   setSortData(feedbackdata)
+      }
+     }
+
+     useEffect(()=>{
+      search();
+     },[keyword,feedbackdata])
   return (
       <>
       <div className="flex sm:flex-row flex-col dark:bg-black    " style={{height:"100vh"}}>
@@ -51,7 +67,7 @@ function FeedbackManagement() {
         
               {/* search bar */}
               <div className="mt-5" >
-            <TextInput type='search' placeholder='🔍Search Here..'></TextInput>
+            <TextInput type='search' placeholder='🔍Search Here..'onChange={(e)=>{setKeyword(e.target.value)}}></TextInput>
               </div>
 
 
@@ -75,7 +91,7 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-        { feedbackdata && feedbackdata.length > 0 ? feedbackdata.filter(item=>item.feedbacktype=='general comments').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { sortData && sortData.length > 0 ? sortData.filter(item=>item.feedbacktype=='general comments').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {item.email}
             </TableCell>
@@ -107,7 +123,7 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-        { feedbackdata && feedbackdata.length > 0 ?feedbackdata.filter(item=>item.feedbacktype=='feature request').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { sortData && sortData.length > 0 ?sortData.filter(item=>item.feedbacktype=='feature request').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {item.usertype}
             </TableCell>
@@ -142,7 +158,7 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          { feedbackdata && feedbackdata.length > 0 ? feedbackdata.filter(item=>item.feedbacktype=='bug report').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          { sortData && sortData.length > 0 ? sortData.filter(item=>item.feedbacktype=='bug report').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {item.email}
             </TableCell>
