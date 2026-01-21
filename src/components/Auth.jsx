@@ -1,6 +1,6 @@
 import { Select, TextInput } from "flowbite-react";
 import React, { useState } from "react";
-import { loginUser, userRegistration } from "../services/allAPIs";
+import { googlelogin, loginUser, userRegistration } from "../services/allAPIs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
@@ -178,10 +178,56 @@ const  handlegooglelogin = async (credentialResponse)=>{
     email:decode.email,
     profile:decode.picture,
     role:'',
+    password:'123',
+     regdate: `${todaydate.getDate()}-${
+      todaydate.getMonth() + 1
+    }-${todaydate.getFullYear()}`
   }
-  if(decode.email!=''){
-    
+
+  const response  = await googlelogin(userdata)
+  console.log(response);
+  if (response.status==200 && response.data.
+existingUser.role=="user"){
+     sessionStorage.setItem("token", response.data.token);
+    navigate('/data-page')
   }
+  else if(response.status==200){
+     switch (response.data.existingUser.role) {
+          case "admin":
+            navigate("/admin-landing-page");
+            break;
+          case "student":
+            navigate("/student-Landing-page");
+            break;
+          case "working":
+            navigate("/professional-index-page");
+            break;
+
+          case "counsellor":
+            navigate("/counsellor-dashboard");
+            break;
+
+          case "institution":
+            navigate("/institution-dashboard");
+            break;
+
+          case "company":
+            navigate("/company-dashboard");
+            break;
+
+          default:
+            alert(
+              "Unknown role or id is decativated Connect to admin for help"
+            );
+          // console.error("Unhandled role:", role);
+        }
+
+  }
+  else{
+    alert('please try again after some time')
+    navigate('/')
+  }
+  
 
   console.log(userdata);
   

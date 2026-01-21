@@ -80,3 +80,11 @@ export const workingpostView =async()=>{
 export const feedbackadminview =async()=>{
     return await commonAPI("GET",`${serverURL}/admin-feedback-view`,null,{})
 }
+
+export const googlelogin = async(reqbody)=>{
+    return await commonAPI("POST",`${serverURL}/googlelogin`,reqbody,{})
+}
+
+export const googlelogindatasave = async(reqbody)=>{
+    return await commonAPI("POST",`${serverURL}/googlelogin-datasave`,reqbody,{})
+}

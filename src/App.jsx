@@ -36,6 +36,7 @@ import JobAddPage from './company/pages/JobAddPage'
 import CandidatesView from './company/pages/CandidatesView'
 import ScheduleInterview from './company/pages/ScheduleInterview'
 import AccesDeclinepage from './Pages/AccesDeclinepage'
+import RoleSelection from './Pages/RoleSelection'
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
     <Route path='/about' element={<About/>}/>
     <Route path='/services' element={<Services/>}/>
     <Route path='/contact' element={<Contact/>}/>
+    <Route path='/data-page' element={<RoleSelection/>}/>
 
     {/* Adminn path */}
     <Route path='/admin-landing-page' element={<AdminLandingpage/>}/>
