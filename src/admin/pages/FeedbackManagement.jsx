@@ -57,16 +57,16 @@ function FeedbackManagement() {
 
                         {/*implement pagenation  */}
                         <div>
-                               <div className=' p-5   ' style={{ width: '100%' }}>
+                               <div className=' p-5   ' style={{ width: '100%'}}>
             <Tabs aria-label="Default tabs" variant="default">
               <TabItem active title="General-Comments" >
-                       <div className="overflow-x-auto">
+                       <div className="overflow-x-auto overflow-y-auto h-130">
       <Table>
         <TableHead>
           <TableRow>
             <TableHeadCell> Email</TableHeadCell>
             {/* <TableHeadCell>feedbacktype</TableHeadCell> */}
-            {/* <TableHeadCell>role</TableHeadCell> */}
+            <TableHeadCell>Type</TableHeadCell>
             <TableHeadCell>rating</TableHeadCell>
             <TableHeadCell>message</TableHeadCell>
             <TableHeadCell>
@@ -75,12 +75,12 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-        { feedbackdata && feedbackdata.length > 0 ? feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { feedbackdata && feedbackdata.length > 0 ? feedbackdata.filter(item=>item.feedbacktype=='general comments').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {item.email}
             </TableCell>
             {/* <TableCell>{item.feedbacktype}</TableCell> */}
-            {/* <TableCell>{item.usertype}</TableCell> */}
+            <TableCell>{item.usertype}</TableCell>
             <TableCell>{item.rating}</TableCell>
             <TableCell>{item.message}</TableCell>
             <TableCell>
@@ -95,27 +95,25 @@ function FeedbackManagement() {
     </div>
               </TabItem>
               <TabItem title="Feature request "  >
-                       <div className="overflow-x-auto">
+                       <div className="overflow-x-auto overflow-y-auto h-130">
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell> c</TableHeadCell>
-            <TableHeadCell>Color</TableHeadCell>
-            <TableHeadCell>Category</TableHeadCell>
-            <TableHeadCell>Price</TableHeadCell>
-            <TableHeadCell>
-              <span className="sr-only">Edit</span>
-            </TableHeadCell>
+            <TableHeadCell>Usertype</TableHeadCell>
+            <TableHeadCell>Email</TableHeadCell>
+            <TableHeadCell>Message</TableHeadCell>
+            <TableHeadCell>Action</TableHeadCell>
+         
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-        { feedbackdata && feedbackdata.length > 0 ?feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+        { feedbackdata && feedbackdata.length > 0 ?feedbackdata.filter(item=>item.feedbacktype=='feature request').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              {item.email}
+              {item.usertype}
             </TableCell>
             {/* <TableCell>{item.feedbacktype}</TableCell> */}
             {/* <TableCell>{item.usertype}</TableCell> */}
-            <TableCell>{item.rating}</TableCell>
+            <TableCell>{item.email}</TableCell>
             <TableCell>{item.message}</TableCell>
             <TableCell>
               <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
@@ -129,7 +127,7 @@ function FeedbackManagement() {
               </TabItem>
 
                <TabItem title="Bug report "  >
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto overflow-y-auto h-130">
       <Table>
         <TableHead>
           <TableRow>
@@ -144,7 +142,7 @@ function FeedbackManagement() {
           </TableRow>
         </TableHead>
         <TableBody className="divide-y">
-          { feedbackdata && feedbackdata.length > 0 ? feedbackdata.map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+          { feedbackdata && feedbackdata.length > 0 ? feedbackdata.filter(item=>item.feedbacktype=='bug report').map(item => ( <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {item.email}
             </TableCell>

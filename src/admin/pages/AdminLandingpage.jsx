@@ -63,7 +63,7 @@ const roleData = [
     <>
       <div className="flex sm:flex-row flex-col dark:bg-black ">
         {/* header */}
-        <div className="w-80">
+        <div className="w-80 h-200px">
           {" "}
           <Adminheader />
         </div>
