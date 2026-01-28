@@ -6,6 +6,7 @@ import { Button, Checkbox, Pagination, Table, TableBody, TableCell, TableHead, T
 import CareerAdminaddModal from "../components/CareerAdminaddModal";
 import { viewCarreerAPI } from "../../services/allAPIs";
 import { td } from "framer-motion/client";
+import CareerAdminEditModal from "../components/CareerAdminEditModal";
 
 
 function CareerFilelds() {
@@ -24,23 +25,23 @@ const [keyword,setKeyword]=useState('')
 
 const [errMsg, setErrMsg]=useState('')
 
-console.log(data);
+// console.log(data);
 // search and sort
 
  const searchdata =  ()=>{
-  console.log(keyword);
+  // console.log(keyword);
   
       if(keyword){
         const search = keyword.trim().toLowerCase()
-        console.log("trim keyword",search);
+        // console.log("trim keyword",search);
         
        const fliterdata = data.filter(item=>item.coursename?.toLowerCase().includes(search) || item.category?.toLowerCase().includes(search))
-       console.log(fliterdata);
+      //  console.log(fliterdata);
        setSortData(fliterdata)
       // console.log("inside");
       }
       else{
-        console.log('no data');
+        // console.log('no data');
        setErrMsg("no data found...!!")
        setSortData(data)
        
@@ -57,8 +58,8 @@ console.log(data);
 // view add fields
 const carreradminview = async()=>{
    const response = await viewCarreerAPI()
-   console.log(response);
-   console.log(response.data.carrefields);
+  //  console.log(response);
+  //  console.log(response.data.carrefields);
    if(response.status==200){
      setData(response.data.carrefields)
    }
@@ -172,7 +173,7 @@ const currentItems = sortData.slice(startIndex, endIndex);
                      <td className="px-6 py-4">{user.description}</td>
                      <td className="px-6 py-4">{user.avgsalary}</td>
                      <td className="px-6 py-4">{user.category}</td>
-                     <td className="px-6 py-4"><Button className="bg-indigo-500 dark:bg-indigo-500">edit</Button></td>
+                     <td className="px-6 py-4"><CareerAdminEditModal id={user._id}/></td>
                      <td className="px-6 py-4"><Button className="bg-red-800 hover:bg-red-400 dark:bg-red-800">delete</Button></td>
                    
                    </tr>

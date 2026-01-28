@@ -16,6 +16,7 @@ function FeedbackManagement() {
       console.log(response);
       if(response.status==200){
         setFeedbackdata(response.data.feedbackdata)
+        
       }
       else{
         alert('err,try after some time')

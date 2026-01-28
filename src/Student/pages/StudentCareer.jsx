@@ -131,7 +131,7 @@ useEffect(()=>{
          {sortData && sortData.length > 0 ? sortData.map(item=>( <div>
               <div key={item._id} className=" rounded-xl border-2  hover:border-primary hover:shadow-[0_0_20px_rgba(43,238,121,0.1)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col dark:bg-blue-800">
   <div className="h-32 bg-cover bg-center relative" data-alt="Abstract visualization of data networks and graphs"  style={{
-     backgroundImage: `url(${serverURL}/uploads/${item.thumbnail})`,
+     backgroundImage: `url("${serverURL}/uploads/${item.thumbnail}")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       width: "100%",

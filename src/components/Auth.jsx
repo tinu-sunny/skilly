@@ -171,14 +171,14 @@ function Auth() {
 const  handlegooglelogin = async (credentialResponse)=>{
 
   console.log("inside the google login function",credentialResponse);
-  const decode = jwtDecode(credentialResponse.credential)
+  const decode =  jwtDecode(credentialResponse.credential)
   console.log(decode);
   const userdata={
     username:decode.name,
     email:decode.email,
     profile:decode.picture,
-    role:'',
-    password:'123',
+  role:'user',
+  password:'123',
      regdate: `${todaydate.getDate()}-${
       todaydate.getMonth() + 1
     }-${todaydate.getFullYear()}`
@@ -192,6 +192,8 @@ existingUser.role=="user"){
     navigate('/data-page')
   }
   else if(response.status==200){
+     sessionStorage.setItem("token", response.data.token);
+
      switch (response.data.existingUser.role) {
           case "admin":
             navigate("/admin-landing-page");
@@ -229,7 +231,7 @@ existingUser.role=="user"){
   }
   
 
-  console.log(userdata);
+  // console.log(userdata);
   
 
   

@@ -88,3 +88,7 @@ export const googlelogin = async(reqbody)=>{
 export const googlelogindatasave = async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/googlelogin-datasave`,reqbody,{})
 }
+
+export const carrerfieldwithid =async()=>{
+    return await commonAPI("GET",`${serverURL}/carrer-field`,null,{})
+}
