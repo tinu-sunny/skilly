@@ -37,6 +37,7 @@ import CandidatesView from './company/pages/CandidatesView'
 import ScheduleInterview from './company/pages/ScheduleInterview'
 import AccesDeclinepage from './Pages/AccesDeclinepage'
 import RoleSelection from './Pages/RoleSelection'
+import CareerAdminEditModal from './admin/components/CareerAdminEditModal'
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
     <Route path='/admin-careerFields-management' element={<CareerFilelds/>}/>
     <Route path='/admin-promotion-management'element={<PromotionsManagement/>}/>
     <Route path='/admin-contact-view'element={<ContactViewpage/>}/>
+    <Route path='/careerfieldsedit/:id'element={<CareerAdminEditModal/>}/>
 
     {/* Student Paths */}
     <Route path='/student-Landing-page' element={<StudentLandingpage/>}/>

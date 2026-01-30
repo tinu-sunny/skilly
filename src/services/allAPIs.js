@@ -42,7 +42,7 @@ export const addcarreerAPI = async(reqbody)=>{
 
 // admin carreer view 
 export const viewCarreerAPI = async()=>{
-    return await commonAPI('GEt',`${serverURL}/carrerfield-admin-view`,{})
+    return await commonAPI('GET',`${serverURL}/carrerfield-admin-view`,{})
 }
 
 // admin user activation and deactivation
@@ -89,6 +89,7 @@ export const googlelogindatasave = async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/googlelogin-datasave`,reqbody,{})
 }
 
-export const carrerfieldwithid =async()=>{
-    return await commonAPI("GET",`${serverURL}/carrer-field`,null,{})
+
+export const carrerfileldupdateAPI = async(reqbody)=>{
+    return await commonAPI("PATCH",`${serverURL}/admin-carrerupdate`,reqbody,{})
 }
