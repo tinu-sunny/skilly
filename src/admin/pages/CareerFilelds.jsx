@@ -173,7 +173,7 @@ const currentItems = sortData.slice(startIndex, endIndex);
                      <td className="px-6 py-4">{user.description}</td>
                      <td className="px-6 py-4">{user.avgsalary}</td>
                      <td className="px-6 py-4">{user.category}</td>
-                     <td className="px-6 py-4"><CareerAdminEditModal id={user._id} careerdata={data}/></td>
+                     <td className="px-6 py-4"><CareerAdminEditModal id={user._id} careerdata={data} setRefresh={setRefresh}/></td>
                      <td className="px-6 py-4"><Button className="bg-red-800 hover:bg-red-400 dark:bg-red-800">delete</Button></td>
                    
                    </tr>

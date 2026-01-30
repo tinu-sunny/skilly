@@ -6,7 +6,7 @@ import { serverURL } from "../../services/serverURL";
 function CareerAdminEditModal(data) {
    console.log(data);
 
-   const {id,careerdata}=data
+   const {id,careerdata,setRefresh}=data
   //  console.log(careerdata);
 
    const [courseData,setCourseData]=useState([])
@@ -47,7 +47,8 @@ setCourseData({...courseData,thumbnail:e.target.files[0]})
   console.log(response);
   if(response.status==200){
     alert("updateted")
-    setCourseData(response.data.updatecareefield)
+    setRefresh(prev => !prev);
+    // setCourseData(response.data.updatecareefield)
     setOpenModal(false)
   }
   

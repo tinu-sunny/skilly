@@ -25,6 +25,7 @@ function RoleSelection() {
       const response = await activeuserAPI();
       if (response.status === 200) {
         console.log(response);
+
         
         setUserdata(response.data.user);
       }
@@ -69,7 +70,8 @@ function RoleSelection() {
     const response =  await googlelogindatasave(userdata)
     console.log(response);
     if(response.status==200){
-        
+
+    sessionStorage.setItem("token", response.data.token);
      switch (response.data.updateuser.role) {
               case "admin":
                 navigate("/admin-landing-page");

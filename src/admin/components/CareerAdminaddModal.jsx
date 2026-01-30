@@ -53,7 +53,7 @@ setCourseData({...courseData,thumbnail:e.target.files[0]})
       if(response.status==200){
         alert(response.data.message)
         setOpenModal(false)
-        setRefresh(false)
+        setRefresh(prev=>!prev)
       }
       else{
         alert(response.response.data)
