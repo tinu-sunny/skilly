@@ -93,3 +93,7 @@ export const googlelogindatasave = async(reqbody)=>{
 export const carrerfileldupdateAPI = async(reqbody)=>{
     return await commonAPI("PATCH",`${serverURL}/admin-carrerupdate`,reqbody,{})
 }
+
+export const carrerfieldDelete = async(reqbody)=>{
+    return await commonAPI("DELETE",`${serverURL}/admin-carrerfield-delete`,reqbody,{})
+}
