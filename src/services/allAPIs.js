@@ -97,3 +97,9 @@ export const carrerfileldupdateAPI = async(reqbody)=>{
 export const carrerfieldDelete = async(reqbody)=>{
     return await commonAPI("DELETE",`${serverURL}/admin-carrerfield-delete`,reqbody,{})
 }
+
+// company all api calls
+
+export const jobadd= async(reqbody)=>{
+    return await commonAPI("POST",`${serverURL}/job-add`,reqbody,{})
+}
