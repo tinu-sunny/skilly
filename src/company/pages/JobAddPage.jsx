@@ -1,72 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CompanySidebar from "../Components/CompanySidebar";
 import { Button, Pagination } from "flowbite-react";
 import AppFooter from "../../components/AppFooter";
 import AddJobModal from "../Components/AddJobModal";
+import JobEditModal from "../Components/JobEditModal";
+import { jobviewcompany } from "../../services/allAPIs";
 
 function JobAddPage() {
-  const data = [
-    {
-      id: 1,
-      title: "Frontend Developer",
-      department: "Engineering",
-      workMode: "Remote",
-    },
-    {
-      id: 2,
-      title: "Backend Developer",
-      department: "Engineering",
-      workMode: "Onsite",
-    },
-    {
-      id: 3,
-      title: "UI/UX Designer",
-      department: "Design",
-      workMode: "Hybrid",
-    },
-    {
-      id: 4,
-      title: "HR Executive",
-      department: "Human Resources",
-      workMode: "Onsite",
-    },
-    {
-      id: 5,
-      title: "Product Manager",
-      department: "Product",
-      workMode: "Hybrid",
-    },
-    {
-      id: 6,
-      title: "QA Engineer",
-      department: "Quality Assurance",
-      workMode: "Remote",
-    },
-    {
-      id: 7,
-      title: "DevOps Engineer",
-      department: "Infrastructure",
-      workMode: "Remote",
-    },
-    {
-      id: 8,
-      title: "Marketing Executive",
-      department: "Marketing",
-      workMode: "Onsite",
-    },
-    {
-      id: 9,
-      title: "Data Analyst",
-      department: "Analytics",
-      workMode: "Hybrid",
-    },
-    {
-      id: 10,
-      title: "Technical Support",
-      department: "Support",
-      workMode: "Onsite",
-    },
-  ];
+  const [data,setData] =useState([]) 
+// console.log(data);
+
+  const jobdetails = async()=>{
+    const response = await jobviewcompany()
+    // console.log(response);
+    if(response.status==200){
+      setData(response.data.jobData
+)
+    }
+    
+  }
+
+  useEffect(()=>{
+    jobdetails()
+  },[])
+
 
   const itemsPerPage = 7; // change as needed
   const [currentPage, setCurrentPage] = useState(1);
@@ -114,7 +71,7 @@ function JobAddPage() {
                   <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-green-300 ">
                     <tr>
                       <th className="px-6 py-3">Title</th>
-                      <th className="px-6 py-3">Department</th>
+                      <th className="px-6 py-3">Last Date</th>
                       <th className="px-6 py-3">Work Mode</th>
                       <th className="px-6 py-3">Edit</th>
                       <th className="px-6 py-3">Close</th>
@@ -128,13 +85,14 @@ function JobAddPage() {
                         key={user.id}
                         className="bg-white border-b hover:bg-gray-50 dark:bg-green-100"
                       >
-                        <td className="px-6 py-4">{user.title}</td>
+                        <td className="px-6 py-4">{user.jobtitle
+}</td>
                         <td className="px-6 py-4 font-medium">
-                          {user.department}
+                          {user.lastdate}
                         </td>
-                        <td className="px-6 py-4">{user.workMode}</td>
+                        <td className="px-6 py-4">{user.workmode}</td>
                         <td className="px-6 py-4">
-                          <Button outline>view</Button>
+                        <JobEditModal id={user._id} jobdata={data}/>
                         </td>
                         <td className="px-6 py-4">
                           <Button outline>Close</Button>

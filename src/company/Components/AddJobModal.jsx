@@ -39,15 +39,15 @@ const [clear ,setClear]=useState({
     education:""
   });
 
-  console.log(jobData);
+  // console.log(jobData);
   
 
   // for updateing date 
   const handledateupdate=(e)=>{
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const date = new Date()
     const formattedDate = date.toISOString().split("T")[0];
-    console.log(formattedDate);
+    // console.log(formattedDate);
     setJobData({...jobData,dataofupdate:formattedDate,lastdate:e.target.value})
     
 
@@ -55,7 +55,7 @@ const [clear ,setClear]=useState({
 
   const handlejobadd = async () => {
     const response = await jobadd(jobData);
-    console.log(response);
+    // console.log(response);
     if(response.status==200){
       alert("new job added")
       setOpenModal(false)

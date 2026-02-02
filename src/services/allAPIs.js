@@ -103,3 +103,16 @@ export const carrerfieldDelete = async(reqbody)=>{
 export const jobadd= async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/job-add`,reqbody,{})
 }
+
+// view posted jobs
+
+
+export const jobviewcompany = async()=>{
+    return await commonAPI("GET",`${serverURL}/job-view-company`,{},{})
+}
+
+// edit job
+export const jobeditcompany = async(reqbody)=>{
+    return await commonAPI("PATCH",`${serverURL}/job-edit-company`,reqbody,{})
+}
+
