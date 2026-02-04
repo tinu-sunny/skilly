@@ -4,7 +4,7 @@ import { Button, Pagination } from "flowbite-react";
 import AppFooter from "../../components/AppFooter";
 import AddJobModal from "../Components/AddJobModal";
 import JobEditModal from "../Components/JobEditModal";
-import { jobviewcompany } from "../../services/allAPIs";
+import { closejobaplication, deletejobaplication, jobviewcompany } from "../../services/allAPIs";
 
 function JobAddPage() {
   const [data,setData] =useState([]) 
@@ -23,6 +23,34 @@ function JobAddPage() {
   useEffect(()=>{
     jobdetails()
   },[])
+
+
+
+// application close
+
+const handleaplicationstop =async(id)=>{
+  const reqbody = {
+    userid:id,
+    status:true
+  }
+
+  const response = await closejobaplication(reqbody)
+  console.log(response);
+  
+
+}
+
+const handledeletejob = async(id)=>{
+  const reqbody ={
+    job_id:id
+  }
+
+  const response =await deletejobaplication(reqbody)
+  console.log(response);
+  
+}
+
+
 
 
   const itemsPerPage = 7; // change as needed
@@ -95,10 +123,10 @@ function JobAddPage() {
                         <JobEditModal id={user._id} jobdata={data}/>
                         </td>
                         <td className="px-6 py-4">
-                          <Button outline>Close</Button>
+                          <Button outline onClick={()=>{handleaplicationstop(user._id)}}>Close</Button>
                         </td>
                         <td className="px-6 py-4">
-                          <Button outline>Delete</Button>
+                          <Button outline onClick={()=>{handledeletejob(user._id)}}>Delete</Button>
                         </td>
                       </tr>
                     ))}
@@ -131,3 +159,51 @@ function JobAddPage() {
 }
 
 export default JobAddPage;
+
+
+
+
+          {/* search Bar */}
+
+                // <section className='mt-10'>
+                //     <div className='flex flex-wrap gap-4 w-full bg-gray-100 p-4 rounded-3xl' >
+                        {/* search bar */}
+
+                        {/* <div className='sm:w-[60%]'>
+                            <TextInput type='search' placeholder='🔍 search by job title ..'></TextInput>
+                        </div> */}
+                        {/* sort by location */}
+                        {/* <div className='bg-gray-300 rounded-3xl p-3'>
+                            <select>
+                                <option value="">All Location</option>
+                                <option value="">Kochi</option>
+                                <option value="">Trivandram</option>
+                                <option value="">Banglur</option>
+                                <option value="">New York, NY</option>
+                                <option value="">San Francisco, CA</option>
+                            </select>
+                        </div> */}
+
+                          {/* sort by Roles */}
+                        {/* <div className='bg-gray-300 rounded-3xl p-3'>
+                            <select>
+                                <option value="">All Roles</option>
+                                <option value="">Engineering</option>
+                                <option value="">Design</option>
+                                <option value="">Product</option>
+                               
+                            </select>
+                        </div> */}
+
+                              {/* sort by Industries */}
+                        {/* <div className='bg-gray-300 rounded-3xl p-3'>
+                            <select>
+                                <option value="">All Industries</option>
+                                <option value="">Technology</option>
+                                <option value="">Finance</option>
+                                <option value="">Healthcare</option>
+                               
+                            </select>
+                        </div>
+                    </div>
+                </section> */}

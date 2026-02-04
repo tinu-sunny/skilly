@@ -163,6 +163,17 @@ setJobData(job)
                       <TextInput type="text"
                       value={jobData.role} onChange={(e)=>{setJobData({...jobData,role:e.target.value})}}></TextInput>
                     </div>
+
+                      {/* salary */}
+               <div className="mt-5">
+                  <label
+                    htmlFor=""
+                    className="text-[#11418] font-bold dark:text-white"
+                  >
+                    Salary
+                  </label>
+                  <TextInput value={jobData.salary} type="text" onChange={(e)=>{setJobData({...jobData,salary:e.target.value})}}></TextInput>
+                </div>
                  
     
                     <div className="mt-5">

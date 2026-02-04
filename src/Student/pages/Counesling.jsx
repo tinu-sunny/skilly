@@ -4,6 +4,7 @@ import { Button } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import ChatModal from '../components/ChatModal';
 
 function Counesling() {
   return (
@@ -50,9 +51,7 @@ function Counesling() {
         </p>
 
     <div className='flex gap-5'>
-            <Button color="purple" className="w-32 text-white font-semibold shadow-md hover:shadow-lg">
-                Chat
-            </Button>
+         <ChatModal/>
             <Link to='/counseling-booking'>
                 <Button color="yellow" className="w-32 text-white font-semibold shadow-md hover:shadow-lg">
                     Book Section

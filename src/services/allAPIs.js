@@ -67,6 +67,10 @@ export const studentfeedbackadd =async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/feedback-add-student`,reqbody,{})
 }
 
+
+
+
+
 // working post add 
 export const workingpostadd =async(reqbody)=>{
     return await commonAPI("POST",`${serverURL}/post-add-working`,reqbody,{})
@@ -116,3 +120,22 @@ export const jobeditcompany = async(reqbody)=>{
     return await commonAPI("PATCH",`${serverURL}/job-edit-company`,reqbody,{})
 }
 
+// close job application
+export const closejobaplication = async(reqbody)=>{
+    return await commonAPI("PATCH",`${serverURL}/job-aplication-company-close`,reqbody,{})
+}
+
+// delete job application
+export const deletejobaplication = async(reqbody)=>{
+    return await commonAPI("DELETE",`${serverURL}/job-company-delete`,reqbody,{})
+}
+
+
+
+
+// student Api call 
+
+// studet -job view
+export const studentjobview =async()=>{
+    return await commonAPI("GET",`${serverURL}/student-job-view`,{},{})
+}

@@ -65,6 +65,7 @@ function RoleSelection() {
     return Object.keys(newErrors).length === 0;
   };
 
+console.log(userdata);
 
   const handlelogin = async ()=>{
     const response =  await googlelogindatasave(userdata)

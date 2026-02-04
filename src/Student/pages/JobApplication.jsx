@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import StudentHeader from '../components/StudentHeader'
 import { Button, TextInput } from 'flowbite-react'
 import AppFooter from '../../components/AppFooter'
@@ -6,7 +6,27 @@ import { motion } from "framer-motion";
 import { MdOutlineAccessTime, MdOutlineDateRange, MdSchedule } from 'react-icons/md';
 import { CiBookmark } from 'react-icons/ci';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
+import { studentjobview } from '../../services/allAPIs';
+import { serverURL } from '../../services/serverURL';
 function JobApplication() {
+  const [jobDatas,setJobDatas]=useState([])
+console.log(jobDatas);
+
+    // featch all job posted 
+
+    const jobdatafeatch = async()=>{
+        const response = await studentjobview()
+        console.log(response);
+        if(response.status==200){
+            setJobDatas(response.data.jobs)
+        }
+        
+    }
+
+    useEffect(()=>{
+        jobdatafeatch()
+    },[])
+
   return (
       <>
    <div className='flex flex-col sm:flex-row'>
@@ -82,50 +102,7 @@ function JobApplication() {
                     </div>
                 </section>
 
-                {/* search Bar */}
-
-                <section className='mt-10'>
-                    <div className='flex flex-wrap gap-4 w-full bg-gray-100 p-4 rounded-3xl' >
-                        {/* search bar */}
-
-                        <div className='sm:w-[60%]'>
-                            <TextInput type='search' placeholder='🔍 search by job title ..'></TextInput>
-                        </div>
-                        {/* sort by location */}
-                        <div className='bg-gray-300 rounded-3xl p-3'>
-                            <select>
-                                <option value="">All Location</option>
-                                <option value="">Kochi</option>
-                                <option value="">Trivandram</option>
-                                <option value="">Banglur</option>
-                                <option value="">New York, NY</option>
-                                <option value="">San Francisco, CA</option>
-                            </select>
-                        </div>
-
-                          {/* sort by Roles */}
-                        <div className='bg-gray-300 rounded-3xl p-3'>
-                            <select>
-                                <option value="">All Roles</option>
-                                <option value="">Engineering</option>
-                                <option value="">Design</option>
-                                <option value="">Product</option>
-                               
-                            </select>
-                        </div>
-
-                              {/* sort by Industries */}
-                        <div className='bg-gray-300 rounded-3xl p-3'>
-                            <select>
-                                <option value="">All Industries</option>
-                                <option value="">Technology</option>
-                                <option value="">Finance</option>
-                                <option value="">Healthcare</option>
-                               
-                            </select>
-                        </div>
-                    </div>
-                </section>
+      
                   
                   {/* job , Applcation ,upcoming inderview */}
 
@@ -142,114 +119,67 @@ function JobApplication() {
                         {/* job cards */}
 
                         <div className='w-full p-5 flex flex-col gap-5 '>
-                            {/* card -1 */}
-                            <div className=' bg-gray-100 p-5 rounded-3xl flex flex-col gap-5 '>
-                                 <div className='flex w-full  '>
-                                <div className='w-[20%]'><img src="https://technopark.in/storage/images/858.png" alt="comp-image" style={{width:'100px',height:'100px', borderRadius:'50%'}} /></div>
+                            {/* card  */}
+                         {
+  jobDatas && jobDatas.length > 0 ? (
+    jobDatas.slice(0, 3).map((item) => (
+      <div
+        key={item._id}
+        className="bg-gray-100 p-5 rounded-3xl flex flex-col gap-5"
+      >
+        <div className="flex w-full">
+          <div className="w-[20%]">
+            <img
+              src={`${serverURL}/uploads/${item.comapnyProfile}`}
+              alt={item.comapnyname}
+              style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+            />
+          </div>
 
-                              <div className='flex flex-col justify-between w-[70%]'>
-                                    <h3 className='text-[#111418] font-bold text-2xl leading-tight'>Frontend Engineer Intern</h3>
-                                    <p className='
-                                    text-slate-500 font-medium'>Figma • San Francisco, CA (Hybrid)</p>
-                                   
-    <div className='flex flex-row  gap-4 justify-start mt-5 '>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Internship</span>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>$40 - $60 / hr</span>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Design Tools</span>
-    </div>
-    
-                              </div>
-                               <div className='ml-50 text-2xl '>
-                                <FaRegBookmark />
-                               {/* <FaBookmark /> */}
-                               </div>
-                             
-</div>
-<hr />
-<div className='flex justify-between items-center px-6'>
+          <div className="flex flex-col justify-between w-[70%]">
+            <h3 className="text-[#111418] font-bold text-2xl leading-tight">
+              {item.jobtitle}
+            </h3>
 
+            <p className="text-slate-500 font-medium">
+              {item.companyname} • {item.location}
+            </p>
 
-   <p className='flex justify-center items-center gap-1 text-slate-400
-   '> <span><MdSchedule /></span>  <span> Posted 2 days ago</span></p>
-    <div>
-        <Button>ApplyNow</Button>
-    </div>
-    </div>
+            <div className="flex flex-row gap-4 justify-start mt-5">
+              <span className="bg-gray-200 rounded-2xl p-1 font-medium text-sm">
+                {item.worktype}
+              </span>
+              <span className="bg-gray-200 rounded-2xl p-1 font-medium text-sm">
+                {item.salary}
+              </span>
+            </div>
+          </div>
 
-                           </div>
+          <div className="ml-50 text-2xl">
+            <FaRegBookmark />
+          </div>
+        </div>
 
-                            {/* card -2 */}
-                            <div className=' bg-gray-100 p-5 rounded-3xl flex flex-col gap-5 '>
-                                 <div className='flex w-full  '>
-                                <div className='w-[20%]'><img src="https://cdn.confident-group.com/wp-content/uploads/2023/05/26104618/Cover2-11.jpg" alt="comp-image" style={{width:'100px',height:'100px', borderRadius:'50%'}} /></div>
+        <hr />
 
-                              <div className='flex flex-col justify-between w-[70%]'>
-                                    <h3 className='text-[#111418] font-bold text-2xl leading-tight'>Product Designer</h3>
-                                    <p className='
-                                    text-slate-500 font-medium'>Stripe • Remote</p>
-                                   
-    <div className='flex flex-row  gap-4 justify-start mt-5 '>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Full-time</span>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>$120k - $160k</span>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Fintech</span>
-    </div>
-    
-                              </div>
-                               <div className='ml-50 text-2xl '>
-                                {/* <FaRegBookmark /> */}
-                               <FaBookmark />
-                               </div>
-                             
-</div>
-<hr />
-<div className='flex justify-between items-center px-6'>
+        <div className="flex justify-between items-center px-6">
+          <p className="flex items-center gap-1 text-slate-400">
+            <MdSchedule /> Posted {item.dataofupdate}
+          </p>
+
+          <Button>Apply Now</Button>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p>No Jobs</p>
+  )
+}
 
 
-   <p className='flex justify-center items-center gap-1 text-slate-400
-   '> <span><MdSchedule /></span>  <span> Posted 5 hours ago</span></p>
-    <div>
-        <Button>ApplyNow</Button>
-    </div>
-    </div>
-
-                           </div>
-
-                            {/* card -2 */}
-                            <div className=' bg-gray-100 p-5 rounded-3xl flex flex-col gap-5 '>
-                                 <div className='flex w-full  '>
-                                <div className='w-[20%]'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS54Ccv96op83Hh9FqakHvSx8VoW-yyMxmeGQ&s" alt="comp-image" style={{width:'100px',height:'100px', borderRadius:'50%'}} /></div>
-
-                              <div className='flex flex-col justify-between w-[70%]'>
-                                    <h3 className='text-[#111418] font-bold text-2xl leading-tight'>Junior Data Analyst</h3>
-                                    <p className='
-                                    text-slate-500 font-medium'>Spotify • New York, NY</p>
-                                   
-    <div className='flex flex-row  gap-4 justify-start mt-5 '>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Entry Level</span>
-        <span className='bg-gray-200 rounded-2xl p-1 font-medium text-sm'>Music Streaming</span>
-    </div>
-    
-                              </div>
-                               <div className='ml-50 text-2xl '>
-                                <FaRegBookmark />
-                               {/* <FaBookmark /> */}
-                               </div>
-                             
-</div>
-<hr />
-<div className='flex justify-between items-center px-6'>
-
-
-   <p className='flex justify-center items-center gap-1 text-slate-400
-   '> <span><MdSchedule /></span>  <span> Posted 1 week ago</span></p>
-    <div>
-        <Button>ApplyNow</Button>
-    </div>
-    </div>
-
-                           </div>
+                           
                            <div>
-                            <Button className='w-full bg-slate-400 text-black hover:bg-slate-400 font-bold'> Load More Jobs                                                                                                                                                         </Button>
+                            <Button className='w-full bg-slate-400 text-black hover:bg-slate-400 font-bold'> Load More Jobs </Button>
                            </div>
                         </div>
                         </div>

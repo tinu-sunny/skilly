@@ -24,7 +24,9 @@ const [clear ,setClear]=useState({
     worktype:"",
     workmode:"",
     location:"",
-    education:""
+    education:"",
+     salary:"",
+    companyname:""
   })
   const [jobData, setJobData] = useState({
     jobtitle: "",
@@ -36,7 +38,9 @@ const [clear ,setClear]=useState({
     worktype:"",
     workmode:"",
     location:"",
-    education:""
+    education:"",
+    salary:"",
+    companyname:""
   });
 
   // console.log(jobData);
@@ -57,6 +61,8 @@ const [clear ,setClear]=useState({
     const response = await jobadd(jobData);
     // console.log(response);
     if(response.status==200){
+          window.location.reload();
+
       alert("new job added")
       setOpenModal(false)
       setJobData(clear)
@@ -185,8 +191,18 @@ const [clear ,setClear]=useState({
                   </label>
                   <TextInput type="text" onChange={(e)=>{setJobData({...jobData,role:e.target.value})}}></TextInput>
                 </div>
-             
+                {/* salary */}
+               <div className="mt-5">
+                  <label
+                    htmlFor=""
+                    className="text-[#11418] font-bold dark:text-white"
+                  >
+                    Salary
+                  </label>
+                  <TextInput type="text" onChange={(e)=>{setJobData({...jobData,salary:e.target.value})}}></TextInput>
+                </div>
 
+{/* experiences */}
                 <div className="mt-5">
                   <label
                     htmlFor=""
