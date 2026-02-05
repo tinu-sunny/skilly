@@ -139,3 +139,16 @@ export const deletejobaplication = async(reqbody)=>{
 export const studentjobview =async()=>{
     return await commonAPI("GET",`${serverURL}/student-job-view`,{},{})
 }
+
+// common api
+
+export const getallusers = async()=>{
+    return await commonAPI('GET',`${serverURL}/all-users`,{},{})
+}
+
+
+// workshop add company
+
+export const workshopaddinstitution = async(reqbody)=>{
+    return await commonAPI('POST',`${serverURL}/add-workshop-institution`,reqbody,{})
+}

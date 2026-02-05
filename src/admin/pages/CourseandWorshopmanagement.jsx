@@ -38,12 +38,16 @@ function CourseandWorshopmanagement() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeadCell>Instutue name</TableHeadCell>
-            <TableHeadCell>Color</TableHeadCell>
-            <TableHeadCell>Category</TableHeadCell>
-            <TableHeadCell>Price</TableHeadCell>
+            <TableHeadCell>organizername</TableHeadCell>
+            <TableHeadCell> Title  </TableHeadCell>
+            <TableHeadCell>description</TableHeadCell>
+            <TableHeadCell>category</TableHeadCell>
+            <TableHeadCell>contactEmail||contactPhone</TableHeadCell>
+            <TableHeadCell>Date ||location</TableHeadCell>
+            <TableHeadCell> mode </TableHeadCell>
+            <TableHeadCell>  registrationLink</TableHeadCell>
             <TableHeadCell>
-              <span className="sr-only">Edit</span>
+         organizerType
             </TableHeadCell>
           </TableRow>
         </TableHead>
@@ -56,35 +60,14 @@ function CourseandWorshopmanagement() {
             <TableCell>Laptop</TableCell>
             <TableCell>$2999</TableCell>
             <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
+            <select>
+              <option value="">Take action</option>
+              <option value="">Aprovell</option>
+              <option value="">Rejected</option> 
+            </select>
             </TableCell>
           </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              Microsoft Surface Pro
-            </TableCell>
-            <TableCell>White</TableCell>
-            <TableCell>Laptop PC</TableCell>
-            <TableCell>$1999</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
-          <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-            <TableCell>Black</TableCell>
-            <TableCell>Accessories</TableCell>
-            <TableCell>$99</TableCell>
-            <TableCell>
-              <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                Edit
-              </a>
-            </TableCell>
-          </TableRow>
+        
         </TableBody>
       </Table>
     </div>

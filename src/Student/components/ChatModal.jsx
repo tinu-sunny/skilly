@@ -90,6 +90,7 @@ console.log("s",messages);
 
           {/* Messages (scrollable) */}
           <h1  className="text-center">{new Date().toLocaleDateString()}</h1>
+          {messages.length > 0 ?"":<h1 className="text-center  flex justify-center items-center h-full">start a new conversation</h1>}
           <div className="flex-1 p-4 space-y-3 overflow-y-auto">
             {messages.map((msg,index)=>msg.userId !== useremail?(
                   <p className="w-fit bg-gray-100 shadow p-2 rounded-lg">
