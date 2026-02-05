@@ -1,94 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InstitutionSidebar from '../Components/InstitutionSidebar';
 import { Button, Pagination } from 'flowbite-react';
 import AppFooter from '../../components/AppFooter';
 import WorkShopModal from '../Components/WorkShopModal';
+import { workshopviewinstitution } from '../../services/allAPIs';
 
 function WorkshopInstitution() {
 
- const data = [
-  {
-    workshopName: "React Basics Workshop",
-    description: "Hands-on introduction to React fundamentals and components.",
-    category: "Web Development",
-    dateTime: "2026-02-10 10:00 AM - 1:00 PM",
-    mode: "Online",
-    price: "999"
-  },
-  {
-    workshopName: "Advanced JavaScript",
-    description: "Deep dive into closures, promises, async/await, and ES6+ features.",
-    category: "Programming",
-    dateTime: "2026-02-15 2:00 PM - 5:00 PM",
-    mode: "Online",
-    price: "1299"
-  },
-  {
-    workshopName: "UI/UX Design Crash Course",
-    description: "Learn design thinking, wireframing, and prototyping tools.",
-    category: "Design",
-    dateTime: "2026-02-20 11:00 AM - 3:00 PM",
-    mode: "Offline",
-    price: "1499"
-  },
-  {
-    workshopName: "Cyber Security Essentials",
-    description: "Introduction to ethical hacking and security best practices.",
-    category: "Cyber Security",
-    dateTime: "2026-02-25 10:00 AM - 4:00 PM",
-    mode: "Online",
-    price: "1999"
-  },
-  {
-    workshopName: "Data Science with Python",
-    description: "Learn data analysis and visualization using Python libraries.",
-    category: "Data Science",
-    dateTime: "2026-03-01 9:30 AM - 2:30 PM",
-    mode: "Online",
-    price: "1799"
-  },
-  {
-    workshopName: "Machine Learning Bootcamp",
-    description: "Understand ML concepts with real-world examples.",
-    category: "AI & ML",
-    dateTime: "2026-03-05 10:00 AM - 5:00 PM",
-    mode: "Offline",
-    price: "2499"
-  },
-  {
-    workshopName: "DevOps Fundamentals",
-    description: "Learn CI/CD pipelines, Docker, and cloud basics.",
-    category: "DevOps",
-    dateTime: "2026-03-10 1:00 PM - 4:00 PM",
-    mode: "Online",
-    price: "1499"
-  },
-  {
-    workshopName: "Mobile App Development with React Native",
-    description: "Build cross-platform mobile apps in one day.",
-    category: "Mobile Development",
-    dateTime: "2026-03-15 10:00 AM - 6:00 PM",
-    mode: "Online",
-    price: "1999"
-  },
-  {
-    workshopName: "Ethical Hacking Hands-on",
-    description: "Live penetration testing and security tool usage.",
-    category: "Cyber Security",
-    dateTime: "2026-03-20 9:00 AM - 5:00 PM",
-    mode: "Offline",
-    price: "2999"
-  },
-  {
-    workshopName: "Career Guidance for IT Students",
-    description: "Learn career paths, resumes, and interview preparation.",
-    category: "Career",
-    dateTime: "2026-03-25 3:00 PM - 6:00 PM",
-    mode: "Online",
-    price: "499"
-  }
-];
+ const [data,setData]=useState([]) 
 
+
+const worshopdata =async()=>{
+
+  const response = await workshopviewinstitution()
+  console.log(response);
+  if(response.status==200){
+    setData(response.data.data)
+  }
+}
+
+useEffect(()=>{
+  worshopdata()
+},[])
 
      // pagenation try
           const itemsPerPage = 7; // change as needed
@@ -117,8 +50,8 @@ function WorkshopInstitution() {
 {/* Heading */}
                     <div className='p-5 '>
                        <div>
-                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight dark:text-white'>Course Management </h1>
-                        <p className='font-medium text-slate-500 leading-tight text-xl dark:text-white'>Manage your course Details</p>
+                        <h1 className='text-4xl font-bold tracking-tight text-[#111418] leading-tight dark:text-white'>Workshop Management </h1>
+                        <p className='font-medium text-slate-500 leading-tight text-xl dark:text-white'>Manage your workshop Details</p>
                        </div>
                   
                     </div>
@@ -138,9 +71,9 @@ function WorkshopInstitution() {
                                       <th className="px-6 py-3">Workshop Name</th>
                                       <th className="px-6 py-3">Description</th>
                                       <th className="px-6 py-3">category</th>
-                                      <th className="px-6 py-3">Date & Time</th>
+                                      <th className="px-6 py-3">Date & Location</th>
                                       <th className="px-6 py-3">mode </th>
-                                      <th className="px-6 py-3">price </th>
+                                      <th className="px-6 py-3">registrationlink </th>
                                       <th className="px-6 py-3"> </th>
                                       <th className="px-6 py-3"> </th>
                                       
@@ -155,12 +88,12 @@ function WorkshopInstitution() {
                                         key={user.id}
                                         className="bg-white border-b hover:bg-gray-50 dark:bg-green-100"
                                       >
-                                        <td className="px-6 py-4">{user.workshopName}</td>
+                                        <td className="px-6 py-4">{user.title}</td>
                                         <td className="px-6 py-4 font-medium">{user.description}</td>
                                         <td className="px-6 py-4">{user.category}</td>
-                                        <td className="px-6 py-4">{user.dateTime}</td>
+                                        <td className="px-6 py-4">{user.date}<br/>{user.location}</td>
                                         <td className="px-6 py-4">{user.mode}</td>
-                                        <td className="px-6 py-4">{user.price}</td>
+                                        <td className="px-6 py-4">{user.registrationlink}</td>
                                         <td className="px-6 py-4"><Button>Edit</Button></td>
                                         <td className="px-6 py-4"><Button className='bg-red-800'>Delete</Button></td>
                                         {/* <td className="px-6 py-4">{user.thumbnail}</td> */}

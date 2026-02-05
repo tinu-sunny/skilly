@@ -152,3 +152,9 @@ export const getallusers = async()=>{
 export const workshopaddinstitution = async(reqbody)=>{
     return await commonAPI('POST',`${serverURL}/add-workshop-institution`,reqbody,{})
 }
+
+export const workshopviewinstitution = async()=>{
+    return await commonAPI('GET',`${serverURL}/view-workshop-institution`,{},{})
+}
+
+
