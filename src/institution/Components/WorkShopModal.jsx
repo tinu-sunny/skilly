@@ -64,6 +64,8 @@ function WorkShopModal() {
                 alert('worshop add ')
                 setOpenModal(false)
                 setWorkshopData(instialdata)
+                window.location.reload();
+
               }
               
 

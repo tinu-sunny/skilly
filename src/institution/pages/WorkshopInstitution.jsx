@@ -4,6 +4,7 @@ import { Button, Pagination } from 'flowbite-react';
 import AppFooter from '../../components/AppFooter';
 import WorkShopModal from '../Components/WorkShopModal';
 import { workshopviewinstitution } from '../../services/allAPIs';
+import { serverURL } from '../../services/serverURL';
 
 function WorkshopInstitution() {
 
@@ -74,6 +75,7 @@ useEffect(()=>{
                                       <th className="px-6 py-3">Date & Location</th>
                                       <th className="px-6 py-3">mode </th>
                                       <th className="px-6 py-3">registrationlink </th>
+                                      <th className="px-6 py-3">Poster </th>
                                       <th className="px-6 py-3"> </th>
                                       <th className="px-6 py-3"> </th>
                                       
@@ -94,6 +96,7 @@ useEffect(()=>{
                                         <td className="px-6 py-4">{user.date}<br/>{user.location}</td>
                                         <td className="px-6 py-4">{user.mode}</td>
                                         <td className="px-6 py-4">{user.registrationlink}</td>
+                                        <td className="px-6 py-4"><img src={`${serverURL}/uploads/${user.poster}`} alt="" srcset="" /></td>
                                         <td className="px-6 py-4"><Button>Edit</Button></td>
                                         <td className="px-6 py-4"><Button className='bg-red-800'>Delete</Button></td>
                                         {/* <td className="px-6 py-4">{user.thumbnail}</td> */}
